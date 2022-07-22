@@ -1,71 +1,111 @@
-body{
+body {
   background-color: #f7f0ff;
   height: 95vh;
 }
 
 /*! COMMON CLASSES */
 
-.font-clr{
+.font-clr {
   font-weight: 500px;
- color: #4b00a2;
+  color: #4b00a2;
 }
 
-a:hover{
+a:hover {
   cursor: pointer;
   color: #4b00a2;
 }
 
 /*?___________________________________________Navbar__________________________________________________________________________*/
-.nav-borderfw{
-  border-bottom: #4b00a2;
-}
-
-.cart-icon{
+.cart-icon {
   background-color: #4b00a2;
 }
 
-.nav-btn{
+.nav-btn {
   border: #E6DBF3;
   background-color: #4b00a2;
 }
 
-.nav-btn:hover{
+.nav-btn:hover {
   background-color: #4b00a2;
-}
-
-.nav-btn:checked{
-  border: #E6DBF3;
 }
 
 /*?________________________________________________________Sign Up____________________________________________________________*/
 
-.signUp-parent{
-  /* border: 5px solid #4b00a2; */
+.signUp-parent {
   height: 100vh;
 }
 
-.signUp-child1{
-  /* border: 2px solid #4b00a2; */
+.signUp-child1 {
   height: 70vh;
   position: relative;
   top: 100px;
 }
 
-.col1{
-  border: 5px solid #4b00a2;
-  height: 60vh;
-  background-image: url("http://unblast.com/wp-content/uploads/2020/04/Online-Shopping-Illustration.jpg");
-  background-size: 92% ;
-  /* background-color: #6617cb;
-background-image: linear-gradient(315deg, #6617cb 0%, #cb218e 74%); */
-  background-position:center ;
+.signUp-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: xx-large;
+  color: #4b00a2;
 }
 
-.col2{
-  border: 5px solid #4b00a2;
-  height: 60vh;
+.loginRole-text {
+  color: #4b00a2;
+  font-weight: 700;
 }
 
-.img{
+.col1 {
+  border: 5px solid #4b00a2;
+  height: 80vh;
+  background-image: url("https://www.pngarts.com/files/16/E-Commerce-PNG-Image.png");
+  background-size: 78%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.col2 {
+  border: 5px solid #4b00a2;
+  height: 80vh;
+}
+
+@media (max-width: 755px) {
+  .col1 {
+    height: 82vh;
+  }
+
+  .col2 {
+    height: 82vh;
+  }
+}
+
+@media (max-width: 280px) {
+  .col1 {
+    height: 80vh;
+  }
+
+  .col2 {
+    height: 80vh;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap');
+
+.Add-user {
+  color: #4b00a2;
+  font-family: 'Dancing Script', cursive;
+}
+
+.img {
   object-fit: cover;
 }
+
+.forgot-password {
+  font-weight: 600;
+  color: blue;
+}
+
+.forgot-password:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+/*?________________________________________________________SignIn Pages______________________________________________*/
+
