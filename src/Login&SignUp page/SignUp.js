@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import add_to_cart from "../images/add_to_cart.png";
 import onlineShopping from "../images/onlineShopping.png";
 import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
 const SignUp = () => {
   
   //! This is for District Dropdown
@@ -190,7 +190,7 @@ const SignUp = () => {
   return (
     <div className="container-fluid signUp-parent mt-5 justify-content-center">
       <div className="row mt-5 h-70 justify-content-center signUp-child1">
-        <div className="col-sm-6 col-md-6 col-lg-6 col1">
+        <div className="col-sm-3 col-md-3 col-lg-6 col1">
           <h2 className="signUp-text d-flex justify-content-center ">
             {" "}
             Sign Up{" "}
@@ -262,9 +262,7 @@ const SignUp = () => {
             label="Image_Url"
             variant="outlined"
           />
-          <div className="mt-2 forgot-password d-flex justify-content-center">
-            <a> Forgot Password ? </a>{" "}
-          </div>
+          
           <Button
             className="mt-3"
             variant="contained"

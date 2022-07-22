@@ -1,5 +1,5 @@
 body {
-  background-color: #f7f0ff;
+  background-color: #eee3ff;
   height: 95vh;
 }
 
@@ -107,5 +107,30 @@ a:hover {
   text-decoration: underline;
 }
 
-/*?________________________________________________________SignIn Pages______________________________________________*/
+/*?________________________________________________________SignIn Pages____________________________________________________________*/
 
+.login-parent{
+  height: 100vh;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap');
+
+.login-card{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border: 5px solid #4b00a2;
+  border-radius: 10px;
+  font-family: 'Dancing Script', cursive;
+  color: #4b00a2;
+  background-color: #fee2f8;
+  background-image: linear-gradient(315deg, #fee2f8 0%, #dcf8ef 74%);
+}
+
+@media (max-width: 575px) {
+  .col1 {
+    height: 80vh;
+  }
+
+  .col2 {
+    height: 80vh;
+  }
+}
