@@ -50,7 +50,7 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="d-flex">
-            <button
+            {/* <button
               className="btn btn-outline text-light nav-btn "
               type="submit"
             >
@@ -59,7 +59,7 @@ const Navbar = () => {
                 <AddShoppingCartIcon />{" "}
               </Badge>{" "}
               Cart
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

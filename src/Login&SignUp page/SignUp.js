@@ -4,8 +4,10 @@ import onlineShopping from "../images/onlineShopping.png";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import user from "../images/user.png";
+import login from "../images/login.png"
+
 const SignUp = () => {
-  
   //! This is for District Dropdown
   const Districs = [
     {
@@ -175,61 +177,73 @@ const SignUp = () => {
       label: "Vendors",
     },
   ];
-//! State Management 
-  const [District, setDistrict] = useState("Chennai");
+  //! State Management
+  const [District, setDistrict] = useState("");
 
   const [role, setRole] = useState("");
 
-//! Change Handlers
+  const [name,setName] = useState("");
 
-  const handleChange = (event) => {
-    setDistrict(event.target.value);
+  const [email,setEmail] = useState("")
+
+  const [password, setPassword] = useState("")
+
+  const [image, setImage] = useState("")
+
+  //! Change Handlers
+
+  const handleChangeRole = (event) => {
+   
     setRole(event.target.value);
   };
-  console.log({ District: District, role: role });
-  return (
-    <div className="container-fluid signUp-parent mt-5 justify-content-center">
-      <div className="row mt-5 h-70 justify-content-center signUp-child1">
-        <div className="col-sm-3 col-md-3 col-lg-6 col1">
-          <h2 className="signUp-text d-flex justify-content-center ">
-            {" "}
-            Sign Up{" "}
-          </h2>
-        </div>
 
-        <div className="col-sm-4 col-md-4 col-lg-4 d-flex flex-column col2">
-          <h3 className="Add-user d-flex justify-content-center mb-3"> Add user </h3>
+const handleChangeDistrict = (event)=>{
+  setDistrict(event.target.value);
+}
+
+  // console.log({ District: District, role: role });
+  return (
+    <div className="signUp">
+     
+      <div className="signUp-parent">
+        <div className="col-sm-5 col-md-5 col-lg-5 d-flex flex-column signUp-col">
+          <h1 className="Add-user d-flex fs-1 justify-content-center mb-3">  
+            Add user{" "}
+          </h1>
           <TextField
             type="text"
             name="username"
-            className="mt-3"
+            className="mt-4 me-4 ms-4"
             id="outlined-basic"
             label="Name"
             variant="outlined"
+            onChange={(e)=>setName(e.target.value)}
           />
           <TextField
             type="email"
             name="email"
-            className="mt-3"
+            className="mt-4 me-4 ms-4"
             id="outlined-basic"
             label="E-mail"
             variant="outlined"
+            onChange={(e)=>setEmail(e.target.value)}
           />
           <TextField
             type="password"
             name="password"
-            className="mt-3"
+            className="mt-4 me-4 ms-4"
             id="outlined-basic"
             label="Password"
             variant="outlined"
+            onChange={(e)=>setPassword(e.target.value)}
           />
           <TextField
-            className="mt-3"
+            className="mt-4 me-4 ms-4"
             id="outlined-select-currency"
             select
             label="District"
             value={District}
-            onChange={handleChange}
+            onChange={handleChangeDistrict}
             helperText="Please select your currency"
           >
             {Districs.map((option) => (
@@ -240,12 +254,12 @@ const SignUp = () => {
           </TextField>
 
           <TextField
-            className="mt-3"
+            className="mt-4 me-4 ms-4"
             id="outlined-select-currency"
             select
             label="Role"
             value={role}
-            onChange={handleChange}
+            onChange={handleChangeRole}
             helperText="Please select your Role"
           >
             {Role.map((option) => (
@@ -257,16 +271,29 @@ const SignUp = () => {
           <TextField
             type="url"
             name="Image_Url"
-            className="mt-3"
+            className="mt-4 me-4 ms-4"
             id="outlined-basic"
             label="Image_Url"
             variant="outlined"
+            onChange={(e)=>setImage(e.target.value)}
           />
-          
+
           <Button
-            className="mt-3"
+            type="submit"
+            className="mt-5 pt-2 pb-2 me-5 ms-5"
             variant="contained"
-            style={{ backgroundColor: "#4b00a2" }}
+            style={{ backgroundColor: "#4b00a2", padding: "0" }}
+            onClick={()=>{
+              const values = {
+                name:name,
+                email:email,
+                password:password,
+                image:image,
+                role:role,
+                District:District
+              }
+              console.log(values);
+            }}
           >
             {" "}
             Sign Up{" "}

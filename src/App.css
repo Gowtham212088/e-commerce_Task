@@ -31,106 +31,182 @@ a:hover {
 
 /*?________________________________________________________Sign Up____________________________________________________________*/
 
-.signUp-parent {
+.signUp{
   height: 100vh;
 }
 
-.signUp-child1 {
-  height: 70vh;
+.signUp-col{
+  height: 85vh;
+  border-radius: 15px;
+  border: 4px solid #4b00a2;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.signUp-parent{
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+}
+
+
+@media (max-width: 350px) {
+.signUp-parent{
+  height: 90vh;
+}
+}
+
+@media (max-width: 290px) {
+  .signUp-parent{
+    height: 95vh;
+  }
+
+}
+
+.Add-user {
+  color: #4b00a2;
+}
+
+
+/* 
+
+.signUp-row{
+  border: 2px solid #4b00a2;
+  border-radius: 30px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.signUp-image{
+ border-top-left-radius: 30px;
+ border-bottom-left-radius: 30px;
+ margin-top: 50px;
+ position: relative;
+ bottom: 35px;
+}
+
+.signUp-btn{
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border: none;
+  outline:none;
+  height: 50px;
+  width: 100%;
+  background-color: #4b00a2;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.signUp-btn:hover{
+  box-shadow: none;
+  color: #4b00a2;
+   background: #eee3ff;
+   border: 1px solid #4b00a2;
+}
+
+.signUp-img-parent{
+  position: relative;
+  left: 120px;
+}
+
+.vendorLogin-font{
+  color: #4b00a2;
+  font-weight: 600;
+}
+
+.SignIn-font{
+  color: #4b00a2;
+  font-weight: 600;
+}
+ */
+
+/*?________________________________________________________SignIn Pages____________________________________________________________*/
+
+.signIn-row{
+  border: 2px solid #4b00a2;
+  border-radius: 30px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   position: relative;
   top: 100px;
 }
 
-.signUp-text {
-  font-family: 'Dancing Script', cursive;
-  font-size: xx-large;
+.signIn-image{
+ border-top-left-radius: 30px;
+ border-bottom-left-radius: 30px;
+ margin-top: 50px;
+}
+
+.signIn-btn{
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border: none;
+  outline:none;
+  height: 50px;
+  width: 100%;
+  background-color: #4b00a2;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.signIn-btn:hover{
+  box-shadow: none;
   color: #4b00a2;
+   background: #eee3ff;
+   border: 1px solid #4b00a2;
 }
 
-.loginRole-text {
+.signIn-img-parent{
+  position: relative;
+  left: 75px;
+}
+
+.vendorLogin-font{
   color: #4b00a2;
-  font-weight: 700;
-}
-
-.col1 {
-  border: 5px solid #4b00a2;
-  height: 80vh;
-  background-image: url("https://www.pngarts.com/files/16/E-Commerce-PNG-Image.png");
-  background-size: 78%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.col2 {
-  border: 5px solid #4b00a2;
-  height: 80vh;
-}
-
-@media (max-width: 755px) {
-  .col1 {
-    height: 82vh;
-  }
-
-  .col2 {
-    height: 82vh;
-  }
-}
-
-@media (max-width: 280px) {
-  .col1 {
-    height: 80vh;
-  }
-
-  .col2 {
-    height: 80vh;
-  }
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap');
-
-.Add-user {
-  color: #4b00a2;
-  font-family: 'Dancing Script', cursive;
-}
-
-.img {
-  object-fit: cover;
-}
-
-.forgot-password {
   font-weight: 600;
-  color: blue;
 }
 
-.forgot-password:hover {
-  color: blue;
-  text-decoration: underline;
+.SignIn-font{
+  color: #4b00a2;
+  font-weight: 600;
 }
 
-/*?________________________________________________________SignIn Pages____________________________________________________________*/
+.vendorLogIn-font{
+  margin-top: 15px;
+color: #4b00a2;
+font-weight: 600;
+}
 
-.login-parent{
+.forgot-pass-vendor{
+  position: relative;
+  left: 130px;
+}
+
+/*?___________________________________________________Admin Page________________________________________________*/
+
+.user-card{
+  height: 105px;
+  margin-bottom: 25px;
+  background-color: #4b00a2;
+}
+
+.content{
+  border: 2px solid #4b00a2;
+
+}
+
+.admin-col1{
+height: 100vh;
+  color: azure;
+   background-color: #4b00a2;
+}
+
+.admin-col2{
+height: 100vh;
+}
+
+.table-page{
   height: 100vh;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap');
-
-.login-card{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  border: 5px solid #4b00a2;
-  border-radius: 10px;
-  font-family: 'Dancing Script', cursive;
-  color: #4b00a2;
-  background-color: #fee2f8;
-  background-image: linear-gradient(315deg, #fee2f8 0%, #dcf8ef 74%);
-}
-
-@media (max-width: 575px) {
-  .col1 {
-    height: 80vh;
-  }
-
-  .col2 {
-    height: 80vh;
-  }
+.view-products{
+height: 100vh;
 }
