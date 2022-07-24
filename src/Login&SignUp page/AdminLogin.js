@@ -1,11 +1,12 @@
 import React from "react";
-// import TextField from "@mui/material/TextField";
-// import Button from "@mui/material/Button";
-// import admin from "../images/admin.png";
-// import onlineShopping from "../images/onlineShopping.png";
+import { useHistory } from "react-router-dom";
 import admin_side from "../images/admin_side.png"
+import IconButton from "@mui/material/IconButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const AdminLogin = () => {
+
+const history = useHistory()
 
     return (
       <div className="signIn ">
@@ -13,6 +14,10 @@ const AdminLogin = () => {
         <div className="container mt-5">
           <div className="row signIn-row no-gutters">
             <div className="col-lg-5">
+            <IconButton style={{color:"#4B00A2",border:"1px solid #4b00a2",position:"relative",top:"15px"}} onClick={()=>history.push("/home")}>
+            {" "}
+            <ArrowBackIcon  style={{ color: "#4B00A2", font: "25px" }} />{" "}
+          </IconButton>
               <img src={admin_side} className="img-fluid signIn-image" alt="" />
             </div>
             <div className="col-lg-7 input-column px-5 pt-1">
@@ -44,7 +49,7 @@ const AdminLogin = () => {
 
                 <div className="form-row">
                   <div className="col-lg-7">
-                   <button type="button" className="btn btn-primary signIn-btn mt-2 mb-3">
+                   <button onClick={()=>{history.push("/admin")}} type="button" className="btn btn-primary signIn-butt mt-2 mb-3">
                             Login
                    </button>
                   </div>

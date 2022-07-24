@@ -3,9 +3,13 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import vendor from "../images/vendor.png";
 import admin_side from "../images/onlineShopping.png";
+import { useHistory } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 const Vendorlogin = () => {
 
-
+const history = useHistory()
   
   return (
     <div className="signIn ">
@@ -13,6 +17,12 @@ const Vendorlogin = () => {
         <div className="container">
           <div className="row signIn-row no-gutters">
             <div className="col-lg-5">
+
+            <IconButton style={{color:"#4B00A2",border:"1px solid #4b00a2",position:"relative",top:"15px"}} onClick={()=>history.push("/home")}>
+            {" "}
+            <ArrowBackIcon  style={{ color: "#4B00A2", font: "25px" }} />{" "}
+          </IconButton>
+
               <img src={admin_side} className="img-fluid signIn-image" alt="" />
             </div>
             <div className="col-lg-7 input-column px-5 pt-1">
@@ -44,7 +54,7 @@ const Vendorlogin = () => {
 
                 <div className="form-row">
                   <div className="col-lg-7">
-                   <button type="button" className="btn signIn-btn mt-1 mb-3">
+                   <button  type="button" className=" signIn-butt mt-1 mb-3">
                             Login
                    </button>
                   </div>

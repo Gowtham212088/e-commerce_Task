@@ -5,15 +5,19 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import Button from "@mui/material/Button";
 import AddProduct from "./AddProducts";
 import MyProducts from "../Vendor pages/ViewProducts";
+import { useHistory } from "react-router-dom";
 
 const Vendor = () => {
+
+const history = useHistory()
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg me-auto vendor-navbar navbar-light bg-light">
         <div class="container-fluid vendor-navbar">
-          <IconButton>
+          <IconButton onClick={()=>history.push("/home")}>
             {" "}
-            <ArrowBackIcon style={{ color: "azure", font: "25px" }} />{" "}
+            <ArrowBackIcon  style={{ color: "azure", font: "25px" }} />{" "}
           </IconButton>
           <div class="navbar-brand" href="#">
             <img

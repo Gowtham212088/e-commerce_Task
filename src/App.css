@@ -135,7 +135,7 @@ a:hover {
  margin-top: 50px;
 }
 
-.signIn-btn{
+.signIn-butt{
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   border: none;
   outline:none;
@@ -147,7 +147,7 @@ a:hover {
   font-weight: bold;
 }
 
-.signIn-btn:hover{
+.signIn-butt:hover{
   box-shadow: none;
   color: #4b00a2;
    background: #eee3ff;

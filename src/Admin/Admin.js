@@ -9,12 +9,16 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddProducts from "./AddProducts";
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import { useHistory } from "react-router-dom";
 const Admin = () => {
+
+const history = useHistory();
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <IconButton> <ArrowBackIcon style={{color:"#4b00a2",font:"25px"}}/> </IconButton>
+          <IconButton onClick={()=>history.push("/home")}> <ArrowBackIcon style={{color:"#4b00a2",font:"25px"}}/> </IconButton>
           <div class="navbar-brand" href="#">
             <img
               src="https://avatars.githubusercontent.com/u/89139024?v=4"
