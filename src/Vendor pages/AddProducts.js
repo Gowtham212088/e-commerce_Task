@@ -7,46 +7,44 @@ import Button from "@mui/material/Button";
 const AddProduct = ()=>{
  
   //! State Management
-  const [District, setDistrict] = useState("");
+  const [name, setName] = useState("");
 
-  const [role, setRole] = useState("");
+  const [category, setCategories] = useState("");
 
-  const [name,setName] = useState("");
+  const [description, setDescription] = useState("");
 
-  const [email,setEmail] = useState("")
+  const [price, setPrice] = useState("");
 
-  const [password, setPassword] = useState("")
-
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState("");
 
   const categories = [
     {
-      value: 'laptop',
-      label: 'laptop',
+      value: "laptop",
+      label: "laptop",
     },
     {
-      value: 'mobile',
-      label: 'mobile',
+      value: "mobile",
+      label: "mobile",
     },
     {
-      value: 'mobile accessories',
-      label: 'mobile accessories',
+      value: "mobile accessories",
+      label: "mobile accessories",
     },
     {
-      value: 'laptop accessories',
-      label: 'laptop accessories',
+      value: "laptop accessories",
+      label: "laptop accessories",
     },
     {
-        value: 'smart watches',
-        label: 'smart watches',
-      },
+      value: "smart watches",
+      label: "smart watches",
+    },
   ];
 
 
   //! Change Handlers
 
   const handleCategory = (event) => {
-   setRole(event.target.value);
+    setCategories(event.target.value);
   };
   // console.log({ District: District, role: role });
   return (
@@ -73,7 +71,7 @@ const AddProduct = ()=>{
             id="outlined-basic"
             label="Description"
             variant="outlined"
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={(e)=>setDescription(e.target.value)}
           />
           <TextField
             type="text"
@@ -82,7 +80,7 @@ const AddProduct = ()=>{
             id="outlined-basic"
             label="Price"
             variant="outlined"
-            onChange={(e)=>setPassword(e.target.value)}
+            onChange={(e)=>setPrice(e.target.value)}
           />
 
           <TextField
@@ -90,7 +88,7 @@ const AddProduct = ()=>{
             id="outlined-select-currency"
             select
             label="Role"
-            value={role}
+            value={category}
             onChange={handleCategory}
             helperText="Please select your Role"
           >
@@ -117,12 +115,12 @@ const AddProduct = ()=>{
             style={{ backgroundColor: "#4b00a2", padding: "0" }}
             onClick={()=>{
               const values = {
-                name:name,
-                email:email,
-                password:password,
-                image:image,
-                role:role,
-                District:District
+               name:name,
+               category:category,
+               description:description,
+               price:price,
+               image:image,
+               Approvel:false
               }
               console.log(values);
             }}

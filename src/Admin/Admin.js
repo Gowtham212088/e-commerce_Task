@@ -9,7 +9,6 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddProducts from "./AddProducts";
 import AddBoxIcon from '@mui/icons-material/AddBox';
-
 const Admin = () => {
   return (
     <div>
