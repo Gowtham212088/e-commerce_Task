@@ -6,11 +6,14 @@ import Vendorlogin from "./Login&SignUp page/Vendorlogin";
 import AdminLogin from "./Login&SignUp page/AdminLogin";
 import VerticalTabs from "./Admin/Admin";
 import Admin from "./Admin/Admin";
+import Vendor from "./Vendor pages/Vendor";
+
 function App() {
   return (
     <div className="App">
       <Navbar />
-<Admin/>
+{/* <Admin/> */}
+<Vendor/>
     
     </div>
   );

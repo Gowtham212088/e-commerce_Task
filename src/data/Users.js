@@ -3,7 +3,7 @@ export const products = [
     name: "Gowtham",
     email: "vgk9007@gmail.com",
     password: "zkljvjx$$$kjvljzkvjhjfgvkghhj",
-    roll: "Admin",
+    roll: "vendor",
     district: "virudhunagar",
     userDp: "https://avatars.githubusercontent.com/u/89139024?v=4",
     product: [
@@ -22,16 +22,16 @@ export const products = [
         poster: "https://m.media-amazon.com/images/I/51HBom8xz7L._SL1500_.jpg",
         summary: "boAt Newly Launched Airdopes 121 PRO True Wireless Earbuds with boAt Signature Sound, Quad Mic ENx™, Beast™ Mode for Gaming, 40H Playtime, IWP™, IPX4, Battery Indicator Screen(Active Black)",
         price: "₹ 1,299",
-        Approvel: true,
+        Approvel: false,
       },
       {
         Name: "Lenovo Legion 5 ",
         productType: "laptop",
         poster: "https://m.media-amazon.com/images/I/61Er61SxBhL._SL1500_.jpg",
         summary:
-          "Lenovo Legion 5 AMD Ryzen 5 5600H 15.6 (39.62cm) FHD IPS Gaming Laptop (8GB/512GB SSD/4GB Nvidia GTX 1650 Graphics/Windows 10/120Hz Refresh Rate/Backlit Keyboard/Phantom Blue/2.4Kg), 82JW00CMIN",
+          "Lenovo Legion 5 AMD Ryzen 5 5600H 15.6 (39.62cm) FHD IPS Gaming Laptop (8GB/512GB SSD/4GB Nvidia GTX 1650 Graphics/Windows 10/120Hz Refresh Rate/Backlit Keyboard/Phantom Blue/2.4Kg)",
         price: "₹ 74,090",
-        Approvel: false,
+        Approvel: true,
       },
     ],
   },

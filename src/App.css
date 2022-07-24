@@ -52,13 +52,13 @@ a:hover {
 
 @media (max-width: 350px) {
 .signUp-parent{
-  height: 90vh;
+  height: 100vh;
 }
 }
 
 @media (max-width: 290px) {
   .signUp-parent{
-    height: 95vh;
+    height: 100vh;
   }
 
 }
@@ -209,4 +209,37 @@ height: 100vh;
 
 .view-products{
 height: 100vh;
+}
+
+.approved-products{
+  height: 100vh;
+}
+
+.adminPannel-card{
+  height: 55px;
+  background-color: #4b00a2;
+}
+
+.Admin-pannel-dp{
+  border: 2px solid goldenrod;
+}
+
+.nav-dp{
+  border: 2px solid goldenrod;
+}
+
+.add-product:hover{
+  cursor: pointer;
+}
+
+/*!_____________________________________________________________________Vendor___________________________________________ */
+
+.vendor-navbar{
+  background-color: #4b00a2;
+}
+
+.addProduct-col{
+  border: 2px solid #4b00a2;
+  border-radius: 15px;
+  height: 72vh;
 }

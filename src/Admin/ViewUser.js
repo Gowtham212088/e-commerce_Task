@@ -7,7 +7,7 @@ import {products} from "../data/Users";
 
  function ViewUser (){ 
 
-const [query,setQuery]=useState()
+const [query,setQuery]=useState("")
 
   return (
     <div>

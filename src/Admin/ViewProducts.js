@@ -5,20 +5,22 @@ import TextField from "@mui/material/TextField";
 import ClearIcon from '@mui/icons-material/Clear';
 import {products} from "../data/Users";
 
+
 const ViewProducts = ()=>{
 
-  const items = products.find((elem)=>{
-    return elem.name === "Gowtham"
+const items = products
+.find((elem) => {
+  return elem.name == "Gowtham";
 })
-//  .product.map((elem,ind)=>{
-   
-//  })
-const [query,setQuery]=useState()
+.product.filter((fill) => {
+  return fill.Approvel === false;
+});
+const [query,setQuery]=useState("")
 
     return(
         <div>
-      <div class="card">
-        <div class="card-body d-flex justify-content-between">
+      <div className="card">
+        <div className="card-body d-flex justify-content-between">
 
         <h1 className="text-danger"> View Products </h1>
 
@@ -34,7 +36,7 @@ const [query,setQuery]=useState()
 
      
 
-      <table class="table table-light  table-responsive">
+      <table className="table table-light  table-responsive">
         <thead className="table-responsive">
           <tr>
             <th scope="col"> Sl.No </th>
@@ -45,7 +47,7 @@ const [query,setQuery]=useState()
           </tr>
         </thead>
         <tbody>
-          {items.product.filter((filt)=>filt.Name.toLowerCase().includes(query))
+          {items.filter((filt)=>filt.Name.toLowerCase().includes(query))
           .map(({ poster, Name,summary}, index) => (
             <tr>
               <th scope="row">{index + 1} </th>
@@ -54,12 +56,12 @@ const [query,setQuery]=useState()
               <td>{summary} </td>
               <td >
                 {" "}
-                <Button variant="outlined">Outlined
+                <Button style={{}} color="success" variant="outlined">Outlined
                   {" "}
-                  <CheckIcon style={{ color: "#0d6efd" }} fontSize="inherit" />
+                  <CheckIcon color="success" style={{ color: "green"}} fontSize="large" />
                   </Button>
-                  <Button variant="outlined">Outlined
-                  <ClearIcon style={{ color: "red" }} fontSize="inherit" />
+                  <Button className="mt-1" color="error"  variant="outlined">Outlined
+                  <ClearIcon style={{ color: "red" }}  fontSize="large"/>
                 </Button>
               </td>
               
