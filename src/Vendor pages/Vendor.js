@@ -8,16 +8,15 @@ import MyProducts from "../Vendor pages/ViewProducts";
 import { useHistory } from "react-router-dom";
 
 const Vendor = () => {
-
-const history = useHistory()
+  const history = useHistory();
 
   return (
     <div>
       <nav class="navbar navbar-expand-lg me-auto vendor-navbar navbar-light bg-light">
         <div class="container-fluid vendor-navbar">
-          <IconButton onClick={()=>history.push("/")}>
+          <IconButton onClick={() => history.push("/")}>
             {" "}
-            <ArrowBackIcon  style={{ color: "azure", font: "25px" }} />{" "}
+            <ArrowBackIcon style={{ color: "azure", font: "25px" }} />{" "}
           </IconButton>
           <div class="navbar-brand" href="#">
             <img

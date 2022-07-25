@@ -5,8 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import user from "../images/user.png";
-import login from "../images/login.png"
-
+import login from "../images/login.png";
 
 const SignUp = () => {
   //! This is for District Dropdown
@@ -183,32 +182,30 @@ const SignUp = () => {
 
   const [role, setRole] = useState("");
 
-  const [name,setName] = useState("");
+  const [name, setName] = useState("");
 
-  const [email,setEmail] = useState("")
+  const [email, setEmail] = useState("");
 
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
 
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState("");
 
   //! Change Handlers
 
   const handleChangeRole = (event) => {
-   
     setRole(event.target.value);
   };
 
-const handleChangeDistrict = (event)=>{
-  setDistrict(event.target.value);
-}
+  const handleChangeDistrict = (event) => {
+    setDistrict(event.target.value);
+  };
 
   // console.log({ District: District, role: role });
   return (
     <div className="signUp">
-     
       <div className="signUp-parent">
         <div className="col-sm-5 col-md-5 col-lg-5 d-flex flex-column signUp-col">
-          <h1 className="Add-user d-flex fs-1 justify-content-center mb-3">  
+          <h1 className="Add-user d-flex fs-1 justify-content-center mb-3">
             Add user{" "}
           </h1>
           <TextField
@@ -218,7 +215,7 @@ const handleChangeDistrict = (event)=>{
             id="outlined-basic"
             label="Name"
             variant="outlined"
-            onChange={(e)=>setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <TextField
             type="email"
@@ -227,7 +224,7 @@ const handleChangeDistrict = (event)=>{
             id="outlined-basic"
             label="E-mail"
             variant="outlined"
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             type="password"
@@ -236,7 +233,7 @@ const handleChangeDistrict = (event)=>{
             id="outlined-basic"
             label="Password"
             variant="outlined"
-            onChange={(e)=>setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <TextField
             className="mt-4 me-4 ms-4"
@@ -276,7 +273,7 @@ const handleChangeDistrict = (event)=>{
             id="outlined-basic"
             label="Image_Url"
             variant="outlined"
-            onChange={(e)=>setImage(e.target.value)}
+            onChange={(e) => setImage(e.target.value)}
           />
 
           <Button
@@ -284,15 +281,15 @@ const handleChangeDistrict = (event)=>{
             className="mt-5 pt-2 pb-2 me-5 ms-5"
             variant="contained"
             style={{ backgroundColor: "#4b00a2", padding: "0" }}
-            onClick={()=>{
+            onClick={() => {
               const values = {
-                name:name,
-                email:email,
-                password:password,
-                image:image,
-                role:role,
-                District:District
-              }
+                name: name,
+                email: email,
+                password: password,
+                image: image,
+                role: role,
+                District: District,
+              };
               console.log(values);
             }}
           >

@@ -20,7 +20,8 @@ export const products = [
         Name: "boAt airdopes 141",
         productType: "mobile accessories",
         poster: "https://m.media-amazon.com/images/I/51HBom8xz7L._SL1500_.jpg",
-        summary: "boAt Newly Launched Airdopes 121 PRO True Wireless Earbuds with boAt Signature Sound, Quad Mic ENx™, Beast™ Mode for Gaming, 40H Playtime, IWP™, IPX4, Battery Indicator Screen(Active Black)",
+        summary:
+          "boAt Newly Launched Airdopes 121 PRO True Wireless Earbuds with boAt Signature Sound, Quad Mic ENx™, Beast™ Mode for Gaming, 40H Playtime, IWP™, IPX4, Battery Indicator Screen(Active Black)",
         price: "₹ 1,299",
         Approvel: false,
       },

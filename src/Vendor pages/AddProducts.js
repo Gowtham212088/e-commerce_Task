@@ -1,11 +1,9 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 
-
-const AddProduct = ()=>{
- 
+const AddProduct = () => {
   //! State Management
   const [name, setName] = useState("");
 
@@ -40,7 +38,6 @@ const AddProduct = ()=>{
     },
   ];
 
-
   //! Change Handlers
 
   const handleCategory = (event) => {
@@ -49,10 +46,9 @@ const AddProduct = ()=>{
   // console.log({ District: District, role: role });
   return (
     <div className="signUp">
-     
       <div className="signUp-parent">
         <div className="col-sm-5 col-md-5 col-lg-5 d-flex flex-column addProduct-col">
-          <h1 className="Add-user d-flex fs-1 justify-content-center mb-3">  
+          <h1 className="Add-user d-flex fs-1 justify-content-center mb-3">
             Add Product{" "}
           </h1>
           <TextField
@@ -62,7 +58,7 @@ const AddProduct = ()=>{
             id="outlined-basic"
             label="Product name"
             variant="outlined"
-            onChange={(e)=>setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <TextField
             type="text"
@@ -71,7 +67,7 @@ const AddProduct = ()=>{
             id="outlined-basic"
             label="Description"
             variant="outlined"
-            onChange={(e)=>setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
           />
           <TextField
             type="text"
@@ -80,7 +76,7 @@ const AddProduct = ()=>{
             id="outlined-basic"
             label="Price"
             variant="outlined"
-            onChange={(e)=>setPrice(e.target.value)}
+            onChange={(e) => setPrice(e.target.value)}
           />
 
           <TextField
@@ -105,7 +101,7 @@ const AddProduct = ()=>{
             id="outlined-basic"
             label="Image_Url"
             variant="outlined"
-            onChange={(e)=>setImage(e.target.value)}
+            onChange={(e) => setImage(e.target.value)}
           />
 
           <Button
@@ -113,15 +109,15 @@ const AddProduct = ()=>{
             className="mt-5 pt-2 pb-2 me-5 ms-5"
             variant="contained"
             style={{ backgroundColor: "#4b00a2", padding: "0" }}
-            onClick={()=>{
+            onClick={() => {
               const values = {
-               name:name,
-               category:category,
-               description:description,
-               price:price,
-               image:image,
-               Approvel:false
-              }
+                name: name,
+                category: category,
+                description: description,
+                price: price,
+                image: image,
+                Approvel: false,
+              };
               console.log(values);
             }}
           >
@@ -132,6 +128,6 @@ const AddProduct = ()=>{
       </div>
     </div>
   );
-}
+};
 
 export default AddProduct;

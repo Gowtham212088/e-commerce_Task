@@ -235,24 +235,24 @@ a:hover {
 
 /*?__________________________________________________Cart__________________________________________________________________________ */
 
-.cart-card{
-border:2px solid #4b00a2;
-height: 110px;
+.cart-card {
+  border: 2px solid #4b00a2;
+  height: 110px;
 }
 
-.cart-container{
-border:2px solid #4b00a2;
-height: 100vh;
+.cart-container {
+  border: 2px solid #4b00a2;
+  height: 100vh;
 }
 
-.cartItems-font{
+.cartItems-font {
   position: relative;
   font-weight: 500;
   color: #4b00a2;
   bottom: 30px;
 }
 
-.cart-card1{
+.cart-card1 {
   border-radius: 25px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }

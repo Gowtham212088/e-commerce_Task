@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { products } from "../data/Users";
-import CheckIcon from '@mui/icons-material/Check';
+import CheckIcon from "@mui/icons-material/Check";
 import TextField from "@mui/material/TextField";
-import ClearIcon from '@mui/icons-material/Clear';
-import Button from '@mui/material/Button';
-
+import ClearIcon from "@mui/icons-material/Clear";
+import Button from "@mui/material/Button";
 
 const ApprovedProducts = () => {
-
   // ! State Management
 
   const [query, setQuery] = useState("");
@@ -51,21 +49,33 @@ const ApprovedProducts = () => {
         <tbody>
           {filtItems
             .filter((filt) => filt.Name.toLowerCase().includes(query))
-            .map(({ Name, productType, summary,poster,price,Approvel }, index) => (
-              <tr>
-                <th scope="row">{index + 1} </th>
-                <td> <img src={poster} alt="product-image" width="55px" /> </td>
-                <td> <h6>{Name}</h6> </td>
-                <td>{productType} </td>
-                <td>{summary} </td>
-                <td><h4> {price} </h4> </td>
-              </tr>
-            ))}
+            .map(
+              (
+                { Name, productType, summary, poster, price, Approvel },
+                index
+              ) => (
+                <tr>
+                  <th scope="row">{index + 1} </th>
+                  <td>
+                    {" "}
+                    <img src={poster} alt="product-image" width="55px" />{" "}
+                  </td>
+                  <td>
+                    {" "}
+                    <h6>{Name}</h6>{" "}
+                  </td>
+                  <td>{productType} </td>
+                  <td>{summary} </td>
+                  <td>
+                    <h4> {price} </h4>{" "}
+                  </td>
+                </tr>
+              )
+            )}
         </tbody>
       </table>
     </div>
   );
 };
-
 
 export default ApprovedProducts;

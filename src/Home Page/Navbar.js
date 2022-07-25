@@ -2,16 +2,14 @@ import React from "react";
 import Button from "@mui/material/Button";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Badge from "@mui/material/Badge";
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import AddBusinessIcon from '@mui/icons-material/AddBusiness';
-import {Link} from "react-router-dom";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import AddBusinessIcon from "@mui/icons-material/AddBusiness";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 
-
 const Navbar = () => {
-
-const history = useHistory()
+  const history = useHistory();
 
   return (
     <nav className="navbar navbar-expand-lg bg-transparent nav-border fw-bold">
@@ -20,7 +18,8 @@ const history = useHistory()
           onClick={() => history.push("/")}
           className="navbar-brand fs-3 font-clr"
         >
-      <img src={site_logo} alt="nav-img" className="mb-2" width="30px" />  Better Buys
+          <img src={site_logo} alt="nav-img" className="mb-2" width="30px" />{" "}
+          Better Buys
         </a>
         <button
           className="navbar-toggler border-"
@@ -35,9 +34,8 @@ const history = useHistory()
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-       
             <li className="nav-item">
-               {/*CODE FOR BOOTSTRAP MODAL (SIGN IN)  */}
+              {/*CODE FOR BOOTSTRAP MODAL (SIGN IN)  */}
               <a
                 class="nav-link active fs-4 font-clr me-5"
                 data-bs-toggle="modal"
@@ -157,7 +155,7 @@ const history = useHistory()
             <button
               className="btn btn-outline text-light nav-btn "
               type="submit"
-              onClick={()=>history.push("/cart")}
+              onClick={() => history.push("/cart")}
             >
               <Badge badgeContent={4} color="primary">
                 {" "}
@@ -165,7 +163,6 @@ const history = useHistory()
               </Badge>{" "}
               Cart
             </button>
-            
           </div>
         </div>
       </div>

@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import AddProducts from "./AddProducts";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { useHistory } from "react-router-dom";
 const Admin = () => {

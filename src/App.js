@@ -28,7 +28,7 @@ function App() {
 
         <Route path="/home">
           <Navbar />
-          <Carousel/>
+           <Carousel/>
           <ProductList/>
         </Route>
 
