@@ -6,6 +6,8 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import {Link} from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import site_logo from "../images/site_logo.png";
+
 
 const Navbar = () => {
 
@@ -18,7 +20,7 @@ const history = useHistory()
           onClick={() => history.push("/")}
           className="navbar-brand fs-3 font-clr"
         >
-          Navbar
+      <img src={site_logo} alt="nav-img" className="mb-2" width="30px" />  Better Buys
         </a>
         <button
           className="navbar-toggler border-"
@@ -96,8 +98,7 @@ const history = useHistory()
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
               >
-                {" "}
-                Sign Up{" "}
+                Sign Up
               </a>
 
               <div
@@ -134,8 +135,7 @@ const history = useHistory()
                         class="btn btn-secondary"
                         data-bs-dismiss="modal"
                       >
-                        {" "}
-                        No{" "}
+                        No
                       </button>
                       <button
                         type="button"
@@ -154,16 +154,18 @@ const history = useHistory()
           <div className="d-flex">
             {/* Add to Cart Button */}
 
-            {/* <button
+            <button
               className="btn btn-outline text-light nav-btn "
               type="submit"
+              onClick={()=>history.push("/cart")}
             >
               <Badge badgeContent={4} color="primary">
                 {" "}
                 <AddShoppingCartIcon />{" "}
               </Badge>{" "}
               Cart
-            </button> */}
+            </button>
+            
           </div>
         </div>
       </div>

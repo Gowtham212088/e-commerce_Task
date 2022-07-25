@@ -21,7 +21,7 @@ a:hover {
 }
 
 .nav-btn {
-  border: #E6DBF3;
+  border: #e6dbf3;
   background-color: #4b00a2;
 }
 
@@ -31,97 +31,43 @@ a:hover {
 
 /*?________________________________________________________Sign Up____________________________________________________________*/
 
-.signUp{
+.signUp {
   height: 100vh;
 }
 
-.signUp-col{
+.signUp-col {
   height: 85vh;
   border-radius: 15px;
   border: 4px solid #4b00a2;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
-.signUp-parent{
+.signUp-parent {
   margin-top: 25px;
   display: flex;
   justify-content: center;
   height: 90vh;
 }
 
-
 @media (max-width: 350px) {
-.signUp-parent{
-  height: 100vh;
-}
+  .signUp-parent {
+    height: 100vh;
+  }
 }
 
 @media (max-width: 290px) {
-  .signUp-parent{
+  .signUp-parent {
     height: 100vh;
   }
-
 }
 
 .Add-user {
   color: #4b00a2;
 }
 
-
-/* 
-
-.signUp-row{
-  border: 2px solid #4b00a2;
-  border-radius: 30px;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
-
-.signUp-image{
- border-top-left-radius: 30px;
- border-bottom-left-radius: 30px;
- margin-top: 50px;
- position: relative;
- bottom: 35px;
-}
-
-.signUp-btn{
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  border: none;
-  outline:none;
-  height: 50px;
-  width: 100%;
-  background-color: #4b00a2;
-  color: white;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-.signUp-btn:hover{
-  box-shadow: none;
-  color: #4b00a2;
-   background: #eee3ff;
-   border: 1px solid #4b00a2;
-}
-
-.signUp-img-parent{
-  position: relative;
-  left: 120px;
-}
-
-.vendorLogin-font{
-  color: #4b00a2;
-  font-weight: 600;
-}
-
-.SignIn-font{
-  color: #4b00a2;
-  font-weight: 600;
-}
- */
-
 /*?________________________________________________________SignIn Pages____________________________________________________________*/
 
-.signIn-row{
+.signIn-row {
   border: 2px solid #4b00a2;
   border-radius: 30px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
@@ -129,16 +75,16 @@ a:hover {
   top: 100px;
 }
 
-.signIn-image{
- border-top-left-radius: 30px;
- border-bottom-left-radius: 30px;
- margin-top: 50px;
+.signIn-image {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-top: 50px;
 }
 
-.signIn-butt{
+.signIn-butt {
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   border: none;
-  outline:none;
+  outline: none;
   height: 50px;
   width: 100%;
   background-color: #4b00a2;
@@ -147,99 +93,166 @@ a:hover {
   font-weight: bold;
 }
 
-.signIn-butt:hover{
+.signIn-butt:hover {
   box-shadow: none;
   color: #4b00a2;
-   background: #eee3ff;
-   border: 1px solid #4b00a2;
+  background: #eee3ff;
+  border: 1px solid #4b00a2;
 }
 
-.signIn-img-parent{
+.signIn-img-parent {
   position: relative;
   left: 75px;
 }
 
-.vendorLogin-font{
+.vendorLogin-font {
   color: #4b00a2;
   font-weight: 600;
 }
 
-.SignIn-font{
+.SignIn-font {
   color: #4b00a2;
   font-weight: 600;
 }
 
-.vendorLogIn-font{
+.vendorLogIn-font {
   margin-top: 15px;
-color: #4b00a2;
-font-weight: 600;
+  color: #4b00a2;
+  font-weight: 600;
 }
 
-.forgot-pass-vendor{
+.forgot-pass-vendor {
   position: relative;
   left: 130px;
 }
 
 /*?___________________________________________________Admin Page________________________________________________*/
 
-.user-card{
+.user-card {
   height: 105px;
   margin-bottom: 25px;
   background-color: #4b00a2;
 }
 
-.content{
+.content {
   border: 2px solid #4b00a2;
-
 }
 
-.admin-col1{
-height: 100vh;
+.admin-col1 {
+  height: 100vh;
   color: azure;
-   background-color: #4b00a2;
+  background-color: #4b00a2;
 }
 
-.admin-col2{
-height: 100vh;
-}
-
-.table-page{
+.admin-col2 {
   height: 100vh;
 }
 
-.view-products{
-height: 100vh;
-}
-
-.approved-products{
+.table-page {
   height: 100vh;
 }
 
-.adminPannel-card{
+.view-products {
+  height: 100vh;
+}
+
+.approved-products {
+  height: 100vh;
+}
+
+.adminPannel-card {
   height: 55px;
   background-color: #4b00a2;
 }
 
-.Admin-pannel-dp{
+.Admin-pannel-dp {
   border: 2px solid goldenrod;
 }
 
-.nav-dp{
+.nav-dp {
   border: 2px solid goldenrod;
 }
 
-.add-product:hover{
+.add-product:hover {
   cursor: pointer;
 }
 
-/*!_____________________________________________________________________Vendor___________________________________________ */
+/*!_____________________________________________________________________Vendor____________________________________________________*/
 
-.vendor-navbar{
+.vendor-navbar {
   background-color: #4b00a2;
 }
 
-.addProduct-col{
+.addProduct-col {
   border: 2px solid #4b00a2;
   border-radius: 15px;
   height: 72vh;
+}
+
+/*!___________________________________________________________________Forgot password______________________________________________*/
+
+.forgot-cont {
+  border: 2px solid #4b00a2;
+  height: 100vh;
+}
+
+.row-forgot {
+  border: 2px solid #4b00a2;
+  height: 50vh;
+}
+
+.carousel-1 {
+  color: #4b00a2;
+  background-image: url("./images/discount_offer.svg");
+  background-size: 50vh;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.carousel-2 {
+  color: #4b00a2;
+  background-image: url("https://www.indianwebsitecompany.com/themes/default/frontend_assets/images/Ecommerce-websitefirst.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
+  background-size: 65vh;
+}
+
+.slogan {
+  font-family: cursive;
+  font-weight: 800;
+
+  color: #4b00a2;
+  background-image: url("https://www.indianwebsitecompany.com/themes/default/frontend_assets/images/Ecommerce-websitefirst.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 65vh;
+}
+
+.carousel-row {
+  height: 50vh;
+}
+
+/*?__________________________________________________Cart__________________________________________________________________________ */
+
+.cart-card{
+border:2px solid #4b00a2;
+height: 110px;
+}
+
+.cart-container{
+border:2px solid #4b00a2;
+height: 100vh;
+}
+
+.cartItems-font{
+  position: relative;
+  font-weight: 500;
+  color: #4b00a2;
+  bottom: 30px;
+}
+
+.cart-card1{
+  border-radius: 25px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }

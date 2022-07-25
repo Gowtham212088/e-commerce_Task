@@ -7,19 +7,29 @@ import AdminLogin from "./Login&SignUp page/AdminLogin";
 import VerticalTabs from "./Admin/Admin";
 import Admin from "./Admin/Admin";
 import Vendor from "./Vendor pages/Vendor";
+import Carousel from "./Home Page/Carousel";
+import ProductList from "./Home Page/Products";
 import {Switch,Route} from "react-router-dom";
+import Cart from "./Home Page/Cart";
 
 function App() {
   return (
     <div className="App">
-      
       <Switch>
         <Route exact path="/">
-          <Navbar />
+          <Navbar/>
+          <Carousel/>
+          <ProductList/>
+        </Route>
+
+        <Route exact path="/cart">
+            <Cart/>
         </Route>
 
         <Route path="/home">
           <Navbar />
+          <Carousel/>
+          <ProductList/>
         </Route>
 
         <Route path="/admin-login">
@@ -27,7 +37,7 @@ function App() {
         </Route>
 
         <Route exact path="/vendor-login">
-        <Vendorlogin/>
+          <Vendorlogin />
         </Route>
 
         <Route path="/admin">
@@ -37,7 +47,6 @@ function App() {
         <Route path="/vendor">
           <Vendor />
         </Route>
-
       </Switch>
     </div>
   );

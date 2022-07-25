@@ -18,7 +18,7 @@ const history = useHistory()
           <div className="row signIn-row no-gutters">
             <div className="col-lg-5">
 
-            <IconButton style={{color:"#4B00A2",border:"1px solid #4b00a2",position:"relative",top:"15px"}} onClick={()=>history.push("/home")}>
+            <IconButton style={{color:"#4B00A2",border:"1px solid #4b00a2",position:"relative",top:"15px"}} onClick={()=>history.push("/")}>
             {" "}
             <ArrowBackIcon  style={{ color: "#4B00A2", font: "25px" }} />{" "}
           </IconButton>
@@ -50,7 +50,29 @@ const history = useHistory()
                   </div>
                 </div>
 
-                <a className="my-2 forgot-pass-vendor" href="#"> Forgot Password </a> 
+                <a className="my-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" href="#"> Forgot Password </a> 
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title ms-auto" id="exampleModalLabel">You will recive a OTP via mail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Enter Email:</label>
+            <input type="email" placeholder="Email" class="form-control" id="recipient-name"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Send OTP</button>
+      </div>
+    </div>
+  </div>
+</div>
 
                 <div className="form-row">
                   <div className="col-lg-7">

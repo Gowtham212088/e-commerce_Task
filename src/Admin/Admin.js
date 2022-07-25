@@ -8,17 +8,19 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddProducts from "./AddProducts";
-import AddBoxIcon from '@mui/icons-material/AddBox';
+import AddBoxIcon from "@mui/icons-material/AddBox";
 import { useHistory } from "react-router-dom";
 const Admin = () => {
-
-const history = useHistory();
+  const history = useHistory();
 
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <IconButton onClick={()=>history.push("/home")}> <ArrowBackIcon style={{color:"#4b00a2",font:"25px"}}/> </IconButton>
+          <IconButton onClick={() => history.push("/")}>
+            {" "}
+            <ArrowBackIcon style={{ color: "#4b00a2", font: "25px" }} />{" "}
+          </IconButton>
           <div class="navbar-brand" href="#">
             <img
               src="https://avatars.githubusercontent.com/u/89139024?v=4"
@@ -40,16 +42,19 @@ const history = useHistory();
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <h3 class="nav-link active " style={{color:"#4b00a2"}} aria-current="page" href="#">
+                <h3
+                  class="nav-link active "
+                  style={{ color: "#4b00a2" }}
+                  aria-current="page"
+                  href="#"
+                >
                   Welcome <br /> Username{" "}
                 </h3>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
-        <li class="nav-item">
-          <h3 class="nav-link active add-product" style={{color:"#4b00a2"}} aria-current="page" href="#"> <AddBoxIcon style={{color:"#4b00a2"}}/> Add product</h3>
-        </li>
-        </ul>
+              <li class="nav-item"></li>
+            </ul>
             <Button class="btn btn-outline-danger" type="submit">
               Logout
             </Button>
@@ -113,7 +118,7 @@ const history = useHistory();
             >
               View Products
             </button>
-            </div>
+          </div>
           <div
             className="tab-content content admin-col2 col-sm-10 col-md-10 col-sm-10 h-100 ms-0"
             id="v-pills-tabContent"
@@ -150,7 +155,7 @@ const history = useHistory();
             >
               <ApprovedProducts />
             </div>
-           </div>
+          </div>
         </div>
       </div>
     </div>

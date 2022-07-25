@@ -7,6 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import user from "../images/user.png";
 import login from "../images/login.png"
 
+
 const SignUp = () => {
   //! This is for District Dropdown
   const Districs = [

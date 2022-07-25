@@ -15,7 +15,7 @@ const history = useHistory()
     <div>
       <nav class="navbar navbar-expand-lg me-auto vendor-navbar navbar-light bg-light">
         <div class="container-fluid vendor-navbar">
-          <IconButton onClick={()=>history.push("/home")}>
+          <IconButton onClick={()=>history.push("/")}>
             {" "}
             <ArrowBackIcon  style={{ color: "azure", font: "25px" }} />{" "}
           </IconButton>

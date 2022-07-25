@@ -56,11 +56,11 @@ const [query,setQuery]=useState("")
               <td>{summary} </td>
               <td >
                 {" "}
-                <Button style={{}} color="success" variant="outlined">Outlined
+                <Button style={{}} color="success" variant="outlined">Approve
                   {" "}
                   <CheckIcon color="success" style={{ color: "green"}} fontSize="large" />
                   </Button>
-                  <Button className="mt-1" color="error"  variant="outlined">Outlined
+                  <Button className="mt-1" color="error"  variant="outlined">Deny
                   <ClearIcon style={{ color: "red" }}  fontSize="large"/>
                 </Button>
               </td>
