@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import add_to_cart from "../images/add_to_cart.png";
-import onlineShopping from "../images/onlineShopping.png";
+import React,{useState} from "react";
+import { useHistory } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import user from "../images/user.png";
 import login from "../images/login.png";
 
-const SignUp = () => {
+const EditUser = ()=>{
+
+const history = useHistory()
+
   //! This is for District Dropdown
   const Districs = [
     {
@@ -173,12 +175,14 @@ const SignUp = () => {
       label: "Admin",
     },
     {
-      value: "Vendors",
-      label: "Vendors",
+      value: "Vendor",
+      label: "Vendor",
     },
   ];
+
   //! State Management
-  const [District, setDistrict] = useState("");
+
+  const [district, setdistrict] = useState("");
 
   const [role, setRole] = useState("");
 
@@ -192,21 +196,28 @@ const SignUp = () => {
 
   //! Change Handlers
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   const handleChangeRole = (event) => {
     setRole(event.target.value);
   };
 
   const handleChangeDistrict = (event) => {
-    setDistrict(event.target.value);
+    setdistrict(event.target.value);
   };
 
-  // console.log({ District: District, role: role });
-  return (
-    <div className="signUp">
-      <div className="signUp-parent">
-        <div className="col-sm-5 col-md-5 col-lg-5 d-flex flex-column signUp-col">
+    return(
+    
+    <div className="container editUser-container">
+            <div className="update-parent">
+        <form
+          onSubmit={handleSubmit}
+          className="col-sm-5 col-md-5 col-lg-5 d-flex flex-column update-col"
+        >
           <h1 className="Add-user d-flex fs-1 justify-content-center mb-3">
-            Add user{" "}
+           Edit User
           </h1>
           <TextField
             type="text"
@@ -240,7 +251,7 @@ const SignUp = () => {
             id="outlined-select-currency"
             select
             label="District"
-            value={District}
+            value={district}
             onChange={handleChangeDistrict}
             helperText="Please select your currency"
           >
@@ -288,18 +299,24 @@ const SignUp = () => {
                 password: password,
                 image: image,
                 role: role,
-                District: District,
+                district: district,
+                product: [],
               };
-              console.log(values);
+            //   fetch("https://6228d2bb9fd6174ca8308614.mockapi.io/Ecommerce", {
+            //     method: "PUT",
+            //     body: JSON.stringify(values),
+            //     headers: { "content-type": "application/json" },
+            //   })
+           
             }}
           >
             {" "}
             Sign Up{" "}
           </Button>
-        </div>
+        </form>
       </div>
-    </div>
-  );
-};
+        </div>
+    )
+}
 
-export default SignUp;
+export default EditUser;

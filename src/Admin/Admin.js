@@ -1,5 +1,5 @@
 import * as React from "react";
-import SignUp from "../Login&SignUp page/SignUp";
+import SignUp from "./SignUp";
 import ViewUser from "./ViewUser";
 import ViewProducts from "./ViewProducts";
 import ApprovedProducts from "./ApprovedPro";
@@ -12,15 +12,15 @@ import { useHistory } from "react-router-dom";
 const Admin = () => {
   const history = useHistory();
 
-  return (
+  return ( 
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <IconButton onClick={() => history.push("/")}>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <IconButton onClick={() => history.push("/home")}>
             {" "}
             <ArrowBackIcon style={{ color: "#4b00a2", font: "25px" }} />{" "}
           </IconButton>
-          <div class="navbar-brand" href="#">
+          <div className="navbar-brand" href="#">
             <img
               src="https://avatars.githubusercontent.com/u/89139024?v=4"
               width="120px"
@@ -28,7 +28,7 @@ const Admin = () => {
             />{" "}
           </div>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -36,13 +36,13 @@ const Admin = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
                 <h3
-                  class="nav-link active "
+                  className="nav-link active "
                   style={{ color: "#4b00a2" }}
                   aria-current="page"
                   href="#"
@@ -51,10 +51,10 @@ const Admin = () => {
                 </h3>
               </li>
             </ul>
-            <ul class="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
-              <li class="nav-item"></li>
+            <ul className="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
+              <li className="nav-item"></li>
             </ul>
-            <Button class="btn btn-outline-danger" type="submit">
+            <Button className="btn btn-outline-danger" type="submit">
               Logout
             </Button>
           </div>

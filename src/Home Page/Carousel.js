@@ -18,7 +18,7 @@ const Carousel = () => {
           <button
             type="button"
             style={{ backgroundColor: "#4b00a2", border: "#4b00a2" }}
-            class="btn btn-primary btn-lg mt-3"
+            className="btn btn-primary btn-lg mt-3"
           >
             Shop now
           </button>

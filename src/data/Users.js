@@ -3,7 +3,7 @@ export const products = [
     name: "Gowtham",
     email: "vgk9007@gmail.com",
     password: "zkljvjx$$$kjvljzkvjhjfgvkghhj",
-    roll: "vendor",
+    role: "vendor",
     district: "virudhunagar",
     userDp: "https://avatars.githubusercontent.com/u/89139024?v=4",
     product: [
@@ -41,7 +41,7 @@ export const products = [
     name: "mani",
     email: "mani1234@gmail.com",
     password: "zklbdvkjhsjhkjshvczhvzjkjsjnc",
-    roll: "vendor",
+    role: "vendor",
     district: "madurai",
     userDp: "https://avatars.githubusercontent.com/u/89139024?v=4",
     product: [

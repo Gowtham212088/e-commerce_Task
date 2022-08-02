@@ -83,7 +83,7 @@ const AddProduct = () => {
             className="mt-4 me-4 ms-4"
             id="outlined-select-currency"
             select
-            label="Role"
+            label="category"
             value={category}
             onChange={handleCategory}
             helperText="Please select your Role"

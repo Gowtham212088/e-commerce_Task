@@ -8,17 +8,18 @@ import MyProducts from "../Vendor pages/ViewProducts";
 import { useHistory } from "react-router-dom";
 
 const Vendor = () => {
+
   const history = useHistory();
 
   return (
     <div>
-      <nav class="navbar navbar-expand-lg me-auto vendor-navbar navbar-light bg-light">
-        <div class="container-fluid vendor-navbar">
+      <nav className="navbar navbar-expand-lg me-auto vendor-navbar navbar-light bg-light">
+        <div className="container-fluid vendor-navbar">
           <IconButton onClick={() => history.push("/")}>
             {" "}
             <ArrowBackIcon style={{ color: "azure", font: "25px" }} />{" "}
           </IconButton>
-          <div class="navbar-brand" href="#">
+          <div className="navbar-brand" href="#">
             <img
               src="https://avatars.githubusercontent.com/u/89139024?v=4"
               width="120px"
@@ -26,7 +27,7 @@ const Vendor = () => {
             />{" "}
           </div>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -34,13 +35,13 @@ const Vendor = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
                 <h3
-                  class="nav-link active "
+                  className="nav-link active "
                   style={{ color: "azure" }}
                   aria-current="page"
                   href="#"
@@ -53,7 +54,7 @@ const Vendor = () => {
               {" "}
               Vendor Page{" "}
             </h1>
-            <button class="btn btn-outline-danger" type="submit">
+            <button className="btn btn-outline-danger" type="submit">
               Logout
             </button>
           </div>

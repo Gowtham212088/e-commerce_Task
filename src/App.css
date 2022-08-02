@@ -256,3 +256,44 @@ a:hover {
   border-radius: 25px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
+
+/* ?___________________________________________________________Edit User_____________________________________________________________ */
+
+.editUser-container{
+  border: 3px solid #4b00a2;
+  height: 100vh;
+}
+
+.update {
+  height: 100vh;
+}
+
+.update-col {
+  height: 85vh;
+  border-radius: 15px;
+  border: 4px solid #4b00a2;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.update-parent {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+}
+
+@media (max-width: 350px) {
+  .update-parent {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 290px) {
+  .update-parent {
+    height: 100vh;
+  }
+}
+
+.Add-user {
+  color: #4b00a2;
+}

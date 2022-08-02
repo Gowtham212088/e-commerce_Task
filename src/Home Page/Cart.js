@@ -19,7 +19,7 @@ const Cart = () => {
 
   return (
     <div className="container-fluid cart-container">
-      <div class="row  cart-card">
+      <div className="row  cart-card">
         <div className="col-1">
           <IconButton
             onClick={() => history.push("/home")}
@@ -69,20 +69,20 @@ const Cart = () => {
 const CartList = ({ name, category, poster, summary, price }) => {
   return (
     <div className="col-lg-3 mt-3 h-50 m-0 p-0 cart-card1">
-      <div class="card mx-auto">
+      <div className="card mx-auto">
         <img
           src={poster}
           style={{ objectFit: "cover" }}
-          class="card-img-top"
+          className="card-img-top"
           height="280px"
           alt={name}
         />
-        <div class="card-body">
-          <h5 class="card-title"> {name} </h5>{" "}
-          <h5 class="card-title"> {price} </h5>
-          <p class="card-text"> {summary} </p>
+        <div className="card-body">
+          <h5 className="card-title"> {name} </h5>{" "}
+          <h5 className="card-title"> {price} </h5>
+          <p className="card-text"> {summary} </p>
           <div className="d-flex justify-content-center gap-1">
-            <a href="#" class="btn btn-primary">
+            <a href="#" className="btn btn-primary">
               {" "}
               <AddShoppingCartIcon /> Proceed to checkout{" "}
             </a>

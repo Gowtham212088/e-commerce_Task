@@ -1,50 +1,85 @@
-[
-  {
-    "name": "Samsung Galaxy S20",
-    "poster": "https://www.91-img.com/gallery_images_uploads/5/2/5248f7ba1be8a60966f36cb3d2f9c92fe3151b3f.jpg?tr=h-550,w-0,c-at_max",
-    "summary": "Cloud Navy, 8GB RAM, 128GB Storage) with No Cost EMI & Additional Exchange Offers",
-    "price": "₹ 36,900 "
-  },
-  {
-    "name": "ASUS ZenBook 13",
-    "poster": "https://m.media-amazon.com/images/I/71QCFwJRjTL._SL1500_.jpg",
-    "summary": "OLED (2021), 13.3 (33.78 cms) FHD OLED, Intel Evo Core i5-1135G7 11th Gen, Thin and Light Laptop (8GB/512GB SSD/Windows 11/Iris Xe...",
-    "price": "₹ 2,15,499 "
-  },
-  {
-    "name": "Echo Dot",
-    "poster": "https://m.media-amazon.com/images/I/61EXU8BuGZL._SL1100_.jpg",
-    "summary": "Echo Dot is our best selling smart speaker that can be operated by voice - even from a distance. Alexa can speak both English & Hindi, and new features are added automatically",
-    "price": "₹ 2,949"
-  },
-  {
-    "name": "Microsoft Surface Pro7",
-    "poster": "https://m.media-amazon.com/images/I/51WaKKa8SQL._SL1500_.jpg",
-    "summary": "12.3 Touch Screen - i5 / 8GB REM /128 GB SSD / Window 11 / SC English India Hdwr Platinum",
-    "price": "₹ 93,999"
-  },
-  {
-    "name": "Samsung Level",
-    "poster": "https://m.media-amazon.com/images/I/51+ScGYZNnS._SL1500_.jpg",
-    "summary": " spacious sound tuned by AKG Crystal clear voice & call quality with 3 mics & a Voice Pick Up unit",
-    "price": "₹ 2,850"
-  },
-  {
-    "name": "Logitech POP Keys",
-    "poster": "https://m.media-amazon.com/images/I/71bVGAlEIBL._SL1500_.jpg",
-    "summary": "Mechanical Wireless Keyboard with Customisable Emoji Keys, Durable Compact Design, Bluetooth or USB Connectivity, Multi-Device, OS Compatible - Blast",
-    "price": "₹ 8,975"
-  },
-  {
-    "name": "Huawei GT 2 ",
-    "poster": "https://m.media-amazon.com/images/I/61rmsUV7h+L._SL1000_.jpg",
-    "summary": "1.39-inch AMOLED color screenSuper long battery life, lasts for up to 2 weeks on a single charge",
-    "price": "₹ 12,490"
-  },
-  {
-    "name": "Samsung Galaxy S22 Ultra",
-    "poster": "https://m.media-amazon.com/images/I/71J8tz0UeJL._SL1500_.jpg",
-    "summary": "Product 1: The first Galaxy S with embedded S Pen. Write comfortably like pen on paper, turn quick notes into legible text and use Air Actions to control your phone remotely.",
-    "price": "₹1,12,999"
-  }
+[{
+  "name": "Gowtham",
+  "email": "vgk9007@gmail.com",
+  "password": "zkljvjx$$$kjvljzkvjhjfgvkghhj",
+  "roll": "vendor",
+  "district": "virudhunagar",
+  "userDp": "https://avatars.githubusercontent.com/u/89139024?v=4",
+  "product": [
+    {
+      "Name": "OneOdio Professional DJ Headphones",
+      "productType": "computer accessories",
+      "poster": "https://m.media-amazon.com/images/I/71nT-y33zyL._SL1500_.jpg",
+      "summary":
+        "OneOdio Professional DJ Headphones for Studio Monitoring and Mixing, Memory Foam Protein Earcups, 50mm Driver Over Ear Certificate Headsets-PRO 50",
+      "price": "₹ 3,699",
+      "Approvel": "false"
+    },
+    {
+      "Name": "boAt airdopes 141",
+      "productType": "mobile accessories",
+      "poster": "https://m.media-amazon.com/images/I/51HBom8xz7L._SL1500_.jpg",
+      "summary":
+        "boAt Newly Launched Airdopes 121 PRO True Wireless Earbuds with boAt Signature Sound, Quad Mic ENx™, Beast™ Mode for Gaming, 40H Playtime, IWP™, IPX4, Battery Indicator Screen(Active Black)",
+      "price": "₹ 1,299",
+      "Approvel": "false"
+    },
+    {
+      "Name": "Lenovo Legion 5 ",
+      "productType": "laptop",
+      "poster": "https://m.media-amazon.com/images/I/61Er61SxBhL._SL1500_.jpg",
+      "summary":
+        "Lenovo Legion 5 AMD Ryzen 5 5600H 15.6 (39.62cm) FHD IPS Gaming Laptop (8GB/512GB SSD/4GB Nvidia GTX 1650 Graphics/Windows 10/120Hz Refresh Rate/Backlit Keyboard/Phantom Blue/2.4Kg)",
+      "price": "₹ 74,090",
+      "Approvel": "true"
+    }
+  ]
+},
+{
+  "name": "mani",
+  "email": "mani1234@gmail.com",
+  "password": "zklbdvkjhsjhkjshvczhvzjkjsjnc",
+  "roll": "vendor",
+  "district": "madurai",
+  "userDp": "https://avatars.githubusercontent.com/u/89139024?v=4",
+  "product": [
+    {
+      "Name": "Crucial P2 250GB ",
+      "productType": "computer accessories",
+      "poster": "https://m.media-amazon.com/images/I/61j8DBuqdRL._SL1500_.jpg",
+      "summary":
+        "Crucial P2 250GB 3D NAND NVMe PCIe M.2 SSD Up to 2400MB/s - CT250P2SSD8",
+      "price": "₹ 2,550",
+      "Approvel": "false"
+    },
+
+    {
+      "Name": "Amazfit GTS 4",
+      "productType": "smart watch",
+      "poster": "https://m.media-amazon.com/images/I/61o5+WW6P7L._SL1500_.jpg",
+      "summary":
+        "Amazfit GTS 4 Mini Smart Watch, Alexa Built-in Fitness Tracker with 24H Heart Rate Blood Oxygen Monitor, 5 Satellite Positioning, 120+ Sports Modes, 5 ATM Waterproof (Midnight Black)",
+      "price": "₹ 6,999.",
+      "Approvel": "true"
+    },
+    {
+      "Name": "LG QHD 2K",
+      "productType": "computer accessories",
+      "poster": "https://m.media-amazon.com/images/I/61AuMN6UWtL._SL1500_.jpg",
+      "summary":
+        "LG QHD 2K (2560 x 1440) 80 cm (32 inches) IPS Display 3 Side Borderless - HDR 10, sRGB 99%, AMD Free sync - Dual HDMI, Display Port - 32QN600",
+      "price": "₹26,203",
+      "Approvel": "true"
+    },
+    {
+      "Name": "OneOdio Professional DJ Headphones",
+      "productType": "computer accessories",
+      "poster": "https://m.media-amazon.com/images/I/71nT-y33zyL._SL1500_.jpg",
+      "summary":
+        "OneOdio Professional DJ Headphones for Studio Monitoring and Mixing, Memory Foam Protein Earcups, 50mm Driver Over Ear Certificate Headsets-PRO 50",
+      "price": "₹ 3,699",
+      "Approvel": "true"
+    }
+  ]
+}
 ]

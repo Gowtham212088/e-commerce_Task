@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./Home Page/Navbar";
 import ViewUser from "./Admin/ViewUser";
-import SignUp from "./Login&SignUp page/SignUp";
+import SignUp from "./Admin/SignUp";
 import Vendorlogin from "./Login&SignUp page/Vendorlogin";
 import AdminLogin from "./Login&SignUp page/AdminLogin";
 import VerticalTabs from "./Admin/Admin";
@@ -11,6 +11,8 @@ import Carousel from "./Home Page/Carousel";
 import ProductList from "./Home Page/Products";
 import {Switch,Route} from "react-router-dom";
 import Cart from "./Home Page/Cart";
+import EditUser from "./Admin/EditUser";
+
 
 function App() {
   return (
@@ -47,7 +49,13 @@ function App() {
         <Route path="/vendor">
           <Vendor />
         </Route>
+
+        <Route path="/users/edit/:id">
+          <EditUser />
+        </Route>
+
       </Switch>
+      
     </div>
   );
 }

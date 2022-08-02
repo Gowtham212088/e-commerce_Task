@@ -1,17 +1,34 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import TextField from "@mui/material/TextField";
 import { products } from "../data/Users";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+
 
 function ViewUser() {
   const [query, setQuery] = useState("");
+  const [pro,setPro] = useState([]);
 
+const history = useHistory();
+
+// const getPro = async ()=>{
+//   try {
+//     const {data} = await axios.get("https://6228d2bb9fd6174ca8308614.mockapi.io/Ecommerce")
+//     setPro(data)
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
+//   useEffect(()=>{
+//             getPro()
+//   },[])
   return (
     <div>
-      <div class="card">
-        <div class="card-body d-flex justify-content-between">
+      <div className="card">
+        <div className="card-body d-flex justify-content-between">
           <h1 className="text-danger"> View User </h1>
 
           <div>
@@ -23,7 +40,7 @@ function ViewUser() {
         </div>
       </div>
 
-      <table class="table table-light  table-responsive">
+      <table className="table table-light  table-responsive">
         <thead className="table-responsive">
           <tr>
             <th scope="col"> Sl.No </th>
@@ -37,22 +54,22 @@ function ViewUser() {
           </tr>
         </thead>
         <tbody>
-          {products
-            .filter((filt) => filt.name.toLowerCase().includes(query))
-            .map(({ name, email, password, roll, district }, index) => (
+          {products.filter((filt) => filt.name.toLowerCase().includes(query))
+            .map(({ name, email, password, role, district }, id) => (
               <tr>
-                <th scope="row">{index + 1} </th>
+                <th scope="row">{id + 1} </th>
                 <td>{name} </td>
                 <td>{email} </td>
                 <td>{password} </td>
-                <td> {roll} </td>
+                <td> {role} </td>
                 <td> {district} </td>
+                
                 <td>
                   {" "}
-                  <IconButton aria-label="delete" size="large">
+                  <IconButton aria-label="delete" size="large" onClick={()=>history.push(`/users/edit/${id}`)}>
                     {" "}
                     <EditIcon style={{ color: "#0d6efd" }} fontSize="inherit" />
-                  </IconButton>
+                  </IconButton> 
                 </td>
                 <td>
                   <IconButton aria-label="delete" size="large">

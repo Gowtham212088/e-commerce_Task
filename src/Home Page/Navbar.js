@@ -37,7 +37,7 @@ const Navbar = () => {
             <li className="nav-item">
               {/*CODE FOR BOOTSTRAP MODAL (SIGN IN)  */}
               <a
-                class="nav-link active fs-4 font-clr me-5"
+                className="nav-link active fs-4 font-clr me-5"
                 data-bs-toggle="modal"
                 href="#exampleModalToggle"
               >
@@ -47,21 +47,21 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <div
-                class="modal fade"
+                className="modal fade"
                 id="exampleModalToggle"
                 aria-hidden="true"
                 aria-labelledby="exampleModalToggleLabel"
                 tabindex="-1"
               >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content">
+                    <div className="modal-body">
                       <h3 className="d-flex  justify-content-center loginRole-text">
                         {" "}
                         Choose Login Role{" "}
                       </h3>
                     </div>
-                    <div class="modal-footer d-flex justify-content-around">
+                    <div className="modal-footer d-flex justify-content-around">
                       <Button
                         onClick={() => history.push("/admin-login")}
                         style={{ backgroundColor: "#4b00a2" }}
@@ -100,7 +100,7 @@ const Navbar = () => {
               </a>
 
               <div
-                class="modal fade"
+                className="modal fade"
                 id="staticBackdrop"
                 data-bs-backdrop="static"
                 data-bs-keyboard="false"
@@ -108,29 +108,29 @@ const Navbar = () => {
                 aria-labelledby="staticBackdropLabel"
                 aria-hidden="true"
               >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
                       <h2
-                        class="modal-title ms-auto text-center text-danger"
+                        className="modal-title ms-auto text-center text-danger"
                         id="staticBackdropLabel"
                       >
                         Alert !!!
                       </h2>
                       <button
                         type="button"
-                        class="btn-close"
+                        className="btn-close"
                         data-bs-dismiss="modal"
                         aria-label="Close"
                       ></button>
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                       <h5 className="text-center"> Are you a Admin ? </h5>
                     </div>
-                    <div class="modal-footer">
+                    <div className="modal-footer">
                       <button
                         type="button"
-                        class="btn btn-secondary"
+                        className="btn btn-secondary"
                         data-bs-dismiss="modal"
                       >
                         No
@@ -139,7 +139,7 @@ const Navbar = () => {
                         type="button"
                         onClick={() => history.push("/admin-login")}
                         data-bs-dismiss="modal"
-                        class="btn btn-primary"
+                        className="btn btn-primary"
                       >
                         Yes Proceed
                       </button>
