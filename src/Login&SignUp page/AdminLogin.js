@@ -1,15 +1,51 @@
-import React from "react";
+import React,{useState} from "react";
 import { useHistory } from "react-router-dom";
 import admin_side from "../images/admin_side.png";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
+
 
 const AdminLogin = () => {
   const history = useHistory();
 
+  //! State Management.
+
+  const [email,setEmail]= useState("");
+  const [role, setRole] = useState("");
+  const [password,setPassword]=useState("");
+
+
+
+  //! This is for Role Dropdown.
+
+    const Role = [
+    {
+      value: "Admin",
+      label: "Admin",
+    },
+    {
+      value: "Vendor",
+      label: "Vendor",
+    },
+  ];
+
+  //!  Handlers.
+  const handleChangeRole = (event) => {
+    setRole(event.target.value);
+  };
+
+  const handleLoginChange = (event)=>{
+    event.preventDefault();
+
+
+
+  }
+
   return (
     <div className="signIn ">
-      <section className="Form mx-4 my-4  ">
+      <section className="Form mx-4 my-4">
         <div className="container mt-5">
           <div className="row signIn-row no-gutters">
             <div className="col-lg-5">
@@ -20,7 +56,7 @@ const AdminLogin = () => {
                   position: "relative",
                   top: "15px",
                 }}
-                onClick={() => history.push("/")}
+                onClick={() => history.push("/home")}
               >
                 {" "}
                 <ArrowBackIcon style={{ color: "#4B00A2", font: "25px" }} />
@@ -29,12 +65,13 @@ const AdminLogin = () => {
             </div>
             <div className="col-lg-7 input-column px-5 pt-1">
               <div>
-                <h1 className="vendorLogIn-font"> Admin Login </h1>
+                <h1 className="vendorLogIn-font "> Central Login </h1>
                 <h4 className="SignIn-font"> Sign in into your account </h4>
                 <form>
                   <div className="form-row">
                     <div className="col-lg-7">
                       <input
+                      onChange={(event)=>setEmail(event.target.value)}
                         type="email"
                         placeholder="Email-Address"
                         className="form-control my-3 p-3"
@@ -44,7 +81,28 @@ const AdminLogin = () => {
 
                   <div className="form-row">
                     <div className="col-lg-7">
+                    <TextField
+            className=""
+            id="outlined-select-currency"
+            select
+            label="Role"
+            value={role}
+            onChange={handleChangeRole}
+            helperText="Please select your Role"
+          >
+            {Role.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+                    </div>
+                  </div>
+
+                  <div className="form-row">
+                    <div className="col-lg-7">
                       <input
+                      onChange={(event)=>setPassword(event.target.value)}
                         type="password"
                         placeholder="password"
                         className="form-control my-3 p-3"
@@ -70,7 +128,7 @@ const AdminLogin = () => {
                     aria-labelledby="exampleModalLabel"
                     aria-hidden="true"
                   >
-                    <div className="modal-dialog">
+                    <div className="modal-dialog modal-dialog-centered">
                       <div className="modal-content">
                         <div className="modal-header">
                           <h5
@@ -87,7 +145,7 @@ const AdminLogin = () => {
                           ></button>
                         </div>
                         <div className="modal-body">
-                          <form>
+                          <form >
                             <div className="mb-3">
                               <label
                                 for="recipient-name"
@@ -105,7 +163,7 @@ const AdminLogin = () => {
                           </form>
                         </div>
                         <div className="modal-footer">
-                          <button type="button" className="btn btn-primary">
+                          <button style={{backgroundColor:"#4b00a2",border:"#4b00a2"}} type="button" className="btn btn-primary">
                             Send OTP
                           </button>
                         </div>

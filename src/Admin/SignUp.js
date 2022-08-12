@@ -161,7 +161,7 @@ const SignUp = () => {
     },
   ];
 
-  //! This is for District Dropdown
+  //! This is for Role Dropdown
 
   const Role = [
     {
@@ -192,7 +192,6 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
   };
 
   const handleChangeRole = (event) => {

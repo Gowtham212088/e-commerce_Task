@@ -24,14 +24,14 @@ function App() {
           <ProductList/>
         </Route>
 
-        <Route exact path="/cart">
-            <Cart/>
-        </Route>
-
         <Route path="/home">
           <Navbar />
            <Carousel/>
           <ProductList/>
+        </Route>
+
+        <Route exact path="/cart">
+            <Cart/>
         </Route>
 
         <Route path="/admin-login">
@@ -43,6 +43,7 @@ function App() {
         </Route>
 
         <Route path="/admin">
+          
           <Admin />
         </Route>
 

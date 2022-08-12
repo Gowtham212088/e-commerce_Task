@@ -9,58 +9,13 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import { useHistory } from "react-router-dom";
+import AdminNavbar from "./AdminNavbar";
 const Admin = () => {
   const history = useHistory();
 
   return ( 
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <IconButton onClick={() => history.push("/home")}>
-            {" "}
-            <ArrowBackIcon style={{ color: "#4b00a2", font: "25px" }} />{" "}
-          </IconButton>
-          <div className="navbar-brand" href="#">
-            <img
-              src="https://avatars.githubusercontent.com/u/89139024?v=4"
-              width="120px"
-              className="rounded-circle nav-dp"
-            />{" "}
-          </div>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <h3
-                  className="nav-link active "
-                  style={{ color: "#4b00a2" }}
-                  aria-current="page"
-                  href="#"
-                >
-                  Welcome <br /> Username{" "}
-                </h3>
-              </li>
-            </ul>
-            <ul className="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
-              <li className="nav-item"></li>
-            </ul>
-            <Button className="btn btn-outline-danger" type="submit">
-              Logout
-            </Button>
-          </div>
-        </div>
-      </nav>
-
+    <AdminNavbar/>
       <div className="row">
         <div className="d-flex align-items-start ">
           <div

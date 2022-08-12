@@ -1,22 +1,33 @@
-import React from "react";
+import React,{useState} from "react";
 import { products } from "../data/Users";
+import { Api } from "../data/API";
+import axios from "axios";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 const ProductList = () => {
-  const allData = products.filter((elem) => {
-    return elem.roll == "vendor";
-  });
-  const items = allData.map((elem) => {
-    return elem.product;
-  });
-  const roundOffData = items.flat();
-  const filtItems = roundOffData.filter((elem) => elem.Approvel === true);
 
-  console.log(filtItems);
+const [data,setData] = useState([]);
+console.log(data);
+React.useEffect(() => {
+  axios.get(`${Api}/products/customers`).then((response) => {
+    setData(response.data);
+  });
+}, []);
+
+  // const allData = products.filter((elem) => {
+  //   return elem.role == "vendor";
+  // });
+  // const items = allData.map((elem) => {
+  //   return elem.product;
+  // });
+  // const roundOffData = items.flat();
+  // const filtItems = roundOffData.filter((elem) => elem.Approvel === true);
+
+  // console.log(roundOffData);
   return (
     <div className="container mt-3">
-      <div className="row gap-2 justify-content-between ">
-        {filtItems.map((product) => (
+      <div className="row gap-3 justify-content-between ">
+        {data.map((product) => (
           <ProductBox
             name={product.Name}
             category={product.productType}

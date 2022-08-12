@@ -14,17 +14,6 @@ function ViewUser() {
 
 const history = useHistory();
 
-// const getPro = async ()=>{
-//   try {
-//     const {data} = await axios.get("https://6228d2bb9fd6174ca8308614.mockapi.io/Ecommerce")
-//     setPro(data)
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }
-//   useEffect(()=>{
-//             getPro()
-//   },[])
   return (
     <div>
       <div className="card">

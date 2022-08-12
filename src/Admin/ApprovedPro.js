@@ -11,6 +11,7 @@ const ApprovedProducts = () => {
   const [query, setQuery] = useState("");
 
   //! Shorting out values to get approved products.
+  
   const allData = products.filter((elem, index) => {
     return elem.roll == "vendor";
   });
@@ -48,7 +49,7 @@ const ApprovedProducts = () => {
         </thead>
         <tbody>
           {filtItems
-            .filter((filt) => filt.Name.toLowerCase().includes(query))
+            .filter((filt) => filt.Name.includes(query))
             .map(
               (
                 { Name, productType, summary, poster, price, Approvel },

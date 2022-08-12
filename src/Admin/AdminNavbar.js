@@ -1,18 +1,18 @@
 import React from "react";
-import Button from "@mui/material/Button";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import Badge from "@mui/material/Badge";
-import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-import AddBusinessIcon from "@mui/icons-material/AddBusiness";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
+import Badge from "@mui/material/Badge";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
-const Navbar = () => {
-  const history = useHistory();
 
-  return (
-    <nav className="navbar navbar-expand-lg bg-transparent nav-border fw-bold">
+
+const AdminNavbar = ()=>{
+
+const history = useHistory();
+
+    return(
+        <div>
+            <nav className="navbar navbar-expand-lg bg-transparent nav-border fw-bold">
       <div className="container-fluid ">
         <a
           onClick={() => history.push("/")}
@@ -127,7 +127,8 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
+        </div>
+    )
+}
 
-export default Navbar;
+export default AdminNavbar;

@@ -65,7 +65,7 @@ export const products = [
         summary:
           "1.39-inch AMOLED color screenSuper long battery life, lasts for up to 2 weeks on a single charge",
         price: "₹ 12,490",
-        Approvel: false,
+        Approvel: true,
       },
       {
         name: "Samsung Galaxy S22 Ultra",
@@ -78,4 +78,6 @@ export const products = [
       },
     ],
   },
+
+  {},
 ];
