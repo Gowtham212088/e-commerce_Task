@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import { products } from "../data/Users";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-
+import AdminNav from "./AdminNav";
 
 function ViewUser() {
   const [query, setQuery] = useState("");
@@ -16,6 +16,7 @@ const history = useHistory();
 
   return (
     <div>
+      <AdminNav/>
       <div className="card">
         <div className="card-body d-flex justify-content-between">
           <h1 className="text-danger"> View User </h1>

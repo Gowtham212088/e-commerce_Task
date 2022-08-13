@@ -4,7 +4,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import TextField from "@mui/material/TextField";
 import ClearIcon from "@mui/icons-material/Clear";
 import { products } from "../data/Users";
-
+import AdminNav from "./AdminNav";
 const ViewProducts = () => {
   const items = products
     .find((elem) => {
@@ -17,6 +17,7 @@ const ViewProducts = () => {
 
   return (
     <div>
+      <AdminNav/>
       <div className="card">
         <div className="card-body d-flex justify-content-between">
           <h1 className="text-danger"> View Products </h1>

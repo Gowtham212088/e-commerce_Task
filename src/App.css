@@ -297,3 +297,27 @@ a:hover {
 .Add-user {
   color: #4b00a2;
 }
+
+
+/* ____________________________________________________Product Info container_______________________________________ */
+
+.parent{
+  display: flex;
+  justify-content: center;
+  background-image: url("https://images.unsplash.com/photo-1620783770629-122b7f187703?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.product-image{
+  position: relative;
+  top: 175px;
+  border-radius: 15px;
+}
+
+.rows{
+  /* border:2px solid #4b00a2; */
+  position: relative;
+  top: 285px;
+  height: 95px;
+}

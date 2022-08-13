@@ -6,7 +6,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 
 
-const AdminNavbar = ()=>{
+const AdminNav = ()=>{
 
 const history = useHistory();
 
@@ -131,4 +131,4 @@ const history = useHistory();
     )
 }
 
-export default AdminNavbar;
+export default AdminNav;

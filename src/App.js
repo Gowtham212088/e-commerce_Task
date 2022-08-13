@@ -1,22 +1,24 @@
 import "./App.css";
 import Navbar from "./Home Page/Navbar";
+import Carousel from "./Home Page/Carousel";
+import Vendor from "./Vendor pages/Vendor";
+import ProductList from "./Home Page/Products";
+import {Switch,Route} from "react-router-dom";
+import Cart from "./Home Page/Cart";
+import EditUser from "./Admin/EditUser";
+import ProductInfo from "./Home Page/productsInfo";
 import ViewUser from "./Admin/ViewUser";
 import SignUp from "./Admin/SignUp";
 import Vendorlogin from "./Login&SignUp page/Vendorlogin";
 import AdminLogin from "./Login&SignUp page/AdminLogin";
 import VerticalTabs from "./Admin/Admin";
-import Admin from "./Admin/Admin";
-import Vendor from "./Vendor pages/Vendor";
-import Carousel from "./Home Page/Carousel";
-import ProductList from "./Home Page/Products";
-import {Switch,Route} from "react-router-dom";
-import Cart from "./Home Page/Cart";
-import EditUser from "./Admin/EditUser";
+import AdminDashboard from "./Admin/AdminDashboard";
 
 
 function App() {
   return (
     <div className="App">
+      
       <Switch>
         <Route exact path="/">
           <Navbar/>
@@ -34,6 +36,10 @@ function App() {
             <Cart/>
         </Route>
 
+        <Route exact path="/products/:id">
+            <ProductInfo />
+        </Route>
+
         <Route path="/admin-login">
           <AdminLogin />
         </Route>
@@ -44,7 +50,7 @@ function App() {
 
         <Route path="/admin">
           
-          <Admin />
+          <AdminDashboard />
         </Route>
 
         <Route path="/vendor">

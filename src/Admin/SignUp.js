@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import user from "../images/user.png";
 import login from "../images/login.png";
+import AdminNav from "./AdminNav";
 
 const SignUp = () => {
   //! This is for District Dropdown
@@ -192,7 +193,15 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
+    setdistrict("")
+    setRole("")
+    setEmail("")
+    setName("")
+    setPassword("")
+    setImage("")
+    setMessage("")
+
+};
 
   const handleChangeRole = (event) => {
     setRole(event.target.value);
@@ -205,6 +214,7 @@ const SignUp = () => {
   // console.log({ District: District, role: role });
   return (
     <div className="signUp">
+      <AdminNav/>
       <div className="signUp-parent">
         <form
           onSubmit={handleSubmit}
@@ -215,6 +225,7 @@ const SignUp = () => {
           </h1>
           <TextField
             type="text"
+            value={name}
             name="username"
             className="mt-4 me-4 ms-4"
             id="outlined-basic"
@@ -224,6 +235,7 @@ const SignUp = () => {
           />
           <TextField
             type="email"
+            value={email}
             name="email"
             className="mt-4 me-4 ms-4"
             id="outlined-basic"
@@ -232,6 +244,7 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
+            value={password}
             type="password"
             name="password"
             className="mt-4 me-4 ms-4"
@@ -274,6 +287,7 @@ const SignUp = () => {
           <TextField
             type="url"
             name="Image_Url"
+            value={image}
             className="mt-4 me-4 ms-4"
             id="outlined-basic"
             label="Image_Url"
