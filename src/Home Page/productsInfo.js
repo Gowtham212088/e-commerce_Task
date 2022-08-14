@@ -6,88 +6,108 @@ import { Api } from "../data/API";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 function ProductInfo (){
 
-  const {id} = useParams()
+  const {id} = useParams();
 
-  const [data,setData]= useState("")
+  const [product,setProduct]= useState({});
 
-// const datas = data[id];
+  const [quantity, setQuantity] = React.useState(1);
 
-console.log(data);
+
+  const dispatch = useDispatch(); 
+
   React.useEffect(() => {
     axios.get(`${Api}/products/customers/${id}`).then((response) => {
-      setData(response.data);
+      setProduct(response.data);
     });
   }, []);
 
-  const [currency, setCurrency] = React.useState('EUR');
 
-  const handleChange = (event) => {
-    setCurrency(event.target.value);
+  // product qty change function
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
   };
 
-  const currencies = [
+  const handleChange = (event) => {
+    setQuantity(event.target.value);
+  };
+
+  const quant = [
     {
-      value: '1',
-      label: '1',
+      value: 1,
+      label: 1,
     },
     {
-        value: '2',
-        label: '2',
+        value:2,
+        label: 2,
       },
       {
-        value: '3',
-        label: '3',
+        value: 3,
+        label: 3,
       },
       {
-        value: '4',
-        label: '4',
+        value: 4,
+        label: 4,
       },
       {
-        value: '5',
-        label: '5',
+        value: 5,
+        label: 5,
       },
       {
-        value: '6',
-        label: '6',
+        value: 6,
+        label: 6,
       },
   ];
 
 console.log(id);
-    return(<div>
 
- 
+//! Cart Updation
+const handleClick = ()=>{
+   dispatch(
+    addProduct({...product,quantity})
+    )    
+}
 
-        <div className="parent">
-           <img src={data.poster} className="product-image img-fluid" alt={data.name} width="550px"  /><br/>
+    return(
+    <div>
+
+  <div className="parent">
+           <img src={product.poster} className="product-image img-fluid" alt={product.name} width="550px"  /><br/>
        </div>
 
 
 
        <div className="row d-flex justify-content-center rows">
 
-            <div className="col-5 d-flex justify-content-end"> <Button style={{height:"75px", width:"250px",backgroundColor:"#4b00a2"}} variant="contained" disableElevation> Add to Cart </Button> </div>
+            <div className="col-5 d-flex justify-content-end"> <Button onClick={handleClick} style={{height:"75px", width:"250px",backgroundColor:"#4b00a2"}} variant="contained" disableElevation> Add to Cart </Button> </div>
             <div className="col-5 d-flex justify-content-start"> <Button style={{height:"75px", width:"250px",backgroundColor:"#4b00a2"}} variant="contained" disableElevation> Buy now</Button> </div> 
 
           </div>
 
-          <div className="row d-flex justify-content-center rows">
+           <div className="row d-flex justify-content-center rows">
+
 
 <TextField
 style={{width:"75px"}}
 id="outlined-select-currency-native"
 select
 label="Quantity"
-value={currency}
+value={quantity}
 onChange={handleChange}
 SelectProps={{
   native: true,
 }}
 
 >
-{currencies.map((option) => (
+{quant.map((option) => (
   <option key={option.value} value={option.value}>
     {option.label}
   </option>
@@ -96,26 +116,20 @@ SelectProps={{
 
 
 
-</div>
+</div> 
 
        <div className="row d-flex justify-content-center gap-3 rows">
 
-<div style={{fontWeight:"50px"}} className="col-5 d-flex justify-content-center"> <h1> {data.name} </h1> </div>
-<div className="col-5 d-flex justify-content-center"> <h1> {data.price} </h1> </div> 
+<div style={{fontWeight:"50px"}} className="col-5 d-flex justify-content-center"> <h1> {product.name} </h1> </div>
+<div className="col-5 d-flex justify-content-center"> <h1> {product.price} </h1> </div> 
 
 </div>
 
 <div className="row d-flex justify-content-center rows ">
-        <h1 className="text-center"> {data.summary} </h1>
+        <h1 className="text-center"> {product.summary} </h1>
 </div>
 
-      
-  
-         
-
-        
-
-       </div>
+      </div>
     )
 }
 

@@ -23,7 +23,7 @@ const Vendorlogin = () => {
                   position: "relative",
                   top: "15px",
                 }}
-                onClick={() => history.push("/")}
+                onClick={() => history.push("/home")}
               >
                 {" "}
                 <ArrowBackIcon
@@ -121,7 +121,7 @@ const Vendorlogin = () => {
 
                   <div className="form-row">
                     <div className="col-lg-7">
-                      <button type="button" className=" signIn-butt mt-1 mb-3">
+                      <button type="button" onClick={history.push('/vendor-dashboard')} className="signIn-butt mt-1 mb-3">
                         Login
                       </button>
                     </div>

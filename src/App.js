@@ -12,6 +12,7 @@ import SignUp from "./Admin/SignUp";
 import Vendorlogin from "./Login&SignUp page/Vendorlogin";
 import AdminLogin from "./Login&SignUp page/AdminLogin";
 import VerticalTabs from "./Admin/Admin";
+import VendorDashboard from "./Vendor pages/VendorDashboard";
 import AdminDashboard from "./Admin/AdminDashboard";
 
 
@@ -44,12 +45,15 @@ function App() {
           <AdminLogin />
         </Route>
 
-        <Route exact path="/vendor-login">
+        <Route  path="/vendor-login">
           <Vendorlogin />
         </Route>
 
+        <Route  path="/vendor-dashboard">
+          <VendorDashboard />
+        </Route>
+
         <Route path="/admin">
-          
           <AdminDashboard />
         </Route>
 

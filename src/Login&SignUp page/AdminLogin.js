@@ -79,7 +79,7 @@ const AdminLogin = () => {
                     </div>
                   </div>
 
-                  <div className="form-row">
+                  {/* <div className="form-row">
                     <div className="col-lg-7">
                     <TextField
             className=""
@@ -97,7 +97,7 @@ const AdminLogin = () => {
             ))}
           </TextField>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="form-row">
                     <div className="col-lg-7">

@@ -7,9 +7,16 @@ import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
+import { useSelector } from "react-redux";
+
 
 const Navbar = () => {
+
   const history = useHistory();
+
+  const quantity =useSelector(state=>state.cart.quantity)
+
+  console.log(quantity);
 
   return (
     <nav className="navbar navbar-expand-lg bg-transparent nav-border fw-bold">
@@ -40,10 +47,10 @@ const Navbar = () => {
                 className="nav-link active fs-4 font-clr me-5"
                 data-bs-toggle="modal"
                 href="#exampleModalToggle"
-                onClick={() => history.push("/admin-login")}
+                onClick={() => history.push("/vendor-login")}
               >
                 {" "}
-                Login{" "}
+                Seller{" "}
               </a>
             </li>
             <li className="nav-item">
@@ -56,7 +63,7 @@ const Navbar = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
               >
-                Sign Up
+                Admin
               </a>
 
               <div
@@ -117,7 +124,7 @@ const Navbar = () => {
               type="submit"
               onClick={() => history.push("/cart")}
             >
-              <Badge badgeContent={4} color="primary">
+              <Badge badgeContent={quantity} color="primary">
                 {" "}
                 <AddShoppingCartIcon />{" "}
               </Badge>{" "}
