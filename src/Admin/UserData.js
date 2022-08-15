@@ -9,38 +9,47 @@ import { Link, useHistory } from "react-router-dom";
 import AdminNav from "./AdminNav";
 import site_logo from "../images/site_logo.png";
 import { Api } from "../data/API";
-function ViewUser() {
+
+
+function UserData() {
   const [query, setQuery] = useState("");
-  const [seller, setSeller] = useState([]);
-  console.log(seller);
+   const [datas,setDatas]=useState([]);
+console.log(datas);
+   console.log(datas);
+
   const history = useHistory();
-
-  const delStudent = (id) => {
-    fetch(`${Api}/delete/users/${id}`, {
-      method: "DELETE",
-      headers: {
-        "x-auth-token": localStorage.getItem("token"),
-      },
-    }).then(() => getStudents());
-  };
-
-  const getStudents = () => {
-    fetch(`${Api}/get/allUsersData`, {
-      method: "GET",
-      headers: {
-        "x-auth-token": localStorage.getItem("token"),
-      },
-    })
-      .then((data) => data.json())
-      .then((response) => setSeller(response));
-  };
-  console.log(seller);
-  useEffect(() => getStudents(), []);
 
   const handleLogout = ()=>{
     window.localStorage.clear()
     history.push("/")
    }
+
+
+   useEffect(()=>{
+
+    var axios = require('axios');
+    var data = JSON.stringify({
+      "userId": "5654654646484245"
+    });
+    
+    var config = {
+      method: 'get',
+      url: 'http://localhost:5000/user/getInfo',
+      headers: { 
+        "x-auth-token": localStorage.getItem("token"),
+         'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+    axios(config)
+    .then(function (response) {
+      setDatas(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+   },[])
 
   return (
     <div>
@@ -129,45 +138,24 @@ function ViewUser() {
         <thead className="table-responsive">
           <tr>
             <th scope="col"> Sl.No </th>
-            <th scope="col"> Image </th>
             <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col"> Password </th>
-            <th scope="col"> Roll </th>
-            <th scope="col"> District </th>
-            <th scope="col"> Delete </th>
+            <th scope="col"> country </th>
+            <th scope="col"> pincode </th>
+            <th scope="col"> Home town </th>
           </tr>
         </thead>
         <tbody>
-          {seller
-            .filter((filt) => filt.name.toLowerCase().includes(query))
-            .map(({ name, email, password, role, district, userDp }, id) => (
+          {datas.filter((filt) => filt.name.toLowerCase().includes(query))
+            .map(({ name, country, homeTown, pincode }, id) => (
               <tr>
                 <th scope="row">{id + 1} </th>
-                <td>
-                  <img
-                    src={userDp}
-                    width="60px"
-                    height="75"
-                    style={{ borderRadius: "25%" }}
-                    alt={name}
-                  />{" "}
-                </td>
+                
                 <td>{name} </td>
-                <td>{email} </td>
-                <td>{password} </td>
-                <td> {role} </td>
-                <td> {district} </td>
+                <td>{country} </td>
+                <td>{homeTown} </td>
+                <td> {pincode} </td>
 
-                <td>
-                  <IconButton
-                    onClick={() => delStudent(id)}
-                    aria-label="delete"
-                    size="large"
-                  >
-                    <DeleteIcon style={{ color: "red" }} fontSize="inherit" />
-                  </IconButton>
-                </td>
+               
               </tr>
             ))}
         </tbody>
@@ -176,4 +164,4 @@ function ViewUser() {
   );
 }
 
-export default ViewUser;
+export default UserData;

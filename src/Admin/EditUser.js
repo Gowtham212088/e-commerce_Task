@@ -1,14 +1,16 @@
 import React,{useState} from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import user from "../images/user.png";
 import login from "../images/login.png";
-
-
+import { Api } from "../data/API";
+import axios from "axios";
 
 const EditUser = ()=>{
+
+const {id} = useParams();
 
 const history = useHistory()
 
@@ -182,19 +184,41 @@ const history = useHistory()
     },
   ];
 
+  const [post, setPost] = useState("");
+console.log(post);
+  React.useEffect(() => {
+    var axios = require('axios');
+
+    var config = {
+      method: 'get',
+      url: `${Api}/edit/users/${id}`,
+      headers: { 
+        'x-auth-token': localStorage.getItem("token"),
+      }
+    };
+    
+    axios(config)
+    .then(function (response) {
+      setPost(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }, []);
+
   //! State Management
 
-  const [district, setdistrict] = useState("");
+  const [district, setdistrict] = useState(post.district);
 
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState(post.role);
 
-  const [name, setName] = useState("");
+  const [name, setName] = useState(post.name);
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(post.email);
 
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(post.password);
 
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(post.userDp);
 
   //! Change Handlers
 
@@ -224,6 +248,7 @@ const history = useHistory()
           </h1>
           <TextField
             type="text"
+            value={name}
             name="username"
             className="mt-4 me-4 ms-4"
             id="outlined-basic"
@@ -233,6 +258,7 @@ const history = useHistory()
           />
           <TextField
             type="email"
+            value={email}
             name="email"
             className="mt-4 me-4 ms-4"
             id="outlined-basic"
@@ -242,6 +268,7 @@ const history = useHistory()
           />
           <TextField
             type="password"
+            value={password}
             name="password"
             className="mt-4 me-4 ms-4"
             id="outlined-basic"
@@ -282,6 +309,7 @@ const history = useHistory()
           </TextField>
           <TextField
             type="url"
+            value={image}
             name="Image_Url"
             className="mt-4 me-4 ms-4"
             id="outlined-basic"
@@ -296,14 +324,13 @@ const history = useHistory()
             variant="contained"
             style={{ backgroundColor: "#4b00a2", padding: "0" }}
             onClick={() => {
-              const values = {
+              const value = {
                 name: name,
                 email: email,
                 password: password,
                 image: image,
                 role: role,
                 district: district,
-                product: [],
               };
             //   fetch("https://6228d2bb9fd6174ca8308614.mockapi.io/Ecommerce", {
             //     method: "PUT",

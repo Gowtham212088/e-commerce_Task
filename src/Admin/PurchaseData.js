@@ -9,42 +9,45 @@ import { Link, useHistory } from "react-router-dom";
 import AdminNav from "./AdminNav";
 import site_logo from "../images/site_logo.png";
 import { Api } from "../data/API";
-function ViewUser() {
+
+function PurchaseData() {
   const [query, setQuery] = useState("");
-  const [seller, setSeller] = useState([]);
-  console.log(seller);
+  const [datas, setDatas] = useState([]);
+  console.log(datas);
+
   const history = useHistory();
 
-  const delStudent = (id) => {
-    fetch(`${Api}/delete/users/${id}`, {
-      method: "DELETE",
-      headers: {
-        "x-auth-token": localStorage.getItem("token"),
-      },
-    }).then(() => getStudents());
+  const handleLogout = () => {
+    window.localStorage.clear();
+    history.push("/");
   };
 
-  const getStudents = () => {
-    fetch(`${Api}/get/allUsersData`, {
-      method: "GET",
+  useEffect(() => {
+    var axios = require("axios");
+    var data = "";
+
+    var config = {
+      method: "get",
+      url: "http://localhost:5000/user/purchaseInfo",
       headers: {
         "x-auth-token": localStorage.getItem("token"),
+        "Content-Type": "application/json",
       },
-    })
-      .then((data) => data.json())
-      .then((response) => setSeller(response));
-  };
-  console.log(seller);
-  useEffect(() => getStudents(), []);
+      data: data,
+    };
 
-  const handleLogout = ()=>{
-    window.localStorage.clear()
-    history.push("/")
-   }
+    axios(config)
+      .then(function (response) {
+        setDatas(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div>
-       <nav
+      <nav
         class="navbar navbar-expand-lg  "
         style={{ backgroundColor: "#4b00a2" }}
       >
@@ -71,7 +74,12 @@ function ViewUser() {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <Link to="/admin-dashboard" class="nav-link active" aria-current="page" href="#">
+                <Link
+                  to="/admin-dashboard"
+                  class="nav-link active"
+                  aria-current="page"
+                  href="#"
+                >
                   Home
                 </Link>
               </li>
@@ -114,7 +122,7 @@ function ViewUser() {
       </nav>
       <div className="card">
         <div className="card-body d-flex justify-content-between">
-          <h1 className="text-danger"> View User </h1>
+          <h1 className="text-danger"> Purchase data </h1>
 
           <div>
             <TextField
@@ -128,46 +136,24 @@ function ViewUser() {
       <table className="table table-light   table-responsive">
         <thead className="table-responsive">
           <tr>
-            <th scope="col"> Sl.No </th>
-            <th scope="col"> Image </th>
+            <th scope="col"> </th>
             <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col"> Password </th>
-            <th scope="col"> Roll </th>
-            <th scope="col"> District </th>
-            <th scope="col"> Delete </th>
+            <th scope="col"> country </th>
+            <th scope="col"> pincode </th>
+            <th scope="col"> Home town </th>
           </tr>
         </thead>
         <tbody>
-          {seller
+          {datas
             .filter((filt) => filt.name.toLowerCase().includes(query))
-            .map(({ name, email, password, role, district, userDp }, id) => (
+            .map(({ name, country, homeTown, pincode }, id) => (
               <tr>
                 <th scope="row">{id + 1} </th>
-                <td>
-                  <img
-                    src={userDp}
-                    width="60px"
-                    height="75"
-                    style={{ borderRadius: "25%" }}
-                    alt={name}
-                  />{" "}
-                </td>
-                <td>{name} </td>
-                <td>{email} </td>
-                <td>{password} </td>
-                <td> {role} </td>
-                <td> {district} </td>
 
-                <td>
-                  <IconButton
-                    onClick={() => delStudent(id)}
-                    aria-label="delete"
-                    size="large"
-                  >
-                    <DeleteIcon style={{ color: "red" }} fontSize="inherit" />
-                  </IconButton>
-                </td>
+                <td>{name} </td>
+                <td>{country} </td>
+                <td>{homeTown} </td>
+                <td> {pincode} </td>
               </tr>
             ))}
         </tbody>
@@ -176,4 +162,4 @@ function ViewUser() {
   );
 }
 
-export default ViewUser;
+export default PurchaseData;

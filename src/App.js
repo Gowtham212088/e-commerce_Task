@@ -14,6 +14,10 @@ import AdminLogin from "./Login&SignUp page/AdminLogin";
 import VerticalTabs from "./Admin/Admin";
 import VendorDashboard from "./Vendor pages/VendorDashboard";
 import AdminDashboard from "./Admin/AdminDashboard";
+import MyProducts from "./Vendor pages/ViewProducts";
+import ViewProducts from "./Admin/ViewProducts";
+import PurchaseData from "./Admin/UserData";
+import UserData from "./Admin/UserData";
 
 function App() {
   return (
@@ -38,6 +42,10 @@ function App() {
 
         <Route exact path="/products/:id">
           <ProductInfo />
+        </Route>
+
+        <Route exact path="/approveProducts">
+          < ViewProducts/>
         </Route>
 
         <Route path="/admin-login">
@@ -66,6 +74,14 @@ function App() {
 
         <Route exact path="/viewUser">
           <ViewUser />
+        </Route>
+
+        <Route exact path="/UserData">
+          <UserData />
+        </Route>
+
+        <Route exact path="/PurchaseData">
+          <PurchaseData />
         </Route>
 
         <Route exact path="/users/edit/:id">

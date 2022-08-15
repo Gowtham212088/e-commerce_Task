@@ -6,6 +6,12 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import site_logo from "../images/site_logo.png";
 
 function AdminDashboard() {
+
+    const handleLogout = ()=>{
+        window.localStorage.clear()
+        history.push("/")
+       }
+
   const history = useHistory();
 
   return (
@@ -68,7 +74,7 @@ function AdminDashboard() {
                     <hr class="dropdown-divider" />
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a onClick={handleLogout} class="dropdown-item" href="#">
                       Logout
                     </a>
                   </li>
@@ -88,12 +94,14 @@ function AdminDashboard() {
           <h1 className="seller-font"> Seller Data </h1>
         </div>
         <div
+        onClick={()=>history.push("/approveProducts")}
           id="Admin-col2"
           className="col-sm-3 col-md-3 col-lg-3 admin_dash_cols"
         >
-          <h1 className="seller-font"> Product Data </h1>
+          <h1 className="seller-font"> Product Approval</h1>
         </div>
         <div
+        onClick={()=>history.push("/UserData")}
           id="Admin-col3"
           className="col-sm-3 col-md-3 col-lg-3 admin_dash_cols"
         >
@@ -101,6 +109,7 @@ function AdminDashboard() {
         </div>
         <br />
         <div
+        onClick={()=>history.push("/PurchaseData")}
           id="Admin-col4"
           className="col-sm-3 col-md-3 col-lg-3 admin_dash_cols"
         >
