@@ -13,7 +13,7 @@ function AdminNav (){
 const history = useHistory()
 
     return(
-        <nav className="navbar navbar-expand-lg bg-transparent nav-border fw-bold">
+      <nav className="navbar navbar-expand-lg bg-transparent nav-border fw-bold">
       <div className="container-fluid ">
         <a
           onClick={() => history.push("/")}
@@ -37,44 +37,80 @@ const history = useHistory()
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               {/*CODE FOR BOOTSTRAP MODAL (SIGN IN)  */}
+              <a 
+                className="nav-link active fs-4 font-clr me-5"
+                  href="/vendor-login"
+                // onClick={() => history.push("/vendor-login")}
+              >
+                {" "}
+                Seller{" "}
+              </a>
+            </li>
+            <li className="nav-item">
+         
+
+              {/* SignUp  popover (Bootstrap modal) */}
+
               <a
                 className="nav-link active fs-4 font-clr me-5"
                 data-bs-toggle="modal"
-                href="#exampleModalToggle"
-onClick={history.push("/addUser")}
+                data-bs-target="#staticBackdrop"
               >
-                {" "}
-                Add User{" "}
+                Admin
               </a>
-            </li>
-            <li className="nav-item">
-            <a
-                className="nav-link active fs-4 font-clr me-5"
-                data-bs-toggle="modal"
-                href="#exampleModalToggle"
-                onClick={history.push("/viewUser")}
-                  >
-                {" "}
-                View User{" "}
-              </a>
-            </li>
 
-            <li className="nav-item">
-            <a
-                className="nav-link active fs-4 font-clr me-5"
-                data-bs-toggle="modal"
-                href="#exampleModalToggle"
-                onClick={history.push("/approveProducts")}
-                 >
-                {" "}
-                Approve products
-              </a>
+              <div
+                className="modal fade"
+                id="staticBackdrop"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h2
+                        className="modal-title ms-auto text-center text-danger"
+                        id="staticBackdropLabel"
+                      >
+                        Alert !!!
+                      </h2>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div className="modal-body">
+                      <h5 className="text-center"> Are you a Admin ? </h5>
+                    </div>
+                    <div className="modal-footer">
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        No
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => history.push("/admin-login")}
+                        data-bs-dismiss="modal"
+                        className="btn btn-primary"
+                      >
+                        Yes Proceed
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
-
-         
-
           </ul>
-         
+          <div className="d-flex">
+          </div>
         </div>
       </div>
     </nav>

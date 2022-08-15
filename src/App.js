@@ -3,7 +3,7 @@ import Navbar from "./Home Page/Navbar";
 import Carousel from "./Home Page/Carousel";
 import Vendor from "./Vendor pages/Vendor";
 import ProductList from "./Home Page/Products";
-import {Switch,Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Cart from "./Home Page/Cart";
 import EditUser from "./Admin/EditUser";
 import ProductInfo from "./Home Page/productsInfo";
@@ -15,58 +15,63 @@ import VerticalTabs from "./Admin/Admin";
 import VendorDashboard from "./Vendor pages/VendorDashboard";
 import AdminDashboard from "./Admin/AdminDashboard";
 
-
 function App() {
   return (
     <div className="App">
-      
+      {/* <AdminLogin/> */}
       <Switch>
         <Route exact path="/">
-          <Navbar/>
-          <Carousel/>
-          <ProductList/>
+          <Navbar />
+          <Carousel />
+          <ProductList />
         </Route>
 
         <Route path="/home">
           <Navbar />
-           <Carousel/>
-          <ProductList/>
+          <Carousel />
+          <ProductList />
         </Route>
 
         <Route exact path="/cart">
-            <Cart/>
+          <Cart />
         </Route>
 
         <Route exact path="/products/:id">
-            <ProductInfo />
+          <ProductInfo />
         </Route>
 
         <Route path="/admin-login">
           <AdminLogin />
         </Route>
 
-        <Route  path="/vendor-login">
+        <Route exact path="/vendor-login">
           <Vendorlogin />
         </Route>
 
-        <Route  path="/vendor-dashboard">
+        <Route exact path="/vendor-dashboard">
           <VendorDashboard />
         </Route>
 
-        <Route path="/admin">
+        <Route exact path="/admin-dashboard">
           <AdminDashboard />
         </Route>
 
-        <Route path="/vendor">
+        <Route exact path="/vendor">
           <Vendor />
         </Route>
 
-        <Route path="/users/edit/:id">
-          <EditUser />
+        <Route exact path="/signUp">
+          <SignUp />
         </Route>
 
+        <Route exact path="/viewUser">
+          <ViewUser />
+        </Route>
+
+        <Route exact path="/users/edit/:id">
+          <EditUser />
+        </Route>
       </Switch>
-      
     </div>
   );
 }

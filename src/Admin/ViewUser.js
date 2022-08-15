@@ -7,12 +7,37 @@ import { products } from "../data/Users";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import AdminNav from "./AdminNav";
-
+import { Api } from "../data/API";
 function ViewUser() {
   const [query, setQuery] = useState("");
-  const [pro,setPro] = useState([]);
-
+  const [seller,setSeller] = useState([]);
+console.log(seller);
 const history = useHistory();
+
+
+useEffect(()=>{
+  var axios = require('axios');
+
+  var config = {
+    method: 'get',
+    url: 'http://localhost:5000/get/allUsersData',
+    headers: { 
+      'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmYyNzgxMGQxYjQ0YTdhNjlmYzA5ZDUiLCJuYW1lIjoiZ293dGhhbSBrdW1hciBWIiwiZW1haWwiOiJ2Z2s5MDA3QGdtYWlsLmNvbSIsInJvbGUiOiJBZG1pbiIsImRpc3RyaWN0IjoibWFkdXJhaSIsInBpY3R1cmUiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvODkxMzkwMjQ_dj00IiwiaWF0IjoxNjYwNTY3NTAxfQ.2wSbkecdl5mDV0qSrfmHNZdg0H06C6GaKHZ4MJpfA68'
+    }
+  };
+  
+  axios(config)
+  .then(function (response) {
+    setSeller(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+},[])
+
+      
+      
+
 
   return (
     <div>
@@ -44,7 +69,7 @@ const history = useHistory();
           </tr>
         </thead>
         <tbody>
-          {products.filter((filt) => filt.name.toLowerCase().includes(query))
+          {seller.filter((filt) => filt.name.toLowerCase().includes(query))
             .map(({ name, email, password, role, district }, id) => (
               <tr>
                 <th scope="row">{id + 1} </th>

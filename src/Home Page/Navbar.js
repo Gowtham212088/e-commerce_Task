@@ -43,11 +43,10 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               {/*CODE FOR BOOTSTRAP MODAL (SIGN IN)  */}
-              <a
+              <a 
                 className="nav-link active fs-4 font-clr me-5"
-                data-bs-toggle="modal"
-                href="#exampleModalToggle"
-                onClick={() => history.push("/vendor-login")}
+                  href="/vendor-login"
+                // onClick={() => history.push("/vendor-login")}
               >
                 {" "}
                 Seller{" "}
@@ -125,9 +124,8 @@ const Navbar = () => {
               onClick={() => history.push("/cart")}
             >
               <Badge badgeContent={quantity} color="primary">
-                {" "}
-                <AddShoppingCartIcon />{" "}
-              </Badge>{" "}
+                <AddShoppingCartIcon />
+              </Badge>
               Cart
             </button>
           </div>

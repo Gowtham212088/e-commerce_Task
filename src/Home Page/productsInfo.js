@@ -28,52 +28,64 @@ function ProductInfo (){
 
 
   // product qty change function
-  const handleQuantity = (type) => {
-    if (type === "dec") {
-      quantity > 1 && setQuantity(quantity - 1);
-    } else {
-      setQuantity(quantity + 1);
-    }
-  };
+  // const handleQuantity = (type) => {
+  //   if (type === "dec") {
+  //     quantity > 1 && setQuantity(quantity - 1);
+  //   } else {
+  //     setQuantity(quantity + 1);
+  //   }
+  // };
 
-  const handleChange = (event) => {
-    setQuantity(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setQuantity(event.target.value);
+  // };
 
-  const quant = [
-    {
-      value: 1,
-      label: 1,
-    },
-    {
-        value:2,
-        label: 2,
-      },
-      {
-        value: 3,
-        label: 3,
-      },
-      {
-        value: 4,
-        label: 4,
-      },
-      {
-        value: 5,
-        label: 5,
-      },
-      {
-        value: 6,
-        label: 6,
-      },
-  ];
+  // const quant = [
+  //   {
+  //     value: 1,
+  //     label: 1,
+  //   },
+  //   {
+  //       value:2,
+  //       label: 2,
+  //     },
+  //     {
+  //       value: 3,
+  //       label: 3,
+  //     },
+  //     {
+  //       value: 4,
+  //       label: 4,
+  //     },
+  //     {
+  //       value: 5,
+  //       label: 5,
+  //     },
+  //     {
+  //       value: 6,
+  //       label: 6,
+  //     },
+  // ];
 
 console.log(id);
 
-//! Cart Updation
-const handleClick = ()=>{
-   dispatch(
-    addProduct({...product,quantity})
-    )    
+// //! Cart Updation
+// const handleClick = ()=>{
+//    dispatch(
+//     addProduct({...product,quantity})
+//     )    
+// }
+
+const handleQuantity = (type) => {
+  if (type === "dec") {
+    quantity > 1 && setQuantity(quantity - 1);
+  } else {
+    setQuantity(quantity + 1);
+  }
+};
+
+const handleClick = () => {
+  dispatch(addProduct({...product,price:product.price*quantity,quantity}))
 }
 
     return(
@@ -82,8 +94,6 @@ const handleClick = ()=>{
   <div className="parent">
            <img src={product.poster} className="product-image img-fluid" alt={product.name} width="550px"  /><br/>
        </div>
-
-
 
        <div className="row d-flex justify-content-center rows">
 
@@ -94,8 +104,10 @@ const handleClick = ()=>{
 
            <div className="row d-flex justify-content-center rows">
 
+<button onClick={()=>handleQuantity("inc")}> + </button><h1> {quantity} </h1> <button onClick={()=>handleQuantity("dec")}> - </button>  
 
-<TextField
+
+{/* <TextField
 style={{width:"75px"}}
 id="outlined-select-currency-native"
 select
@@ -112,8 +124,7 @@ SelectProps={{
     {option.label}
   </option>
 ))}
-</TextField>
-
+</TextField> */}
 
 
 </div> 

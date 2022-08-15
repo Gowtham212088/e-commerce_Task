@@ -321,3 +321,66 @@ a:hover {
   top: 285px;
   height: 95px;
 }
+
+/*________________________________________________________Admin Dash_____________________________________________  */
+
+.admin_dash_cols{
+  border:1px solid #4b00a2;
+  border-radius: 25px;
+  height: 350px;
+  margin-top: 150px;
+  transition-duration: .5s;
+
+}
+
+.admin_dash_cols:hover{
+  cursor: pointer;
+  border:1px solid #4b00a2;
+  height: 400px;
+  width: 35%;
+  transition-duration: .6s;
+  margin-bottom: 25px;
+}
+
+#Admin-col1{
+  background-image: url("https://img.freepik.com/free-vector/demand-analysts-shaking-hands-from-laptops-screens-planning-future-demand-demand-planning-demand-analytics-digital-sales-forecast-concept-illustration_335657-2098.jpg?w=1380&t=st=1660552561~exp=1660553161~hmac=972699b21628ec2758e5a6dafc39580d9c4dad9206490cefb1e9a23adea997dc");
+  background-position: center;
+  background-size: cover;
+}
+
+#Admin-col2{
+  background-image: url("https://img.freepik.com/free-photo/3d-illustration-smartphone-with-blank-white-screen-cardboard-boxes-e-commerce-shipping-service-concept_58466-14530.jpg?w=1060&t=st=1660553550~exp=1660554150~hmac=26a4b2df1b1c3f615227a727d93773d197cab0d9ef03045707381406267f2922");
+  background-position: center;
+  background-size: cover;
+}
+
+#Admin-col3{
+  background-image: url("https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information_335657-2605.jpg?w=826&t=st=1660553897~exp=1660554497~hmac=036ecff7a7be3393be4447a518c123cd5c7a79fc6bcfd5116456bd13e3190b0b");
+  background-position: center;
+  background-size: cover;
+}
+
+#Admin-col4{
+  background-image: url("https://img.freepik.com/premium-vector/document-contract-signing_82574-9174.jpg?w=1380");
+  background-position: center;
+  background-size: cover;
+}
+
+#Admin-col5{
+  background-image: url("https://img.freepik.com/free-vector/follow-me-social-business-theme-design_24877-50426.jpg?w=826&t=st=1660556780~exp=1660557380~hmac=c8067ef12247b8e16533a1a51a54d51b4fdb0af1faa697c122fd11ad095880e9");
+  background-position: center;
+  background-size: cover;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap');
+.seller-font{
+  color: #4b00a2;
+  /* font-size: 55px; */
+  font-weight: 700;
+  font-family: 'Dancing Script', cursive;
+}
+
+.logout-data{
+  position: relative;
+  bottom: 25px;
+}

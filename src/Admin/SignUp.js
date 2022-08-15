@@ -7,8 +7,16 @@ import MenuItem from "@mui/material/MenuItem";
 import user from "../images/user.png";
 import login from "../images/login.png";
 import AdminNav from "./AdminNav";
+import axios from "axios";
+import { Api } from "../data/API";
+import { Link, useHistory } from "react-router-dom";
+import site_logo from "../images/site_logo.png";
+
 
 const SignUp = () => {
+
+const history = useHistory();
+
   //! This is for District Dropdown
   const Districs = [
     {
@@ -187,20 +195,72 @@ const SignUp = () => {
 
   const [image, setImage] = useState("");
 
-  const [message,setMessage] = useState("")
+  // const [message,setMessage] = useState("")
+
+   //! Image Processing
+  //? Base 64 Code for image uploading.
+  let base64code = "";
+  const onChange = (e) => {
+    const files = e.target.files;
+    const file = files[0];
+    getBase64(file);
+  };
+
+  const onLoad = (fileString) => {
+    console.log(fileString);
+    setImage(fileString);
+    this.base64code = fileString;
+  };
+
+  const getBase64 = (file) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      onLoad(reader.result);
+    };
+  };
+
+ const handleLogout = ()=>{
+  window.localStorage.clear()
+  history.push("/")
+ }
 
   //! Change Handlers
-
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
+    // setdistrict("")
+    // setRole("")
+    // setEmail("")
+    // setName("")
+    // setPassword("")
+    // setImage("")
+    // setMessage("")
+    const signUpData = {
+      name:name,
+      email:email,
+      password:password,
+      image:image,
+      role:role,
+      district:district
+    }
+    axios.post(`${Api}/create/users`,signUpData ,{
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch((error) => {
+      console.error(error)
+    })
     setdistrict("")
     setRole("")
-    setEmail("")
     setName("")
+    setEmail("")
     setPassword("")
     setImage("")
-    setMessage("")
-
 };
 
   const handleChangeRole = (event) => {
@@ -214,7 +274,75 @@ const SignUp = () => {
   // console.log({ District: District, role: role });
   return (
     <div className="signUp">
-      <AdminNav/>
+     <nav
+        class="navbar navbar-expand-lg  "
+        style={{ backgroundColor: "#4b00a2" }}
+      >
+        <div class="container-fluid">
+          <a
+            style={{ color: "#EEE3FF" }}
+            onClick={() => history.push("/admin-dashboard")}
+            className="navbar-brand fs-3 font-clr"
+          >
+            <img src={site_logo} alt="nav-img" className="mb-2" width="30px" />{" "}
+            Better Buys
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <Link to="/admin-dashboard" class="nav-link active" aria-current="page" href="#">
+                  Dashboard
+                </Link>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Account
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Action
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Another action
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" onClick={handleLogout}>
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
       <div className="signUp-parent">
         <form
           onSubmit={handleSubmit}
@@ -284,6 +412,19 @@ const SignUp = () => {
               </MenuItem>
             ))}
           </TextField>
+          
+          <div className="form-row py-3">
+                <div className="offset-1 col-lg-10">
+                  
+                  <input
+                    style={{ border: "1px solid red" }}
+                    type="file"
+                    onChange={onChange}
+                  />
+                  {/* <textarea rows="50" cols="50" value={this.base64code}></textarea> */}
+                </div>
+              </div>
+
           <TextField
             type="url"
             name="Image_Url"
@@ -311,14 +452,14 @@ const SignUp = () => {
                 userDp:image,
                 product: [],
               };
-              fetch("http://localhost:5000/create/users", {
-                method: "POST",
-                body: JSON.stringify(values),
-                headers: { "content-type": "application/json" },
-              }).then((data)=>{
-                setMessage(data)
-                console.log(message);
-              })
+              // fetch("http://localhost:5000/create/users", {
+              //   method: "POST",
+              //   body: JSON.stringify(values),
+              //   headers: { "content-type": "application/json" },
+              // }).then((data)=>{
+              //   setMessage(data)
+              //   console.log(message);
+              // })
            
             }}
           >

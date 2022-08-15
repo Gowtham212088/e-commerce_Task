@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-
+import { Api } from "../data/API";
 
 const AdminLogin = () => {
   const history = useHistory();
@@ -15,33 +15,96 @@ const AdminLogin = () => {
   const [email,setEmail]= useState("");
   const [role, setRole] = useState("");
   const [password,setPassword]=useState("");
+  const [resp,setResp] = useState("");
+  const [emailOtp,setEmailOtp] = useState("");
+  const [emailResp, setEmailResp] = useState("");
 
+console.log();
 
+  window.localStorage.setItem('token',resp.token)
+
+// console.log(resp.token);
 
   //! This is for Role Dropdown.
 
-    const Role = [
-    {
-      value: "Admin",
-      label: "Admin",
-    },
-    {
-      value: "Vendor",
-      label: "Vendor",
-    },
-  ];
+  //   const Role = [
+  //   {
+  //     value: "Admin",
+  //     label: "Admin",
+  //   },
+  //   {
+  //     value: "Vendor",
+  //     label: "Vendor",
+  //   },
+  // ];
 
-  //!  Handlers.
-  const handleChangeRole = (event) => {
-    setRole(event.target.value);
+//! Modal Handlers
+
+const handleModalClick = (event)=>{
+  event.preventDefault()
+
+
+
+  var axios = require('axios');
+  var data = JSON.stringify({
+    "email": emailOtp
+  });
+  
+  var config = {
+    method: 'post',
+    url: 'http://localhost:5000/conform/mailVerification',
+    headers: { 
+      'Content-Type': 'application/json'
+    },
+    data : data
+
   };
+  
+  axios(config)
+  .then(function (response) {
+    setEmailResp(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  
 
-  const handleLoginChange = (event)=>{
-    event.preventDefault();
+}
+
+  //! Login Handlers.
+  const handleClick = (event) => {
+    event.preventDefault()
+const signinData = {
+  email:email,
+  password:password
+}
+var axios = require('axios');
+var data = JSON.stringify(signinData);
+
+var config = {
+  method: 'post',
+  url: `${Api}/user/signIn`,
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+ setResp(response.data);
+
+})
+.catch(function (error) {
+  console.log(error);
+});
 
 
+if(resp.status == "Successful"){
+ history.push("/admin-dashboard")
+}
+   };
 
-  }
 
   return (
     <div className="signIn ">
@@ -65,7 +128,7 @@ const AdminLogin = () => {
             </div>
             <div className="col-lg-7 input-column px-5 pt-1">
               <div>
-                <h1 className="vendorLogIn-font "> Central Login </h1>
+                <h1 className="vendorLogIn-font "> Admin Login </h1>
                 <h4 className="SignIn-font"> Sign in into your account </h4>
                 <form>
                   <div className="form-row">
@@ -73,6 +136,7 @@ const AdminLogin = () => {
                       <input
                       onChange={(event)=>setEmail(event.target.value)}
                         type="email"
+                        value={email}
                         placeholder="Email-Address"
                         className="form-control my-3 p-3"
                       />
@@ -104,6 +168,7 @@ const AdminLogin = () => {
                       <input
                       onChange={(event)=>setPassword(event.target.value)}
                         type="password"
+                        value={password}
                         placeholder="password"
                         className="form-control my-3 p-3"
                       />
@@ -158,12 +223,13 @@ const AdminLogin = () => {
                                 placeholder="Email"
                                 className="form-control"
                                 id="recipient-name"
+                                onChange={(event)=>setEmailOtp(event.target.value)}
                               />
                             </div>
                           </form>
                         </div>
                         <div className="modal-footer">
-                          <button style={{backgroundColor:"#4b00a2",border:"#4b00a2"}} type="button" className="btn btn-primary">
+                          <button onClick={handleModalClick} style={{backgroundColor:"#4b00a2",border:"#4b00a2"}} type="button" className="btn btn-primary">
                             Send OTP
                           </button>
                         </div>
@@ -174,10 +240,8 @@ const AdminLogin = () => {
                   <div className="form-row">
                     <div className="col-lg-7">
                       <button
-                        onClick={() => {
-                          history.push("/admin");
-                        }}
-                        type="button"
+                        onClick={handleClick }
+                        type="submit"
                         className="btn btn-primary signIn-butt mt-2 mb-3"
                       >
                         Login
