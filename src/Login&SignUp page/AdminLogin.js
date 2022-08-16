@@ -19,7 +19,7 @@ const AdminLogin = () => {
   const [emailOtp,setEmailOtp] = useState("");
   const [emailResp, setEmailResp] = useState("");
 
-console.log();
+
 
   window.localStorage.setItem('token',resp.token)
 

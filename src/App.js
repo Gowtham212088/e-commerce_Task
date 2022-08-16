@@ -16,8 +16,8 @@ import VendorDashboard from "./Vendor pages/VendorDashboard";
 import AdminDashboard from "./Admin/AdminDashboard";
 import MyProducts from "./Vendor pages/ViewProducts";
 import ViewProducts from "./Admin/ViewProducts";
-import PurchaseData from "./Admin/UserData";
 import UserData from "./Admin/UserData";
+import PurchaseData from "./Admin/PurchaseData";
 
 function App() {
   return (
@@ -76,17 +76,18 @@ function App() {
           <ViewUser />
         </Route>
 
-        <Route exact path="/UserData">
+        <Route  path="/UserData">
           <UserData />
         </Route>
 
-        <Route exact path="/PurchaseData">
+        <Route  path="/PurchaseData">
           <PurchaseData />
         </Route>
 
         <Route exact path="/users/edit/:id">
           <EditUser />
         </Route>
+        
       </Switch>
     </div>
   );

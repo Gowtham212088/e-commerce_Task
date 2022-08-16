@@ -384,3 +384,56 @@ a:hover {
   position: relative;
   bottom: 25px;
 }
+/*_____________________________________________________________Seller Dashboard____________________________________________________  */
+
+
+.seller_dash_cols{
+  border:1px solid #4b00a2;
+  border-radius: 25px;
+  height: 350px;
+  margin-top: 150px;
+  transition-duration: .5s;
+
+}
+
+.seller_dash_cols:hover{
+  cursor: pointer;
+  border:1px solid #4b00a2;
+  height: 400px;
+  width: 35%;
+  transition-duration: .6s;
+  margin-bottom: 25px;
+}
+
+#seller-col1{
+  background-image: url("https://img.freepik.com/free-vector/video-upload-concept-illustration_114360-4702.jpg?w=826&t=st=1660630732~exp=1660631332~hmac=49d58e71decd25cb5f7a969ba3de07f02e13d213e67e4e0dbe7a44cbcfa08be7");
+  background-position: top;
+  background-size: cover;
+}
+
+#seller-col2{
+  background-image: url("https://img.freepik.com/free-vector/approval-mark-product-advantage-rating-reviews-meeting-requirements_335657-3106.jpg?w=1380&t=st=1660631683~exp=1660632283~hmac=4ac6343b5f3820459fdad998622319e5eaaf3c9d664f0ce2f729fcdcd1db14e9");
+  background-position: center;
+  background-size: cover;
+}
+
+#seller-col3{
+  background-image: url("https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information_335657-2605.jpg?w=826&t=st=1660553897~exp=1660554497~hmac=036ecff7a7be3393be4447a518c123cd5c7a79fc6bcfd5116456bd13e3190b0b");
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap');
+.seller-font{
+  color: #4b00a2;
+  /* font-size: 55px; */
+  font-weight: 700;
+  font-family: 'Dancing Script', cursive;
+}
+
+.logout-data{
+  position: relative;
+  bottom: 25px;
+}

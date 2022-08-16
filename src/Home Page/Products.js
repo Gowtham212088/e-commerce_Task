@@ -31,7 +31,7 @@ React.useEffect(() => {
             category={product.productType}
             poster={product.poster}
             summary={product.summary}
-            price={product.price}
+            price={`₹ ${product.price}`}
           />
         ))}
       </div>

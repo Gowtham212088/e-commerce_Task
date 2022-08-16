@@ -170,10 +170,7 @@ console.log(product);
                       fontSize="large"
                     />
                   </Button>
-                  <Button className="mt-1" color="error" variant="outlined">
-                    Deny
-                    <ClearIcon style={{ color: "red" }} fontSize="large" />
-                  </Button>
+                  
                 </td>
               </tr>
             ))}

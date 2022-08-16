@@ -8,6 +8,8 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
+import DeleteIcon from '@mui/icons-material/Delete';
+import { IconButton } from "@mui/material";
 
 function ProductInfo (){
 
@@ -97,15 +99,13 @@ const handleClick = () => {
 
        <div className="row d-flex justify-content-center rows">
 
-            <div className="col-5 d-flex justify-content-end"> <Button onClick={handleClick} style={{height:"75px", width:"250px",backgroundColor:"#4b00a2"}} variant="contained" disableElevation> Add to Cart </Button> </div>
-            <div className="col-5 d-flex justify-content-start"> <Button style={{height:"75px", width:"250px",backgroundColor:"#4b00a2"}} variant="contained" disableElevation> Buy now</Button> </div> 
+            <div className="col-5 d-flex justify-content-center"> <Button onClick={handleClick} style={{height:"75px", width:"250px",backgroundColor:"#4b00a2"}} variant="contained" disableElevation> Add to Cart </Button> </div>
 
           </div>
 
-           <div className="row d-flex justify-content-center rows">
-
-<button onClick={()=>handleQuantity("inc")}> + </button><h1> {quantity} </h1> <button onClick={()=>handleQuantity("dec")}> - </button>  
-
+           <div className="row d-flex justify-content-center rows" style={{marginTop:"25px",marginBottom:"65px"}}>
+        
+           <IconButton style={{width:"55px",border:"1px solid #4b00a2"}} onClick={()=>handleQuantity("inc")}> + </IconButton><h1 className="d-flex justify-content-center"> {quantity} </h1> <IconButton style={{width:"55px",border:"1px solid #4b00a2"}} onClick={()=>handleQuantity("dec")}> - </IconButton>  
 
 {/* <TextField
 style={{width:"75px"}}
@@ -132,7 +132,7 @@ SelectProps={{
        <div className="row d-flex justify-content-center gap-3 rows">
 
 <div style={{fontWeight:"50px"}} className="col-5 d-flex justify-content-center"> <h1> {product.name} </h1> </div>
-<div className="col-5 d-flex justify-content-center"> <h1> {product.price} </h1> </div> 
+<div className="col-5 d-flex justify-content-center"> <h1> {`₹ ${product.price}`} </h1> </div> 
 
 </div>
 
