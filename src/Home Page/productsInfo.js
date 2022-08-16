@@ -1,33 +1,30 @@
-import React, { useState }  from "react";
-import {products} from "../data/Users"
+import React, { useState } from "react";
+import { products } from "../data/Users";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Api } from "../data/API";
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton } from "@mui/material";
 
-function ProductInfo (){
+function ProductInfo() {
+  const { id } = useParams();
 
-  const {id} = useParams();
-
-  const [product,setProduct]= useState({});
+  const [product, setProduct] = useState({});
 
   const [quantity, setQuantity] = React.useState(1);
 
-
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     axios.get(`${Api}/products/customers/${id}`).then((response) => {
       setProduct(response.data);
     });
   }, []);
-
 
   // product qty change function
   // const handleQuantity = (type) => {
@@ -69,45 +66,80 @@ function ProductInfo (){
   //     },
   // ];
 
-console.log(id);
+  console.log(id);
 
-// //! Cart Updation
-// const handleClick = ()=>{
-//    dispatch(
-//     addProduct({...product,quantity})
-//     )    
-// }
+  // //! Cart Updation
+  // const handleClick = ()=>{
+  //    dispatch(
+  //     addProduct({...product,quantity})
+  //     )
+  // }
 
-const handleQuantity = (type) => {
-  if (type === "dec") {
-    quantity > 1 && setQuantity(quantity - 1);
-  } else {
-    setQuantity(quantity + 1);
-  }
-};
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
 
-const handleClick = () => {
-  dispatch(addProduct({...product,price:product.price*quantity,quantity}))
-}
+  const handleClick = () => {
+    dispatch(
+      addProduct({ ...product, price: product.price * quantity, quantity })
+    );
+  };
 
-    return(
+  return (
     <div>
+      <div className="parent">
+        <img
+          src={product.poster}
+          className="product-image img-fluid"
+          alt={product.name}
+          width="550px"
+        />
+        <br />
+      </div>
 
-  <div className="parent">
-           <img src={product.poster} className="product-image img-fluid" alt={product.name} width="550px"  /><br/>
-       </div>
+      <div className="row d-flex justify-content-center rows">
+        <div className="col-5 d-flex justify-content-center">
+          {" "}
+          <Button
+            onClick={handleClick}
+            style={{
+              height: "75px",
+              width: "250px",
+              backgroundColor: "#4b00a2",
+            }}
+            variant="contained"
+            disableElevation
+          >
+            {" "}
+            Add to Cart{" "}
+          </Button>{" "}
+        </div>
+      </div>
 
-       <div className="row d-flex justify-content-center rows">
-
-            <div className="col-5 d-flex justify-content-center"> <Button onClick={handleClick} style={{height:"75px", width:"250px",backgroundColor:"#4b00a2"}} variant="contained" disableElevation> Add to Cart </Button> </div>
-
-          </div>
-
-           <div className="row d-flex justify-content-center rows" style={{marginTop:"25px",marginBottom:"65px"}}>
-        
-           <IconButton style={{width:"55px",border:"1px solid #4b00a2"}} onClick={()=>handleQuantity("inc")}> + </IconButton><h1 className="d-flex justify-content-center"> {quantity} </h1> <IconButton style={{width:"55px",border:"1px solid #4b00a2"}} onClick={()=>handleQuantity("dec")}> - </IconButton>  
-
-{/* <TextField
+      <div
+        className="row d-flex justify-content-center rows"
+        style={{ marginTop: "25px", marginBottom: "65px" }}
+      >
+        <IconButton
+          style={{ width: "55px", border: "1px solid #4b00a2" }}
+          onClick={() => handleQuantity("inc")}
+        >
+          {" "}
+          +{" "}
+        </IconButton>
+        <h1 className="d-flex justify-content-center"> {quantity} </h1>{" "}
+        <IconButton
+          style={{ width: "55px", border: "1px solid #4b00a2" }}
+          onClick={() => handleQuantity("dec")}
+        >
+          {" "}
+          -{" "}
+        </IconButton>
+        {/* <TextField
 style={{width:"75px"}}
 id="outlined-select-currency-native"
 select
@@ -125,23 +157,27 @@ SelectProps={{
   </option>
 ))}
 </TextField> */}
-
-
-</div> 
-
-       <div className="row d-flex justify-content-center gap-3 rows">
-
-<div style={{fontWeight:"50px"}} className="col-5 d-flex justify-content-center"> <h1> {product.name} </h1> </div>
-<div className="col-5 d-flex justify-content-center"> <h1> {`₹ ${product.price}`} </h1> </div> 
-
-</div>
-
-<div className="row d-flex justify-content-center rows ">
-        <h1 className="text-center"> {product.summary} </h1>
-</div>
-
       </div>
-    )
+
+      <div className="row d-flex justify-content-center gap-3 rows">
+        <div
+          style={{ fontWeight: "50px" }}
+          className="col-5 d-flex justify-content-center"
+        >
+          {" "}
+          <h1> {product.name} </h1>{" "}
+        </div>
+        <div className="col-5 d-flex justify-content-center">
+          {" "}
+          <h1> {`₹ ${product.price}`} </h1>{" "}
+        </div>
+      </div>
+
+      <div className="row d-flex justify-content-center rows ">
+        <h1 className="text-center"> {product.summary} </h1>
+      </div>
+    </div>
+  );
 }
 
 export default ProductInfo;

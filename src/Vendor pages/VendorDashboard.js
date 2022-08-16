@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 
 function VendorDashboard() {
@@ -38,11 +38,7 @@ function VendorDashboard() {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
+            
 
               <li class="nav-item dropdown">
                 <a
@@ -82,14 +78,14 @@ function VendorDashboard() {
       </nav>
       <div className="row justify-content-center gap-3 mt-1">
         <div
-        //   onClick={() => history.push("/viewUser")}
+          onClick={() => history.push("/AddProduct")}
           id="seller-col1"
           className="col-sm-3 col-md-3 col-lg-3  admin_dash_cols"
         >
           <h1 className="seller-font"> New product (Launch request) </h1>
         </div>
         <div
-        //   onClick={() => history.push("/approveProducts")}
+          onClick={() => history.push("/MyProducts")}
           id="seller-col2"
           className="col-sm-3 col-md-3 col-lg-3 seller_dash_cols"
         >

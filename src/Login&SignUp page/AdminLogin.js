@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import admin_side from "../images/admin_side.png";
 import IconButton from "@mui/material/IconButton";
@@ -12,18 +12,16 @@ const AdminLogin = () => {
 
   //! State Management.
 
-  const [email,setEmail]= useState("");
+  const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
-  const [password,setPassword]=useState("");
-  const [resp,setResp] = useState("");
-  const [emailOtp,setEmailOtp] = useState("");
+  const [password, setPassword] = useState("");
+  const [resp, setResp] = useState("");
+  const [emailOtp, setEmailOtp] = useState("");
   const [emailResp, setEmailResp] = useState("");
 
+  window.localStorage.setItem("token", resp.token);
 
-
-  window.localStorage.setItem('token',resp.token)
-
-// console.log(resp.token);
+  // console.log(resp.token);
 
   //! This is for Role Dropdown.
 
@@ -38,73 +36,65 @@ const AdminLogin = () => {
   //   },
   // ];
 
-//! Modal Handlers
+  //! Modal Handlers
 
-const handleModalClick = (event)=>{
-  event.preventDefault()
+  const handleModalClick = (event) => {
+    event.preventDefault();
 
+    var axios = require("axios");
+    var data = JSON.stringify({
+      email: emailOtp,
+    });
 
+    var config = {
+      method: "post",
+      url: "http://localhost:5000/conform/mailVerification",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
 
-  var axios = require('axios');
-  var data = JSON.stringify({
-    "email": emailOtp
-  });
-  
-  var config = {
-    method: 'post',
-    url: 'http://localhost:5000/conform/mailVerification',
-    headers: { 
-      'Content-Type': 'application/json'
-    },
-    data : data
-
+    axios(config)
+      .then(function (response) {
+        setEmailResp(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
-  
-  axios(config)
-  .then(function (response) {
-    setEmailResp(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  
-
-}
 
   //! Login Handlers.
   const handleClick = (event) => {
-    event.preventDefault()
-const signinData = {
-  email:email,
-  password:password
-}
-var axios = require('axios');
-var data = JSON.stringify(signinData);
+    event.preventDefault();
+    const signinData = {
+      email: email,
+      password: password,
+    };
+    var axios = require("axios");
+    var data = JSON.stringify(signinData);
 
-var config = {
-  method: 'post',
-  url: `${Api}/user/signIn`,
-  headers: { 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
+    var config = {
+      method: "post",
+      url: `${Api}/user/signIn`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
 
-axios(config)
-.then(function (response) {
- setResp(response.data);
+    axios(config)
+      .then(function (response) {
+        setResp(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
-})
-.catch(function (error) {
-  console.log(error);
-});
-
-
-if(resp.status == "Successful"){
- history.push("/admin-dashboard")
-}
-   };
-
+    if (resp.status == "Successful") {
+      history.push("/admin-dashboard");
+    }
+  };
 
   return (
     <div className="signIn ">
@@ -134,7 +124,7 @@ if(resp.status == "Successful"){
                   <div className="form-row">
                     <div className="col-lg-7">
                       <input
-                      onChange={(event)=>setEmail(event.target.value)}
+                        onChange={(event) => setEmail(event.target.value)}
                         type="email"
                         value={email}
                         placeholder="Email-Address"
@@ -166,7 +156,7 @@ if(resp.status == "Successful"){
                   <div className="form-row">
                     <div className="col-lg-7">
                       <input
-                      onChange={(event)=>setPassword(event.target.value)}
+                        onChange={(event) => setPassword(event.target.value)}
                         type="password"
                         value={password}
                         placeholder="password"
@@ -210,7 +200,7 @@ if(resp.status == "Successful"){
                           ></button>
                         </div>
                         <div className="modal-body">
-                          <form >
+                          <form>
                             <div className="mb-3">
                               <label
                                 for="recipient-name"
@@ -223,13 +213,23 @@ if(resp.status == "Successful"){
                                 placeholder="Email"
                                 className="form-control"
                                 id="recipient-name"
-                                onChange={(event)=>setEmailOtp(event.target.value)}
+                                onChange={(event) =>
+                                  setEmailOtp(event.target.value)
+                                }
                               />
                             </div>
                           </form>
                         </div>
                         <div className="modal-footer">
-                          <button onClick={handleModalClick} style={{backgroundColor:"#4b00a2",border:"#4b00a2"}} type="button" className="btn btn-primary">
+                          <button
+                            onClick={handleModalClick}
+                            style={{
+                              backgroundColor: "#4b00a2",
+                              border: "#4b00a2",
+                            }}
+                            type="button"
+                            className="btn btn-primary"
+                          >
                             Send OTP
                           </button>
                         </div>
@@ -240,7 +240,7 @@ if(resp.status == "Successful"){
                   <div className="form-row">
                     <div className="col-lg-7">
                       <button
-                        onClick={handleClick }
+                        onClick={handleClick}
                         type="submit"
                         className="btn btn-primary signIn-butt mt-2 mb-3"
                       >

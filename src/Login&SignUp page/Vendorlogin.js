@@ -9,82 +9,74 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Api } from "../data/API";
 
 const Vendorlogin = () => {
-
-  const [email,setEmail]= useState("");
+  const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
-  const [password,setPassword]=useState("");
-  const [resp,setResp] = useState("");
-  const [emailOtp,setEmailOtp] = useState("");
+  const [password, setPassword] = useState("");
+  const [resp, setResp] = useState("");
+  const [emailOtp, setEmailOtp] = useState("");
   const [emailResp, setEmailResp] = useState("");
-  
-  
-  window.localStorage.setItem('token',resp.token)
 
-//! Modal Handlers
+  window.localStorage.setItem("token", resp.token);
 
-const handleModalClick = (event)=>{
-  event.preventDefault()
+  //! Modal Handlers
 
+  const handleModalClick = (event) => {
+    event.preventDefault();
 
+    var axios = require("axios");
+    var data = JSON.stringify({
+      email: emailOtp,
+    });
 
-  var axios = require('axios');
-  var data = JSON.stringify({
-    "email": emailOtp
-  });
-  
-  var config = {
-    method: 'post',
-    url: 'http://localhost:5000/conform/mailVerification',
-    headers: { 
-      'Content-Type': 'application/json'
-    },
-    data : data
+    var config = {
+      method: "post",
+      url: "http://localhost:5000/conform/mailVerification",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
 
+    axios(config)
+      .then(function (response) {
+        setEmailResp(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
-  
-  axios(config)
-  .then(function (response) {
-    setEmailResp(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  
-}
 
   //! Login Handlers.
   const handleClick = (event) => {
-    event.preventDefault()
-const signinData = {
-  email:email,
-  password:password
-}
-var axios = require('axios');
-var data = JSON.stringify(signinData);
+    event.preventDefault();
+    const signinData = {
+      email: email,
+      password: password,
+    };
+    var axios = require("axios");
+    var data = JSON.stringify(signinData);
 
-var config = {
-  method: 'post',
-  url: `${Api}/user/signIn`,
-  headers: { 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
+    var config = {
+      method: "post",
+      url: `${Api}/user/signIn`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
 
-axios(config)
-.then(function (response) {
- setResp(response.data);
+    axios(config)
+      .then(function (response) {
+        setResp(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
-})
-.catch(function (error) {
-  console.log(error);
-});
-
-
-if(resp.status == "Successful"){
- history.push("/vendor-dashboard")
-}
-   };
+    if (resp.status == "Successful") {
+      history.push("/vendor-dashboard");
+    }
+  };
 
   const history = useHistory();
 
@@ -119,7 +111,7 @@ if(resp.status == "Successful"){
                   <div className="form-row">
                     <div className="col-lg-7">
                       <input
-                      onChange={(e)=>setEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                         type="email"
                         placeholder="Email-Address"
                         className="form-control my-3 p-3"
@@ -130,7 +122,7 @@ if(resp.status == "Successful"){
                   <div className="form-row">
                     <div className="col-lg-7">
                       <input
-                      onChange={(e)=>setPassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         placeholder="password"
                         className="form-control my-3 p-3"
@@ -182,7 +174,7 @@ if(resp.status == "Successful"){
                                 Enter Email:
                               </label>
                               <input
-                              onChange={(e)=>setEmailOtp(e.target.value)}
+                                onChange={(e) => setEmailOtp(e.target.value)}
                                 type="email"
                                 placeholder="Email"
                                 className="form-control"
@@ -202,7 +194,11 @@ if(resp.status == "Successful"){
 
                   <div className="form-row">
                     <div className="col-lg-7">
-                      <button type="button" onClick={handleClick} className="signIn-butt mt-1 mb-3">
+                      <button
+                        type="button"
+                        onClick={handleClick}
+                        className="signIn-butt mt-1 mb-3"
+                      >
                         Login
                       </button>
                     </div>

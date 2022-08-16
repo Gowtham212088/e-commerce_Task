@@ -186,7 +186,7 @@ a:hover {
 .addProduct-col {
   border: 2px solid #4b00a2;
   border-radius: 15px;
-  height: 72vh;
+  height: 80vh;
 }
 
 /*!___________________________________________________________________Forgot password______________________________________________*/
@@ -259,7 +259,7 @@ a:hover {
 
 /* ?___________________________________________________________Edit User_____________________________________________________________ */
 
-.editUser-container{
+.editUser-container {
   border: 3px solid #4b00a2;
   height: 100vh;
 }
@@ -298,10 +298,9 @@ a:hover {
   color: #4b00a2;
 }
 
-
 /* ____________________________________________________Product Info container_______________________________________ */
 
-.parent{
+.parent {
   display: flex;
   justify-content: center;
   background-image: url("https://images.unsplash.com/photo-1620783770629-122b7f187703?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
@@ -309,13 +308,13 @@ a:hover {
   background-size: 100%;
 }
 
-.product-image{
+.product-image {
   position: relative;
   top: 175px;
   border-radius: 15px;
 }
 
-.rows{
+.rows {
   /* border:2px solid #4b00a2; */
   position: relative;
   top: 285px;
@@ -324,116 +323,251 @@ a:hover {
 
 /*________________________________________________________Admin Dash_____________________________________________  */
 
-.admin_dash_cols{
-  border:1px solid #4b00a2;
+.admin_dash_cols {
+  border: 1px solid #4b00a2;
   border-radius: 25px;
   height: 350px;
   margin-top: 150px;
-  transition-duration: .5s;
-
+  transition-duration: 0.5s;
 }
 
-.admin_dash_cols:hover{
+.admin_dash_cols:hover {
   cursor: pointer;
-  border:1px solid #4b00a2;
+  border: 1px solid #4b00a2;
   height: 400px;
   width: 35%;
-  transition-duration: .6s;
+  transition-duration: 0.6s;
   margin-bottom: 25px;
 }
 
-#Admin-col1{
+#Admin-col1 {
   background-image: url("https://img.freepik.com/free-vector/demand-analysts-shaking-hands-from-laptops-screens-planning-future-demand-demand-planning-demand-analytics-digital-sales-forecast-concept-illustration_335657-2098.jpg?w=1380&t=st=1660552561~exp=1660553161~hmac=972699b21628ec2758e5a6dafc39580d9c4dad9206490cefb1e9a23adea997dc");
   background-position: center;
   background-size: cover;
 }
 
-#Admin-col2{
+#Admin-col2 {
   background-image: url("https://img.freepik.com/free-photo/3d-illustration-smartphone-with-blank-white-screen-cardboard-boxes-e-commerce-shipping-service-concept_58466-14530.jpg?w=1060&t=st=1660553550~exp=1660554150~hmac=26a4b2df1b1c3f615227a727d93773d197cab0d9ef03045707381406267f2922");
   background-position: center;
   background-size: cover;
 }
 
-#Admin-col3{
+#Admin-col3 {
   background-image: url("https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information_335657-2605.jpg?w=826&t=st=1660553897~exp=1660554497~hmac=036ecff7a7be3393be4447a518c123cd5c7a79fc6bcfd5116456bd13e3190b0b");
   background-position: center;
   background-size: cover;
 }
 
-#Admin-col4{
+#Admin-col4 {
   background-image: url("https://img.freepik.com/premium-vector/document-contract-signing_82574-9174.jpg?w=1380");
   background-position: center;
   background-size: cover;
 }
 
-#Admin-col5{
+#Admin-col5 {
   background-image: url("https://img.freepik.com/free-vector/follow-me-social-business-theme-design_24877-50426.jpg?w=826&t=st=1660556780~exp=1660557380~hmac=c8067ef12247b8e16533a1a51a54d51b4fdb0af1faa697c122fd11ad095880e9");
   background-position: center;
   background-size: cover;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap');
-.seller-font{
+@import url("https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap");
+.seller-font {
   color: #4b00a2;
   /* font-size: 55px; */
   font-weight: 700;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
 }
 
-.logout-data{
+.logout-data {
   position: relative;
   bottom: 25px;
 }
 /*_____________________________________________________________Seller Dashboard____________________________________________________  */
 
-
-.seller_dash_cols{
-  border:1px solid #4b00a2;
+.seller_dash_cols {
+  border: 1px solid #4b00a2;
   border-radius: 25px;
   height: 350px;
   margin-top: 150px;
-  transition-duration: .5s;
-
+  transition-duration: 0.5s;
 }
 
-.seller_dash_cols:hover{
+.seller_dash_cols:hover {
   cursor: pointer;
-  border:1px solid #4b00a2;
+  border: 1px solid #4b00a2;
   height: 400px;
   width: 35%;
-  transition-duration: .6s;
+  transition-duration: 0.6s;
   margin-bottom: 25px;
 }
 
-#seller-col1{
+#seller-col1 {
   background-image: url("https://img.freepik.com/free-vector/video-upload-concept-illustration_114360-4702.jpg?w=826&t=st=1660630732~exp=1660631332~hmac=49d58e71decd25cb5f7a969ba3de07f02e13d213e67e4e0dbe7a44cbcfa08be7");
   background-position: top;
   background-size: cover;
 }
 
-#seller-col2{
+#seller-col2 {
   background-image: url("https://img.freepik.com/free-vector/approval-mark-product-advantage-rating-reviews-meeting-requirements_335657-3106.jpg?w=1380&t=st=1660631683~exp=1660632283~hmac=4ac6343b5f3820459fdad998622319e5eaaf3c9d664f0ce2f729fcdcd1db14e9");
   background-position: center;
   background-size: cover;
 }
 
-#seller-col3{
+#seller-col3 {
   background-image: url("https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information_335657-2605.jpg?w=826&t=st=1660553897~exp=1660554497~hmac=036ecff7a7be3393be4447a518c123cd5c7a79fc6bcfd5116456bd13e3190b0b");
   background-position: center;
   background-size: cover;
 }
 
-
-
-@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap');
-.seller-font{
+@import url("https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap");
+.seller-font {
   color: #4b00a2;
   /* font-size: 55px; */
   font-weight: 700;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
 }
 
-.logout-data{
+.logout-data {
   position: relative;
   bottom: 25px;
+}
+/*? ___________________________________________________Reset Password____________________________________________________ */
+
+.formdata {
+  position: relative;
+  left: 65px;
+}
+
+.reset-box {
+  border-radius: 60px;
+  background-color: rgba(239, 239, 239, 0.375);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.reset-login img {
+  border-top-left-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+img {
+  object-fit: cover;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap");
+.reset-login h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Pacifico", cursive;
+}
+
+.reset-inp {
+  height: 50px;
+  width: 70%;
+  border: none;
+  outline: none;
+  border-radius: 60px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.reset-btn1 {
+  height: 50px;
+  width: 50%;
+  border: none;
+  outline: none;
+  border-radius: 60px;
+  font-weight: 600;
+  background: #f12315;
+  position: relative;
+  left: 40px;
+}
+
+.reset-btn1:hover {
+  background: #c80e02;
+  transition: 0.5s;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.reset-pass {
+  color: blue;
+}
+
+.reset-pass:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/*?__________________________________________________________________________________________Admin Pannel__________________________________________________________  */
+
+/** Admin Dashboard  */
+
+.dash-activity {
+  border-left: 10px solid #0d6efd;
+  background-color: rgb(255, 250, 180);
+  border-radius: 5px;
+  width: 350px;
+}
+
+.dash-activity1 {
+  border-left: 10px solid #198754;
+  background-color: rgb(255, 250, 180);
+  border-radius: 5px;
+  width: 350px;
+}
+
+.dash-activity2 {
+  border-left: 10px solid #0ccaf0;
+  background-color: rgb(255, 250, 180);
+  border-radius: 5px;
+  width: 350px;
+}
+
+.dash-activity3 {
+  border-left: 10px solid #ffc107;
+  background-color: rgb(255, 250, 180);
+  border-radius: 5px;
+  width: 350px;
+}
+
+.admin-container {
+  border: 2px solid red;
+  height: 100vh;
+}
+.admin-row {
+  border: 2px solid red;
+  border-bottom: none;
+  height: 45vh;
+  background-image: url("https://r4.wallpaperflare.com/wallpaper/800/831/598/digital-art-neon-mountains-lake-wallpaper-af8582fc5ee62cdbf52c68a2617124d4.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.admin-col {
+  /* border: 2px solid red;
+  height: 25vh;
+ width: 25vh;
+ border-radius: 100%;
+ position: relative;
+ top: 75px; */
+}
+
+.admin-img {
+  width: 25vh;
+  height: 25vh;
+  border-radius: 100%;
+  position: relative;
+  top: 75px;
+  border: 2px solid goldenrod;
+}
+
+.edit-button {
+  position: relative;
+  top: 150px;
+  right: 90px;
+}
+
+.edit-admin {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border-radius: 45px;
 }

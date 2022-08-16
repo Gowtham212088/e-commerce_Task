@@ -18,6 +18,8 @@ import MyProducts from "./Vendor pages/ViewProducts";
 import ViewProducts from "./Admin/ViewProducts";
 import UserData from "./Admin/UserData";
 import PurchaseData from "./Admin/PurchaseData";
+import AddProduct from "./Vendor pages/AddProducts";
+import ResetPassword from "./Login&SignUp page/passwordResetPage";
 
 function App() {
   return (
@@ -45,7 +47,7 @@ function App() {
         </Route>
 
         <Route exact path="/approveProducts">
-          < ViewProducts/>
+          <ViewProducts />
         </Route>
 
         <Route path="/admin-login">
@@ -58,6 +60,14 @@ function App() {
 
         <Route exact path="/vendor-dashboard">
           <VendorDashboard />
+        </Route>
+
+        <Route path="/MyProducts">
+          <MyProducts />
+        </Route>
+
+        <Route path="/reset-password/:_id/:token">
+          <ResetPassword />
         </Route>
 
         <Route exact path="/admin-dashboard">
@@ -76,18 +86,21 @@ function App() {
           <ViewUser />
         </Route>
 
-        <Route  path="/UserData">
+        <Route path="/UserData">
           <UserData />
         </Route>
 
-        <Route  path="/PurchaseData">
+        <Route path="/PurchaseData">
           <PurchaseData />
+        </Route>
+
+        <Route path="/AddProduct">
+          <AddProduct />
         </Route>
 
         <Route exact path="/users/edit/:id">
           <EditUser />
         </Route>
-        
       </Switch>
     </div>
   );

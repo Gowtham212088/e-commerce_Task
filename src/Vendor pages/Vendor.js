@@ -8,7 +8,6 @@ import MyProducts from "../Vendor pages/ViewProducts";
 import { useHistory } from "react-router-dom";
 
 const Vendor = () => {
-
   const history = useHistory();
 
   return (
