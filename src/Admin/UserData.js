@@ -34,7 +34,7 @@ console.log(datas);
     
     var config = {
       method: 'get',
-      url: 'http://localhost:5000/user/getInfo',
+      url: `${Api}/user/getInfo`,
       headers: { 
         "x-auth-token": localStorage.getItem("token"),
          'Content-Type': 'application/json'

@@ -30,7 +30,7 @@ const Vendorlogin = () => {
 
     var config = {
       method: "post",
-      url: "http://localhost:5000/conform/mailVerification",
+      url: `${Api}/conform/mailVerification`,
       headers: {
         "Content-Type": "application/json",
       },

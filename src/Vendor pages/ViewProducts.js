@@ -9,6 +9,7 @@ import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 import axios from "axios";
 import { useEffect } from "react";
+import { Api } from "../data/API";
 
 const MyProducts = () => {
   const history = useHistory();
@@ -53,7 +54,7 @@ const MyProducts = () => {
 
     var config = {
       method: "get",
-      url: `http://localhost:5000/seller/myProducts/userId/${userId}`,
+      url: `${Api}/seller/myProducts/userId/${userId}`,
     };
 
     axios(config)

@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 import { useHistory,Link } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 import TextField from "@mui/material/TextField";
-
+import {Api} from "../data/API"
 
 const PurchaseData=()=>{
   
@@ -18,7 +18,7 @@ useEffect(()=>{
   
   var config = {
     method: 'get',
-    url: 'http://localhost:5000/user/purchaseInfo',
+    url: `${Api}/user/purchaseInfo`,
     headers: { 
       "x-auth-token": localStorage.getItem("token"),
     },
