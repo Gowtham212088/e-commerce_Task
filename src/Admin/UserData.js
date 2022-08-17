@@ -140,8 +140,8 @@ console.log(datas);
             <th scope="col"> Sl.No </th>
             <th scope="col">Name</th>
             <th scope="col"> country </th>
-            <th scope="col"> pincode </th>
             <th scope="col"> Home town </th>
+            <th scope="col"> pincode </th>
           </tr>
         </thead>
         <tbody>

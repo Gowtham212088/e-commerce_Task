@@ -91,13 +91,13 @@ function VendorDashboard() {
         >
           <h1 className="seller-font">Approval Status</h1>
         </div>
-        <div
+        {/* <div
         //   onClick={() => history.push("/UserData")}
           id="Admin-col3"
           className="col-sm-3 col-md-3 col-lg-3 admin_dash_cols"
         >
           <h1 className="seller-font"> User Data </h1>
-        </div>
+        </div> */}
         
       
        

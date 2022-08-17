@@ -130,9 +130,9 @@ useEffect(()=>{
         <thead className="table-responsive">
           <tr>
             <th scope="col"> Sl.No </th>
+            <th scope="col"> Image </th>
             <th scope="col">Product Name</th>
             <th scope="col">Invoice Id</th>
-            <th scope="col"> Image </th>
             <th scope="col"> categories </th>
             <th scope="col"> Quantity </th>
             <th scope="col"> Total </th>
@@ -143,16 +143,13 @@ useEffect(()=>{
             .map(({ name, _id, poster, productType, pincode, quantity ,price}, id) => (
               <tr>
                 <th scope="row">{id + 1} </th>
-                
+                <td><img src={poster} width="250px" /> </td>
                 <td>{name} </td>
                 <td>{_id} </td>
-                <td>{poster} </td>
                 <td>{productType} </td>
                 <td> {quantity} </td>
                 <td> <b> {`₹ ${price*quantity}`}</b> </td>
-
-               
-              </tr>
+            </tr>
             ))}
         </tbody>
       </table>

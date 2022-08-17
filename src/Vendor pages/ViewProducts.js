@@ -162,9 +162,10 @@ const MyProducts = () => {
           </div>
         </div>
       </div>
-
-      <table className="table table-light  table-responsive">
-        <thead className="table-responsive">
+      <section>
+<div className=" table-responsive">
+      <table className="table table-light table-hover">
+        <thead className="bg-dark">
           <tr>
             <th scope="col"> Sl.No </th>
             <th scope="col">Poster</th>
@@ -202,6 +203,8 @@ const MyProducts = () => {
             ))}
         </tbody>
       </table>
+      </div>
+      </section>
     </div>
   );
 };

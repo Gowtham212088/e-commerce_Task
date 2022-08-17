@@ -10,6 +10,8 @@ import { removeProduct } from "../redux/cartRedux";
 import StripeCheckout from "react-stripe-checkout";
 import { Api } from "../data/API";
 import axios from "axios";
+import { Button } from "@mui/material";
+import CreditScoreIcon from '@mui/icons-material/CreditScore';
 const KEY =
   "pk_test_51LWeIHSGFNS9bnCsc4y5WUqUEmYZazRmLNr4ExLvh7vFwumwVGNPR4D9da1yY0PXnSXYrBXrUmTvwT3H7KWa3gra00yZBQ1KKj";
 
@@ -23,7 +25,7 @@ const Cart = () => {
   const product = cart.products;
   const quantity = cart.quantity;
   const total = cart.total;
-
+console.log(product);
   // remove from cart
   const handleRemove = () => {
     dispatch(removeProduct({ product, price: product.price, quantity, total }));
@@ -41,7 +43,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="container-fluid cart-container">
+    <div className="container-fluid cart-contain">
       {product.map((product, index) => (
         <CartTemplate
           {...product}
@@ -75,9 +77,9 @@ const Cart = () => {
             currency="INR"
             stripeKey={KEY}
           >
-            <button className="btn btn-outline-danger text-warning fw-bold">
-              Checkout Now
-            </button>
+            <Button variant="outlined">
+             <CreditScoreIcon style={{marginRight:"7px"}}/>  Pay Now
+            </Button>
           </StripeCheckout>
         </div>
       </div>
@@ -85,24 +87,24 @@ const Cart = () => {
   );
 };
 
-function CartTemplate({ poster, _id, name, quantity, price, delbtn }) {
+function CartTemplate({ poster, _id, name,summary , quantity, price, delbtn }) {
   return (
-    <div className="col-sm-5 col-md-6 MainContent_Text">
-      <div class="card border-0 shadow-lg rounded-3 mx-auto text-center m-2">
-        <div className="text-center">
-          <img src={poster} class="card-img-top w-50" alt="..." />
-        </div>
-        <div class="card-body">
-          <h6 className="fw-bold text-secondary"> Name: {name}</h6>
-          <h6 className="fw-bold text-secondary">Id: {_id}</h6>
-          <h6 className="fw-bold text-secondary">Qty: {quantity}Nos</h6>
-          <h6 className="fw-bold text-secondary">
-            Price: <span className="text-success">₹ {price * quantity}</span>
-          </h6>
-          <span className="delbtn">{delbtn}</span>
-        </div>
-      </div>
-    </div>
+   <div>
+   <div className="row">
+<div className="col-md-6"> <img id="img-cart" width="350px" className="img-fluid" src={poster} alt={name} /> </div>
+
+<div className="col-md-6 py-5 " id="nps">
+
+ <h1 className="px-5 text-start"> {name} </h1>
+ <h2> {`₹ ${price}`} </h2>
+ <h4> {summary} </h4>
+ <h4 style={{color:"green"}}> Order Id : {_id} </h4>
+ <h3 > {quantity}Nos </h3>
+ <span> {delbtn} </span> 
+</div>
+
+</div>
+   </div>
   );
 }
 
