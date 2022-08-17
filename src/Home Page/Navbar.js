@@ -8,8 +8,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 import { useSelector } from "react-redux";
-
-
+import { FilledInput, FormControl, InputLabel } from "@mui/material";
 const Navbar = () => {
 
   const history = useHistory();
@@ -28,6 +27,7 @@ const Navbar = () => {
           <img src={site_logo} alt="nav-img" className="mb-2" width="30px" />{" "}
           Better Buys
         </a>
+
         <button
           className="navbar-toggler border-"
           type="button"
@@ -49,7 +49,7 @@ const Navbar = () => {
                 // onClick={() => history.push("/vendor-login")}
               >
                 {" "}
-                Seller{" "}
+                <AddBusinessIcon style={{fontSize:"45px"}} />  Seller{" "}
               </a>
             </li>
             <li className="nav-item">
@@ -60,7 +60,7 @@ const Navbar = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
               >
-                Admin
+             <AdminPanelSettingsIcon style={{fontSize:"45px"}}/>   Admin
               </a>
 
               <div
