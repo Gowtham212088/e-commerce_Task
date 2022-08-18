@@ -9,6 +9,7 @@ import { Link, useHistory } from "react-router-dom";
 import AdminNav from "./AdminNav";
 import site_logo from "../images/site_logo.png";
 import { Api } from "../data/API";
+import { green } from "@mui/material/colors";
 
 
 function UserData() {
@@ -134,32 +135,40 @@ console.log(datas);
         </div>
       </div>
 
-      <table className="table table-light   table-responsive">
+   <div className="table-responsive">
+      <table className="table table-light">
         <thead className="table-responsive">
           <tr>
             <th scope="col"> Sl.No </th>
             <th scope="col">Name</th>
+            <th scope="col">Email</th>
             <th scope="col"> country </th>
-            <th scope="col"> Home town </th>
+            <th scope="col"> city </th>
+            <th scope="col"> Address </th>
             <th scope="col"> pincode </th>
+            <th scope="col"> Money Spent  </th>
           </tr>
         </thead>
         <tbody>
           {datas.filter((filt) => filt.name.toLowerCase().includes(query))
-            .map(({ name, country, homeTown, pincode }, id) => (
+            .map(({ name, email, Address, country, city, pincode, money_spent }, id) => (
               <tr>
                 <th scope="row">{id + 1} </th>
                 
                 <td>{name} </td>
+                <td>{email} </td>
                 <td>{country} </td>
-                <td>{homeTown} </td>
+                <td>{city} </td>
+                <td>{Address} </td>
                 <td> {pincode} </td>
+                <td> <b style={{color:"green"}}>{`₹ ${money_spent}`} </b> </td>
 
                
               </tr>
             ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

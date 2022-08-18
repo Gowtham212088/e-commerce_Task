@@ -1,58 +1,52 @@
-import React,{useEffect, useState} from "react";
-import { useHistory,Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory, Link } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 import TextField from "@mui/material/TextField";
-import {Api} from "../data/API"
+import { Api } from "../data/API";
 
-const PurchaseData=()=>{
-  
- const history = useHistory()
- const [query, setQuery] = useState("");
- const [datas,setDatas]=useState([]);
-console.log(datas);
+const PurchaseData = () => {
+  const history = useHistory();
+  const [query, setQuery] = useState("");
+  const [datas, setDatas] = useState([]);
+  console.log(datas);
 
+  useEffect(() => {
+    var axios = require("axios");
+    var data = "";
 
-useEffect(()=>{
-  var axios = require('axios');
-  var data = '';
-  
-  var config = {
-    method: 'get',
-    url: `${Api}/user/purchaseInfo`,
-    headers: { 
-      "x-auth-token": localStorage.getItem("token"),
-    },
-    data : data
+    var config = {
+      method: "get",
+      url: `${Api}/user/purchaseInfo`,
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        setDatas(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
+  const handleLogout = () => {
+    window.localStorage.clear();
+    history.push("/");
   };
-  
-  axios(config)
-  .then(function (response) {
-    setDatas(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-},[])
 
- 
-
-
-
-  const handleLogout = ()=>{
-    window.localStorage.clear()
-    history.push("/")
-   }
-
-  return(
+  return (
     <div>
       <nav
         class="navbar navbar-expand-lg  "
         style={{ backgroundColor: "#4b00a2" }}
       >
         <div class="container-fluid">
-          <Link to="/"
+          <Link
+            to="/"
             style={{ color: "#EEE3FF" }}
-            
             className="navbar-brand fs-3 font-clr"
           >
             <img src={site_logo} alt="nav-img" className="mb-2" width="30px" />{" "}
@@ -72,7 +66,12 @@ useEffect(()=>{
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <Link to="/admin-dashboard" class="nav-link active" aria-current="page" href="#">
+                <Link
+                  to="/admin-dashboard"
+                  class="nav-link active"
+                  aria-current="page"
+                  href="#"
+                >
                   Home
                 </Link>
               </li>
@@ -126,37 +125,48 @@ useEffect(()=>{
         </div>
       </div>
 
-      <table className="table table-light   table-responsive">
-        <thead className="table-responsive">
-          <tr>
-            <th scope="col"> Sl.No </th>
-            <th scope="col"> Image </th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Invoice Id</th>
-            <th scope="col"> categories </th>
-            <th scope="col"> Quantity </th>
-            <th scope="col"> Total </th>
-          </tr>
-        </thead>
-        <tbody>
-          {datas.filter((filt) => filt.name.toLowerCase().includes(query))
-            .map(({ name, _id, poster, productType, pincode, quantity ,price}, id) => (
-              <tr>
-                <th scope="row">{id + 1} </th>
-                <td><img src={poster} width="250px" /> </td>
-                <td>{name} </td>
-                <td>{_id} </td>
-                <td>{productType} </td>
-                <td> {quantity} </td>
-                <td> <b> {`₹ ${price*quantity}`}</b> </td>
+      <div className="table-responsive">
+        <table className="table table-light">
+          <thead className="table-responsive">
+            <tr>
+              <th scope="col"> Sl.No </th>
+              <th scope="col"> Image </th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Invoice Id</th>
+              <th scope="col"> categories </th>
+              <th scope="col"> Quantity </th>
+              <th scope="col"> Total </th>
             </tr>
-            ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {datas
+              .filter((filt) => filt.name.toLowerCase().includes(query))
+              .map(
+                (
+                  { name, _id, poster, productType, pincode, quantity, price },
+                  id
+                ) => (
+                  <tr>
+                    <th scope="row">{id + 1} </th>
+                    <td>
+                      <img src={poster} width="250px" />{" "}
+                    </td>
+                    <td>{name} </td>
+                    <td>{_id} </td>
+                    <td>{productType} </td>
+                    <td> {quantity} </td>
+                    <td>
+                      {" "}
+                      <b> {`₹ ${price * quantity}`}</b>{" "}
+                    </td>
+                  </tr>
+                )
+              )}
+          </tbody>
+        </table>
+      </div>
     </div>
-   
-    
-  )
-}
+  );
+};
 
 export default PurchaseData;

@@ -228,13 +228,6 @@ const history = useHistory();
   //! Change Handlers
 const handleSubmit = (e) => {
     e.preventDefault();
-    // setdistrict("")
-    // setRole("")
-    // setEmail("")
-    // setName("")
-    // setPassword("")
-    // setImage("")
-    // setMessage("")
     const signUpData = {
       name:name,
       email:email,
@@ -251,10 +244,11 @@ const handleSubmit = (e) => {
     })
     .then((res) => {
       console.log(res.data)
-    })
+    history.push('/viewUser')
+    }).then(()=> history.push('/viewUser'))
     .catch((error) => {
       console.error(error)
-    })
+  })
     setdistrict("")
     setRole("")
     setName("")

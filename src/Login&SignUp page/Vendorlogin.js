@@ -107,7 +107,7 @@ const Vendorlogin = () => {
               <div>
                 <h1 className="vendorLogIn-font"> Vendor Login </h1>
                 <h4 className="SignIn-font"> Sign in into your account </h4>
-                <form>
+                <form onSubmit={handleClick}>
                   <div className="form-row">
                     <div className="col-lg-7">
                       <input
@@ -165,7 +165,7 @@ const Vendorlogin = () => {
                           ></button>
                         </div>
                         <div className="modal-body">
-                          <form>
+                          <form >
                             <div className="mb-3">
                               <label
                                 for="recipient-name"
@@ -195,8 +195,8 @@ const Vendorlogin = () => {
                   <div className="form-row">
                     <div className="col-lg-7">
                       <button
-                        type="button"
-                        onClick={handleClick}
+                        type="submit"
+                        // onClick={handleClick}
                         className="signIn-butt mt-1 mb-3"
                       >
                         Login

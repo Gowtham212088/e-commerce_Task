@@ -82,7 +82,7 @@ const AddProduct = () => {
       .post(`${Api}/request/products`, values)
       .then((res) => {
         console.log(res.data);
-      })
+      }).then(()=>history.push('/MyProducts'))
       .catch((error) => {
         console.error(error);
       });
@@ -280,7 +280,7 @@ const AddProduct = () => {
             variant="contained"
             style={{ backgroundColor: "#4b00a2", padding: "0" }}
           >
-            Sign Up
+            Create Request
           </Button>
         </div>
       </div>
