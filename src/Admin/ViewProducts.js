@@ -9,9 +9,8 @@ import { Link, useHistory } from "react-router-dom";
 import { Api } from "../data/API";
 
 const ViewProducts = () => {
-
-const [product,setProduct] = useState([])
-console.log(product);
+  const [product, setProduct] = useState([]);
+  console.log(product);
   const history = useHistory();
 
   const updateProduct = (id) => {
@@ -34,9 +33,8 @@ console.log(product);
       .then((response) => setProduct(response));
   };
 
-
   useEffect(() => {
-    getStudents()
+    getStudents();
   }, []);
 
   const handleLogout = () => {
@@ -82,7 +80,12 @@ console.log(product);
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <Link to="/admin-dashboard" class="nav-link active"  aria-current="page" href="#">
+                <Link
+                  to="/admin-dashboard"
+                  class="nav-link active"
+                  aria-current="page"
+                  href="#"
+                >
                   Home
                 </Link>
               </li>
@@ -136,46 +139,48 @@ console.log(product);
           </div>
         </div>
       </div>
-
-      <table className="table table-light  table-responsive">
-        <thead className="table-responsive">
-          <tr>
-            <th scope="col"> Sl.No </th>
-            <th scope="col">Poster</th>
-            <th scope="col">Name</th>
-            <th scope="col"> Description </th>
-            <th scope="col"> Approval </th>
-          </tr>
-        </thead>
-        <tbody>
-          {product
-            .filter((filt) => filt.name.includes(query))
-            .map(({ poster, Name, summary }, id) => (
-              <tr>
-                <th scope="row">{id + 1} </th>
-                <td>
-                  <img src={poster} width="125px" />{" "}
-                </td>
-                <td>{Name} </td>
-                <td>{summary} </td>
-                <td>
-                  {" "}
-                  <Button onClick={()=>updateProduct(id)} color="success" variant="outlined">
-                    
-                    Approve{" "}
-                    <CheckIcon
-
+      <div className="table-responsive">
+        <table className="table table-light  table-responsive">
+          <thead>
+            <tr>
+              <th scope="col"> Sl.No </th>
+              <th scope="col">Poster</th>
+              <th scope="col">Name</th>
+              <th scope="col"> Description </th>
+              <th scope="col"> Approval </th>
+            </tr>
+          </thead>
+          <tbody>
+            {product
+              .filter((filt) => filt.name.includes(query))
+              .map(({ poster, name, summary }, id) => (
+                <tr>
+                  <th scope="row">{id + 1} </th>
+                  <td>
+                    <img src={poster} width="125px" />{" "}
+                  </td>
+                  <td>{name} </td>
+                  <td>{summary} </td>
+                  <td>
+                    {" "}
+                    <Button
+                      onClick={() => updateProduct(id)}
                       color="success"
-                      style={{ color: "green" }}
-                      fontSize="large"
-                    />
-                  </Button>
-                  
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+                      variant="outlined"
+                    >
+                      Approve{" "}
+                      <CheckIcon
+                        color="success"
+                        style={{ color: "green" }}
+                        fontSize="large"
+                      />
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

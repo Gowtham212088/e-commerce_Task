@@ -36,6 +36,7 @@ const ProductList = () => {
 };
 
 export function ProductBox({ name, category, poster, summary, price, id }) {
+  
   const history = useHistory();
 
   return (

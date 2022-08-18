@@ -177,7 +177,7 @@ const MyProducts = () => {
         <tbody>
           {resp
             .filter((filt) => filt.name.toLowerCase().includes(query))
-            .map(({ poster, name, summary, Approvel }, index) => (
+            .map(({name, poster,summary, Approvel }, index) => (
               <tr>
                 <th scope="row">{index + 1} </th>
                 <td>

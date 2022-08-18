@@ -125,7 +125,8 @@ function ViewUser() {
         </div>
       </div>
 
-      <table className="table table-light   table-responsive">
+<div className="table-responsive">
+      <table className="table table-light   ">
         <thead className="table-responsive">
           <tr>
             <th scope="col"> Sl.No </th>
@@ -172,6 +173,7 @@ function ViewUser() {
             ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
