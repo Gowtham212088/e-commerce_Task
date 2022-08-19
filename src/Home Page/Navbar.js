@@ -1,4 +1,5 @@
 import React from "react";
+import ReorderIcon from '@mui/icons-material/Reorder';
 import Button from "@mui/material/Button";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Badge from "@mui/material/Badge";
@@ -29,7 +30,8 @@ const Navbar = () => {
         </a>
 
         <button
-          className="navbar-toggler border-"
+        style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2"}}
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -37,7 +39,7 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon text-dark"></span>
+          <span className="navbar-toggler-icon "> <ReorderIcon style={{color:"#4b00a2"}}/> </span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
