@@ -134,7 +134,7 @@ const ViewProducts = () => {
 
       <div className="card">
         <div className="card-body d-flex justify-content-between">
-          <h1 className="text-danger"> View Products </h1>
+          <h1 className="text-danger"> Approve Products </h1>
 
           <div>
             <TextField

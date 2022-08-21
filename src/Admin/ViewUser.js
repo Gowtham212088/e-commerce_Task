@@ -114,7 +114,7 @@ function ViewUser() {
       </nav>
       <div className="card">
         <div className="card-body d-flex justify-content-between">
-          <h1 className="text-danger"> View User </h1>
+          <h1 className="text-danger"> View Seller Data </h1>
 
           <div>
             <TextField

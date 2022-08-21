@@ -267,7 +267,7 @@ const handleSubmit = (e) => {
     })
     .then((res) => {
       console.log(res.data)
-    }).then(()=> history.push('/viewUser'))
+    }).then(()=>history.push('/vendor-login'))
     .catch((error) => {
       console.error(error)
   })
@@ -278,6 +278,7 @@ const handleSubmit = (e) => {
     setEmail("")
     setPassword("")
     setImage("")
+    
 };
 
   const handleChangeRole = (event) => {
@@ -312,6 +313,7 @@ const handleSubmit = (e) => {
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
+                  value={firstName}
                   required
                   fullWidth
                   id="firstName"
@@ -324,6 +326,7 @@ const handleSubmit = (e) => {
                 <TextField
                   required
                   fullWidth
+                  value={secondName}
                   id="lastName"
                   label="Last Name"
                   name="lastName"
@@ -335,6 +338,7 @@ const handleSubmit = (e) => {
                 <TextField
                   required
                   fullWidth
+                  value={email}
                   id="email"
                   label="Email Address"
                   name="email"
@@ -389,6 +393,7 @@ const handleSubmit = (e) => {
                 <TextField
                   required
                   fullWidth
+                  value={password}
                   name="password"
                   label="Password"
                   type="password"

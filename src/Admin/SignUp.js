@@ -11,262 +11,47 @@ import axios from "axios";
 import { Api } from "../data/API";
 import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
+import CheckIcon from "@mui/icons-material/Check";
 
 
 const SignUp = () => {
 
 const history = useHistory();
+const [product, setProduct] = useState([]);
+  console.log(product);
 
-  //! This is for District Dropdown
-  const Districs = [
-    {
-      value: "Ariyalur",
-      label: "Ariyalur",
-    },
-    {
-      value: "Chengalpattu",
-      label: "Chengalpattu",
-    },
-    {
-      value: "Chennai",
-      label: "Chennai",
-    },
-    {
-      value: "Coimbatore",
-      label: "Coimbatore",
-    },
-    {
-      value: "Cuddalore",
-      label: "Cuddalore",
-    },
-    {
-      value: "Dharmapuri",
-      label: "Dharmapuri",
-    },
-    {
-      value: "Dindigul",
-      label: "Dindigul",
-    },
-    {
-      value: "Erode",
-      label: "Erode",
-    },
-    {
-      value: "Kallakurichi",
-      label: "Kallakurichi",
-    },
-    {
-      value: "Kanchipuram",
-      label: "Kanchipuram",
-    },
-    {
-      value: "Kanyakumari",
-      label: "Kanyakumari",
-    },
-    {
-      value: "Karur",
-      label: "Karur",
-    },
-    {
-      value: "Krishnagiri",
-      label: "Krishnagiri",
-    },
-    {
-      value: "Madurai",
-      label: "Madurai",
-    },
-    {
-      value: "Nagapattinam",
-      label: "Nagapattinam",
-    },
-
-    {
-      value: "Namakkal",
-      label: "Namakkal",
-    },
-    {
-      value: "Nilgiris",
-      label: "Nilgiris",
-    },
-    {
-      value: "Perambalur",
-      label: "Perambalur",
-    },
-    {
-      value: "Pudukkottai",
-      label: "Pudukkottai",
-    },
-    {
-      value: "Ramanathapuram",
-      label: "Ramanathapuram",
-    },
-    {
-      value: "Ranipet",
-      label: "Ranipet",
-    },
-    {
-      value: "Salem",
-      label: "Salem",
-    },
-    {
-      value: "Sivaganga",
-      label: "Sivaganga",
-    },
-    {
-      value: "Tenkasi",
-      label: "Tenkasi",
-    },
-    {
-      value: "Thanjavur",
-      label: "Thanjavur",
-    },
-    {
-      value: "Theni",
-      label: "Theni",
-    },
-    {
-      value: "Thoothukudi",
-      label: "Thoothukudi",
-    },
-    {
-      value: "Tiruchirappalli",
-      label: "Tiruchirappalli",
-    },
-    {
-      value: "Tirunelveli",
-      label: "Tirunelveli",
-    },
-    {
-      value: "Tirupathur",
-      label: "Tirupathur",
-    },
-    {
-      value: "Tiruppur",
-      label: "Tiruppur",
-    },
-    {
-      value: "Tiruvallur",
-      label: "Tiruvallur",
-    },
-    {
-      value: "Tiruvannamalai",
-      label: "Tiruvannamalai",
-    },
-    {
-      value: "Tiruvarur",
-      label: "Tiruvarur",
-    },
-    {
-      value: "Vellore",
-      label: "Vellore",
-    },
-    {
-      value: "Viluppuram",
-      label: "Viluppuram",
-    },
-    {
-      value: "Virudhunagar",
-      label: "Virudhunagar",
-    },
-  ];
-
-  //! This is for Role Dropdown
-
-  const Role = [
-    {
-      value: "Admin",
-      label: "Admin",
-    },
-    {
-      value: "Vendor",
-      label: "Vendor",
-    },
-  ];
-  //! State Management
-  const [district, setdistrict] = useState("");
-
-  const [role, setRole] = useState("");
-
-  const [name, setName] = useState("");
-
-  const [email, setEmail] = useState("");
-
-  const [password, setPassword] = useState("");
-
-  const [image, setImage] = useState("");
-
-  // const [message,setMessage] = useState("")
-
-   //! Image Processing
-  //? Base 64 Code for image uploading.
-  let base64code = "";
-  const onChange = (e) => {
-    const files = e.target.files;
-    const file = files[0];
-    getBase64(file);
+  const updateProduct = (id) => {
+    fetch(`${Api}/approve/seller/${id}`, {
+      method: "PUT",
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+    }).then(() => getStudents()).then(()=>history.push('/viewUser'));
   };
 
-  const onLoad = (fileString) => {
-    console.log(fileString);
-    setImage(fileString);
-    this.base64code = fileString;
+  const getStudents = () => {
+    fetch(`${Api}/get/pendingUser`, {
+      method: "GET",
+      headers: {
+        "x-auth-token": localStorage.getItem("token"),
+      },
+    })
+      .then((data) => data.json())
+      .then((response) => setProduct(response));
   };
 
-  const getBase64 = (file) => {
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      onLoad(reader.result);
-    };
-  };
+  useEffect(() => {
+    getStudents();
+  }, []);
 
  const handleLogout = ()=>{
   window.localStorage.clear()
   history.push("/")
  }
 
-  //! Change Handlers
-const handleSubmit = (e) => {
-    e.preventDefault();
-    const signUpData = {
-      name:name,
-      email:email,
-      password:password,
-      image:image,
-      role:role,
-      district:district
-    }
-    axios.post(`${Api}/create/users`,signUpData ,{
-      headers: {
-        "x-auth-token": localStorage.getItem("token"),
-        'Content-Type': 'application/json'
-      }
-    })
-    .then((res) => {
-      console.log(res.data)
-    history.push('/viewUser')
-    }).then(()=> history.push('/viewUser'))
-    .catch((error) => {
-      console.error(error)
-  })
-    setdistrict("")
-    setRole("")
-    setName("")
-    setEmail("")
-    setPassword("")
-    setImage("")
-};
+const [query,setQuery]=useState("")
 
-  const handleChangeRole = (event) => {
-    setRole(event.target.value);
-  };
-
-  const handleChangeDistrict = (event) => {
-    setdistrict(event.target.value);
-  };
-
-  // console.log({ District: District, role: role });
-  return (
+   return (
     <div className="signUp">
      <nav
         class="navbar navbar-expand-lg  "
@@ -337,131 +122,66 @@ const handleSubmit = (e) => {
         </div>
       </nav>
       
-      <div className="signUp-parent">
-        <form
-          onSubmit={handleSubmit}
-          className="col-sm-5 col-md-5 col-lg-5 d-flex flex-column signUp-col"
-        >
-          <h1 className="Add-user d-flex fs-1 justify-content-center mb-3">
-            Add user{" "}
-          </h1>
-          <TextField
-            type="text"
-            value={name}
-            name="username"
-            className="mt-4 me-4 ms-4"
-            id="outlined-basic"
-            label="Name"
-            variant="outlined"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <TextField
-            type="email"
-            value={email}
-            name="email"
-            className="mt-4 me-4 ms-4"
-            id="outlined-basic"
-            label="E-mail"
-            variant="outlined"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            value={password}
-            type="password"
-            name="password"
-            className="mt-4 me-4 ms-4"
-            id="outlined-basic"
-            label="Password"
-            variant="outlined"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <TextField
-            className="mt-4 me-4 ms-4"
-            id="outlined-select-currency"
-            select
-            label="District"
-            value={district}
-            onChange={handleChangeDistrict}
-            helperText="Please select your currency"
-          >
-            {Districs.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
+      
+      <div className="card">
+        <div className="card-body d-flex justify-content-between">
+          <h1 className="text-danger"> Approve Products </h1>
 
-          <TextField
-            className="mt-4 me-4 ms-4"
-            id="outlined-select-currency"
-            select
-            label="Role"
-            value={role}
-            onChange={handleChangeRole}
-            helperText="Please select your Role"
-          >
-            {Role.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-          
-          <div className="form-row py-3">
-                <div className="offset-1 col-lg-10">
-                  
-                  <input
-                    style={{ border: "1px solid red" }}
-                    type="file"
-                    onChange={onChange}
-                  />
-                  {/* <textarea rows="50" cols="50" value={this.base64code}></textarea> */}
-                </div>
-              </div>
-
-          <TextField
-            type="url"
-            name="Image_Url"
-            value={image}
-            className="mt-4 me-4 ms-4"
-            id="outlined-basic"
-            label="Image_Url"
-            variant="outlined"
-            onChange={(e) => setImage(e.target.value)}
-          />
-
-          <Button
-            type="submit"
-            className="mt-5 pt-2 pb-2 me-5 ms-5"
-            variant="contained"
-            style={{ backgroundColor: "#4b00a2", padding: "0" }}
-            onClick={() => {
-              const values = {
-                name: name,
-                email: email,
-                password: password,
-                image: image,
-                role: role,
-                district: district,
-                userDp:image,
-                product: [],
-              };
-              // fetch("http://localhost:5000/create/users", {
-              //   method: "POST",
-              //   body: JSON.stringify(values),
-              //   headers: { "content-type": "application/json" },
-              // }).then((data)=>{
-              //   setMessage(data)
-              //   console.log(message);
-              // })
-           
-            }}
-          >
-            {" "}
-            Sign Up{" "}
-          </Button>
-        </form>
+          <div>
+            <TextField
+              label="Search Name"
+              onChange={(event) => setQuery(event.target.value)}
+            />
+          </div>
+        </div>
       </div>
+      <div className="table-responsive">
+        <table className="table table-light  table-responsive">
+          <thead>
+            <tr>
+              <th scope="col"> Sl.No </th>
+              <th scope="col">Poster</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col"> Seller Id </th>
+              <th scope="col"> Password </th>
+              <th scope="col"> Approval </th>
+            </tr>
+          </thead>
+          <tbody>
+            {product
+              .filter((filt) => filt.name.includes(query))
+              .map(({ name,email,password,userDp,_id }, id) => (
+                <tr>
+                  <th scope="row">{id + 1} </th>
+                  <td>
+                    <img style={{borderRadius:"15%",objectFit:"contain"}} src={userDp} width="125px" height="125px" />{" "}
+                  </td>
+                  <td>{name} </td>
+                  <td>{email} </td>
+                  <td>{_id} </td>
+                  <td>{password} </td>
+                  <td>
+                    {" "}
+                    <Button
+                      onClick={() => updateProduct(id)}
+                      color="success"
+                      variant="outlined"
+                    >
+                      Approve{" "}
+                      <CheckIcon
+                        color="success"
+                        style={{ color: "green" }}
+                        fontSize="large"
+                      />
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+     
     </div>
   );
 };

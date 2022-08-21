@@ -122,7 +122,7 @@ function AdminDashboard() {
         >
           <h1  className="seller-font">
             {" "}
-            Create authority{" "}
+            Approve authority{" "}
           </h1>
         </div>
       </div>
