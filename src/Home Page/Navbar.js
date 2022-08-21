@@ -45,14 +45,13 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               {/*CODE FOR BOOTSTRAP MODAL (SIGN IN)  */}
-              <a
+              <Link
                 className="nav-link active fs-4 font-clr me-5"
-                href="/vendor-login"
-                // onClick={() => history.push("/vendor-login")}
+                to="/vendor-login"
               >
                 {" "}
                 <AddBusinessIcon style={{fontSize:"45px"}} />  Seller{" "}
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               {/* SignUp  popover (Bootstrap modal) */}
