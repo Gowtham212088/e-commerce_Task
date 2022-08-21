@@ -7,8 +7,13 @@ import { products } from "../data/Users";
 import site_logo from "../images/site_logo.png";
 import { Link, useHistory } from "react-router-dom";
 import { Api } from "../data/API";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 const ViewProducts = () => {
+
+
+  
   const [product, setProduct] = useState([]);
   console.log(product);
   const history = useHistory();

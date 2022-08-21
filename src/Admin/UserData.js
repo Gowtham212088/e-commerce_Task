@@ -29,8 +29,7 @@ console.log(datas);
    useEffect(()=>{
 
     var axios = require('axios');
-    var data = JSON.stringify({
-      "userId": "5654654646484245"
+    var data = JSON.stringify({"userId": "5654654646484245"
     });
     
     var config = {

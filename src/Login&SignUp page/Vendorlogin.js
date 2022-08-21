@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import vendor from "../images/vendor.png";
 import admin_side from "../images/onlineShopping.png";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Api } from "../data/API";
@@ -130,6 +130,7 @@ const Vendorlogin = () => {
                     </div>
                   </div>
 
+<div className="d-flex justify-content-justify-content-around gap-5">
                   <a
                     className="my-2"
                     data-bs-toggle="modal"
@@ -140,7 +141,16 @@ const Vendorlogin = () => {
                     {" "}
                     Forgot Password{" "}
                   </a>
-
+                  <Link
+                  to="/sellerSignup"
+                    className="my-2"
+                  
+                    href="#"
+                  >
+                    {" "}
+                    Don't have a account? Sign Up{" "}
+                  </Link>
+                  </div>
                   <div
                     className="modal fade"
                     id="exampleModal"

@@ -20,11 +20,12 @@ import UserData from "./Admin/UserData";
 import PurchaseData from "./Admin/PurchaseData";
 import AddProduct from "./Vendor pages/AddProducts";
 import ResetPassword from "./Login&SignUp page/passwordResetPage";
+import SellerSignUp from "./Login&SignUp page/SellerSignUp(MUI)";
+
 
 function App() {
   return (
     <div className="App">
-      {/* <AdminLogin/> */}
       <Switch>
         <Route exact path="/">
           <Navbar />
@@ -101,6 +102,11 @@ function App() {
         <Route exact path="/users/edit/:id">
           <EditUser />
         </Route>
+
+        <Route exact path="/sellerSignup">
+          <SellerSignUp />
+        </Route>
+
       </Switch>
     </div>
   );
