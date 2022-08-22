@@ -76,7 +76,7 @@ const AdminLogin = () => {
 
     var config = {
       method: "post",
-      url: `${Api}/user/signIn`,
+      url: `${Api}/admin/signIn`,
       headers: {
         "Content-Type": "application/json",
       },

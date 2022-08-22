@@ -58,7 +58,7 @@ const Vendorlogin = () => {
 
     var config = {
       method: "post",
-      url: `${Api}/user/signIn`,
+      url: `${Api}/seller/signIn`,
       headers: {
         "Content-Type": "application/json",
       },
