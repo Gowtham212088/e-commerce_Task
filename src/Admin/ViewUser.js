@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
+import ReorderIcon from '@mui/icons-material/Reorder';
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import TextField from "@mui/material/TextField";
@@ -9,8 +10,10 @@ import { Link, useHistory } from "react-router-dom";
 import AdminNav from "./AdminNav";
 import site_logo from "../images/site_logo.png";
 import { Api } from "../data/API";
+import { LinearProgress } from "@mui/material";
 function ViewUser() {
   const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const [seller, setSeller] = useState([]);
   console.log(seller);
   const history = useHistory();
@@ -32,7 +35,9 @@ function ViewUser() {
       },
     })
       .then((data) => data.json())
-      .then((response) => setSeller(response));
+      .then((response) => {setSeller(response)
+        setIsLoading(false);
+      });
   };
   console.log(seller);
   useEffect(() => getStudents(), []);
@@ -58,7 +63,8 @@ function ViewUser() {
             Better Buys
           </a>
           <button
-            class="navbar-toggler"
+        style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2"}}
+        class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -66,13 +72,13 @@ function ViewUser() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"> <ReorderIcon style={{color:"#4b00a2"}}/> </span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <Link to="/admin-dashboard" class="nav-link active" aria-current="page" href="#">
-                  Home
+                Dashboard
                 </Link>
               </li>
 
@@ -88,14 +94,10 @@ function ViewUser() {
                   Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 
                   <li>
                     <a class="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
+                      Admin Profile
                     </a>
                   </li>
                   <li>
@@ -173,6 +175,13 @@ function ViewUser() {
             ))}
         </tbody>
       </table>
+      {isLoading && (
+          <div className="text-center mt-5">
+
+            {/* loader */}
+            <LinearProgress  color="secondary" />
+          </div>
+        )}
       </div>
     </div>
   );

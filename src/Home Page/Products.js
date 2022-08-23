@@ -7,19 +7,32 @@ import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { useHistory } from "react-router-dom";
+import { LinearProgress } from "@mui/material";
 
 const ProductList = () => {
+
+  
+
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   console.log(data);
   React.useEffect(() => {
     axios.get(`${Api}/products/customers`).then((response) => {
       setData(response.data);
+      setIsLoading(false);
     });
   }, []);
 
   return (
     <div className="container mt-3">
-      <div className="row gap-3 justify-content-between ">
+      {isLoading && (
+          <div className="text-center mt-5">
+
+            {/* loader */}
+            <LinearProgress color="secondary" />
+          </div>
+        )}
+     <div className="row gap-3 justify-content-between ">
         {data.map((product, key) => (
           <ProductBox
             id={key}
@@ -41,6 +54,7 @@ export function ProductBox({ name, category, poster, summary, price, id }) {
 
   return (
     <div className="col-lg-3">
+      
       <div className="card mx-auto">
         <img
           src={poster}
@@ -66,7 +80,7 @@ export function ProductBox({ name, category, poster, summary, price, id }) {
               style={{ backgroundColor: "#4b00a2", border: "#4b00a2" }}
               className="btn btn-primary"
             >
-              {" "}
+              
               <ShoppingBagOutlinedIcon /> Buy now
             </a>
           </div>

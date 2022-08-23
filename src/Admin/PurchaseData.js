@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
+import ReorderIcon from '@mui/icons-material/Reorder';
 import site_logo from "../images/site_logo.png";
 import TextField from "@mui/material/TextField";
 import { Api } from "../data/API";
+import { LinearProgress } from "@mui/material";
 
 const PurchaseData = () => {
   const history = useHistory();
   const [query, setQuery] = useState("");
   const [datas, setDatas] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   console.log(datas);
 
   useEffect(() => {
@@ -26,6 +30,8 @@ const PurchaseData = () => {
     axios(config)
       .then(function (response) {
         setDatas(response.data);
+      setIsLoading(false);
+
       })
       .catch(function (error) {
         console.log(error);
@@ -53,7 +59,8 @@ const PurchaseData = () => {
             Better Buys
           </Link>
           <button
-            class="navbar-toggler"
+        style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2"}}
+        class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -61,7 +68,7 @@ const PurchaseData = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"> <ReorderIcon style={{color:"#4b00a2"}}/> </span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -72,7 +79,7 @@ const PurchaseData = () => {
                   aria-current="page"
                   href="#"
                 >
-                  Home
+                  Dashboard
                 </Link>
               </li>
 
@@ -88,14 +95,10 @@ const PurchaseData = () => {
                   Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  
                   <li>
                     <a class="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
+                      Admin Profile
                     </a>
                   </li>
                   <li>
@@ -113,10 +116,12 @@ const PurchaseData = () => {
         </div>
       </nav>
       <div className="card">
+     
         <div className="card-body d-flex justify-content-between">
           <h1 className="text-danger"> Purchase Data </h1>
 
           <div>
+            
             <TextField
               label="Search Name"
               onChange={(event) => setQuery(event.target.value)}
@@ -124,8 +129,9 @@ const PurchaseData = () => {
           </div>
         </div>
       </div>
-
+     
       <div className="table-responsive">
+      
         <table className="table table-light">
           <thead className="table-responsive">
             <tr>
@@ -138,7 +144,9 @@ const PurchaseData = () => {
               <th scope="col"> Total </th>
             </tr>
           </thead>
+          
           <tbody>
+            
             {datas
               .filter((filt) => filt.name.toLowerCase().includes(query))
               .map(
@@ -147,6 +155,7 @@ const PurchaseData = () => {
                   id
                 ) => (
                   <tr>
+                    
                     <th scope="row">{id + 1} </th>
                     <td>
                       <img src={poster} width="250px" />{" "}
@@ -162,8 +171,16 @@ const PurchaseData = () => {
                   </tr>
                 )
               )}
+              
           </tbody>
         </table>
+        {isLoading && (
+          <div className="text-center mt-5">
+
+            {/* loader */}
+            <LinearProgress  color="secondary" />
+          </div>
+        )}
       </div>
     </div>
   );

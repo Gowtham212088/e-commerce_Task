@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
+import ReorderIcon from '@mui/icons-material/Reorder';
 import CheckIcon from "@mui/icons-material/Check";
 import TextField from "@mui/material/TextField";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -9,11 +10,13 @@ import { Link, useHistory } from "react-router-dom";
 import { Api } from "../data/API";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { CircularProgress, LinearProgress } from "@mui/material";
 
 const ViewProducts = () => {
 
 
   
+  const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState([]);
   console.log(product);
   const history = useHistory();
@@ -24,7 +27,9 @@ const ViewProducts = () => {
       headers: {
         "x-auth-token": localStorage.getItem("token"),
       },
-    }).then(() => getStudents());
+    }).then(() => {getStudents()
+      
+        });
   };
 
   const getStudents = () => {
@@ -35,7 +40,9 @@ const ViewProducts = () => {
       },
     })
       .then((data) => data.json())
-      .then((response) => setProduct(response));
+      .then((response) => {setProduct(response)
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -72,7 +79,8 @@ const ViewProducts = () => {
             Better Buys
           </a>
           <button
-            class="navbar-toggler"
+        style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2"}}
+        class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -80,7 +88,7 @@ const ViewProducts = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"> <ReorderIcon style={{color:"#4b00a2"}}/> </span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -91,7 +99,7 @@ const ViewProducts = () => {
                   aria-current="page"
                   href="#"
                 >
-                  Home
+                  Dashboard
                 </Link>
               </li>
 
@@ -107,14 +115,10 @@ const ViewProducts = () => {
                   Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  
                   <li>
                     <a class="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
+                      Admin Profile
                     </a>
                   </li>
                   <li>
@@ -184,7 +188,14 @@ const ViewProducts = () => {
                 </tr>
               ))}
           </tbody>
-        </table>
+        </table> 
+        {isLoading && (
+          <div className="text-center mt-5">
+
+            {/* loader */}
+            <LinearProgress  color="secondary" />
+          </div>
+        )}
       </div>
     </div>
   );

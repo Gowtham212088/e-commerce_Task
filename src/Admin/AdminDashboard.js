@@ -4,6 +4,7 @@ import AdminNav from "./AdminNav";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import site_logo from "../images/site_logo.png";
+import ReorderIcon from '@mui/icons-material/Reorder';
 
 function AdminDashboard() {
 
@@ -30,7 +31,8 @@ function AdminDashboard() {
             Better Buys
           </a>
           <button
-            class="navbar-toggler"
+        style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2"}}
+        class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -38,7 +40,7 @@ function AdminDashboard() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"> <ReorderIcon style={{color:"#4b00a2"}}/> </span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -60,14 +62,10 @@ function AdminDashboard() {
                   Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  
                   <li>
                     <a class="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
+                    Admin Profile
                     </a>
                   </li>
                   <li>

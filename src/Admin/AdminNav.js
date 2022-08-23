@@ -13,7 +13,7 @@ function AdminNav (){
 const history = useHistory()
 
     return(
-      <nav className="navbar navbar-expand-lg bg-transparent nav-border fw-bold">
+      <nav  className="navbar navbar-expand-lg bg-transparent nav-border fw-bold">
       <div className="container-fluid ">
         <a
           onClick={() => history.push("/")}
@@ -23,7 +23,8 @@ const history = useHistory()
           Better Buys
         </a>
         <button
-          className="navbar-toggler border-"
+        style={{backgroundColor:"#dec2ff",border:"2px solid #dec2ff"}}
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"

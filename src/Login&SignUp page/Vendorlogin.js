@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
+import { Alert, Button, Snackbar } from "@mui/material";
 import vendor from "../images/vendor.png";
 import admin_side from "../images/onlineShopping.png";
 import { Link, useHistory } from "react-router-dom";
@@ -15,7 +15,9 @@ const Vendorlogin = () => {
   const [resp, setResp] = useState("");
   const [emailOtp, setEmailOtp] = useState("");
   const [emailResp, setEmailResp] = useState("");
+  const [open, setOpen] = React.useState(false);
 
+console.log(resp.message);
   window.localStorage.setItem("token", resp.token);
 
   //! Modal Handlers
@@ -73,15 +75,19 @@ const Vendorlogin = () => {
         console.log(error);
       });
 
-    if (resp.status == "Successful") {
+    if (resp.message == "Login Sucessful") {
+      setOpen(true);
       history.push("/vendor-dashboard");
-    }
+     }
+     
+
   };
 
   const history = useHistory();
 
   return (
     <div className="signIn ">
+      
       <section className="Form mx-4 my-4 ">
         <div className="container">
           <div className="row signIn-row no-gutters">

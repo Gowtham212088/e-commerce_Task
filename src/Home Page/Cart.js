@@ -26,9 +26,10 @@ const Cart = () => {
   const quantity = cart.quantity;
   const total = cart.total;
 console.log(product);
+
   // remove from cart
-  const handleRemove = () => {
-    dispatch(removeProduct({ product, price: product.price, quantity, total }));
+  const handleRemove = (index) => {
+    dispatch(removeProduct({index, price: product[index].price, quantity, total  }));
   };
 
   async function handleToken(token, addresses) {
@@ -50,7 +51,7 @@ console.log(product);
           key={index}
           delbtn={
             <button
-              onClick={handleRemove}
+              onClick={()=>handleRemove(index)}
               className="btn btn-outline-white border-0 text-danger"
             >
               delete
