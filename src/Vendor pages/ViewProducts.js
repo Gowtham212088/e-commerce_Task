@@ -9,11 +9,14 @@ import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 import axios from "axios";
 import { useEffect } from "react";
+import ReorderIcon from '@mui/icons-material/Reorder';
 import { Api } from "../data/API";
+import { LinearProgress } from "@mui/material";
 
 const MyProducts = () => {
-  const history = useHistory();
 
+  const history = useHistory();
+  const [isLoading, setIsLoading] = useState(true);
   const [resp, setResp] = useState([]);
   console.log(resp);
   const handleLogout = () => {
@@ -60,6 +63,7 @@ const MyProducts = () => {
     axios(config)
       .then(function (response) {
         setResp(response.data);
+        setIsLoading(false);
       })
       .catch(function (error) {
         console.log(error);
@@ -92,7 +96,8 @@ const MyProducts = () => {
             Better Buys
           </a>
           <button
-            class="navbar-toggler"
+        style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2"}}
+        class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -111,7 +116,7 @@ const MyProducts = () => {
                   aria-current="page"
                   href="#"
                 >
-                  Home
+                  Seller Dashboard
                 </Link>
               </li>
 
@@ -127,14 +132,10 @@ const MyProducts = () => {
                   Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  
                   <li>
                     <a class="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
+                      Admin Profile
                     </a>
                   </li>
                   <li>
@@ -202,7 +203,13 @@ const MyProducts = () => {
               </tr>
             ))}
         </tbody>
-      </table>
+      </table>{isLoading && (
+          <div className="text-center mt-5">
+
+            {/* loader */}
+            <LinearProgress  color="secondary" />
+          </div>
+        )}
       </div>
       </section>
     </div>

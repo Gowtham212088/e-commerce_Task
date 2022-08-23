@@ -21,6 +21,7 @@ import PurchaseData from "./Admin/PurchaseData";
 import AddProduct from "./Vendor pages/AddProducts";
 import ResetPassword from "./Login&SignUp page/passwordResetPage";
 import SellerSignUp from "./Login&SignUp page/SellerSignUp(MUI)";
+import { ValidationSchemaExample } from "./Test";
 
 
 function App() {
@@ -108,6 +109,7 @@ function App() {
         </Route>
 
       </Switch>
+      {/* <ValidationSchemaExample/> */}
     </div>
   );
 }

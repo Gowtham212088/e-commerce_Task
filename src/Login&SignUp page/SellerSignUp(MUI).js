@@ -22,9 +22,7 @@ function Copyright(props) {
   return (
     <Typography style={{backgroundColor:"#4b00a2"}} variant="body2" color="text.secondary" align="center" {...props}>
      
-      <Link color="inherit" href="https://mui.com/">
-       
-      </Link>{' '}
+    
       
     
     </Typography>
@@ -292,8 +290,8 @@ const handleSubmit = (e) => {
  
 
   return (
-    <div style={{backgroundColor:"#EEE3FF",height:"100vh",marginTop:"0px",display:"flex",alignItems:"center"}} >
-      <Container component="main" maxWidth="xs">
+    <div style={{backgroundColor:"#EEE3FF",height:"100vh",marginTop:"0px",display:"flex",alignItems:"center",border:"5px solid #EEE3FF"}} >
+        <Container style={{border:"5px solid #EEE3FF"}} component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
@@ -402,12 +400,12 @@ const handleSubmit = (e) => {
                   onChange={(e)=>setPassword(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
             <Button
             style={{backgroundColor:"#3900A2"}}

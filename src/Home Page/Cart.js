@@ -1,7 +1,7 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 // import { products } from "../data/Users";
 import { useSelector } from "react-redux";
@@ -10,8 +10,13 @@ import { removeProduct } from "../redux/cartRedux";
 import StripeCheckout from "react-stripe-checkout";
 import { Api } from "../data/API";
 import axios from "axios";
-import { Button } from "@mui/material";
+import { Badge, Button } from "@mui/material";
 import CreditScoreIcon from '@mui/icons-material/CreditScore';
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import AddBusinessIcon from "@mui/icons-material/AddBusiness";
+import site_logo from "../images/site_logo.png";
+import ReorderIcon from '@mui/icons-material/Reorder';
+
 const KEY =
   "pk_test_51LWeIHSGFNS9bnCsc4y5WUqUEmYZazRmLNr4ExLvh7vFwumwVGNPR4D9da1yY0PXnSXYrBXrUmTvwT3H7KWa3gra00yZBQ1KKj";
 
@@ -44,8 +49,35 @@ console.log(product);
   }
 
   return (
-    <div className="container-fluid cart-contain">
-      {product.map((product, index) => (
+    <div className="container-fluid cart-contain ">
+      <nav className="navbar navbar-expand-lg bg-transparent nav-border fw-bold">
+      <div className="container-fluid ">
+        <a
+          onClick={() => history.push("/")}
+          className="navbar-brand fs-3 font-clr"
+        >
+          <img src={site_logo} alt="nav-img" className="mb-2" width="30px" />{" "}
+          Better Buys
+        </a>
+
+        <button
+        style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2"}}
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon "> <ReorderIcon style={{color:"#4b00a2"}}/> </span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+         
+        </div>
+      </div>
+    </nav>
+      {product.length === 0 ? <div className="d-flex justify-content-center"> <img src="https://hakimitr.com/assets/website/images/empty-cart.gif"/></div> : product.map((product, index) => (
         <CartTemplate
           {...product}
           key={index}

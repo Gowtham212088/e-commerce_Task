@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
+import ReorderIcon from '@mui/icons-material/Reorder';
 
 function VendorDashboard() {
+
   const history = useHistory();
 
   const handleLogout = () => {
@@ -26,6 +28,7 @@ function VendorDashboard() {
             Better Buys
           </a>
           <button
+            style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2",marginRight:"25px"}}
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -40,7 +43,7 @@ function VendorDashboard() {
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             
 
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown me-3">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -52,14 +55,10 @@ function VendorDashboard() {
                   Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+               
                   <li>
                     <a class="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
+                     Seller Profile
                     </a>
                   </li>
                   <li>

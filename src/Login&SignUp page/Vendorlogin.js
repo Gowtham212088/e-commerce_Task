@@ -7,20 +7,24 @@ import { Link, useHistory } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Api } from "../data/API";
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import axios from "axios";
+import {toast} from "react-hot-toast"
 
 const Vendorlogin = () => {
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
-  const [password, setPassword] = useState("");
-  const [resp, setResp] = useState("");
-  const [emailOtp, setEmailOtp] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [role, setRole] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [resp, setResp] = useState("");
+  const [emailOtp, setEmailOtp] = useState({});
   const [emailResp, setEmailResp] = useState("");
-  const [open, setOpen] = React.useState(false);
+//   const [open, setOpen] = React.useState(false);
 
-console.log(resp.message);
-  window.localStorage.setItem("token", resp.token);
+// console.log(resp.message);
+//   window.localStorage.setItem("token", resp.token);
 
-  //! Modal Handlers
+//   //! Modal Handlers
 
   const handleModalClick = (event) => {
     event.preventDefault();
@@ -48,40 +52,73 @@ console.log(resp.message);
       });
   };
 
-  //! Login Handlers.
-  const handleClick = (event) => {
-    event.preventDefault();
-    const signinData = {
-      email: email,
-      password: password,
-    };
-    var axios = require("axios");
-    var data = JSON.stringify(signinData);
+//   //! Login Handlers.
+//   const handleClick = (event) => {
+//     event.preventDefault();
+//     const signinData = {
+//       email: email,
+//       password: password,
+//     };
+//     var axios = require("axios");
+//     var data = JSON.stringify(signinData);
 
-    var config = {
-      method: "post",
-      url: `${Api}/seller/signIn`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
+//     var config = {
+//       method: "post",
+//       url: `${Api}/seller/signIn`,
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       data: data,
+//     };
 
-    axios(config)
-      .then(function (response) {
-        setResp(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+//     axios(config)
+//       .then(function (response) {
+//         setResp(response.data);
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
 
-    if (resp.message == "Login Sucessful") {
-      setOpen(true);
-      history.push("/vendor-dashboard");
-     }
+//     if (resp.message == "Login Sucessful") {
+//       setOpen(true);
+//       history.push("/vendor-dashboard");
+//      }
      
 
-  };
+//   };
+
+//   //! Modal Handlers
+
+// const handleModalClick = (event) => {
+//   event.preventDefault();
+
+//   var axios = require("axios");
+//   var data = JSON.stringify({
+//     email: emailOtp,
+//   });
+
+//   var config = {
+//     method: "post",
+//     url: `${Api}/conform/mailVerification`,
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     data: data,
+//   };
+
+//   axios(config)
+//     .then(function (response) {
+//       setEmailResp(response.data);
+//     })
+//     .catch(function (error) {
+//       console.log(error);
+//     });
+// };
+
+const SignupSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Cannot be blank"),
+  password: Yup.string().required("Cannot be blank"),
+});
 
   const history = useHistory();
 
@@ -113,26 +150,56 @@ console.log(resp.message);
               <div>
                 <h1 className="vendorLogIn-font"> Vendor Login </h1>
                 <h4 className="SignIn-font"> Sign in into your account </h4>
-                <form onSubmit={handleClick}>
+                <Formik
+                  initialValues={{
+                    email: "",
+                    password: "",
+                  }}
+                  validationSchema={SignupSchema}
+                  onSubmit={async(values) => {
+                    // same shape as initial values // Api calls
+                  
+                    try {
+                      const response = await axios.post(`${Api}/seller/signIn`,values)
+                      window.localStorage.setItem("token", response.data.token);
+                      history.push("/vendor-dashboard");
+                      toast.success("Login Successful");
+                    } catch (error) {
+                      toast.error(error);
+                      console.log(error);
+                    }
+                 
+                  
+                    // console.log(values);
+                  }}
+                >
+                  {({ errors, touched }) => (
+                <Form >
                   <div className="form-row">
                     <div className="col-lg-7">
-                      <input
-                        onChange={(e) => setEmail(e.target.value)}
-                        type="email"
+                      <Field
+                      name="email"
+                       type="email"
                         placeholder="Email-Address"
                         className="form-control my-3 p-3"
                       />
+                      {errors.email && touched.email ? (
+            <div style={{color:"red",fontSize:"15px"}}> <b>{errors.email}</b></div>
+          ) : null}
                     </div>
                   </div>
 
                   <div className="form-row">
                     <div className="col-lg-7">
-                      <input
-                        onChange={(e) => setPassword(e.target.value)}
-                        type="password"
+                      <Field
+                      name="password"
+                         type="password"
                         placeholder="password"
                         className="form-control my-3 p-3"
                       />
+                      {errors.password && touched.password ? (
+            <div style={{color:"red",fontSize:"15px"}}> <b> {errors.password} </b> </div>
+          ) : null}
                     </div>
                   </div>
 
@@ -171,7 +238,7 @@ console.log(resp.message);
                             className="modal-title ms-auto"
                             id="exampleModalLabel"
                           >
-                            You will recive a OTP via mail
+                            You will recive link on your mail
                           </h5>
                           <button
                             type="button"
@@ -197,13 +264,19 @@ console.log(resp.message);
                                 id="recipient-name"
                               />
                             </div>
-                          </form>
-                        </div>
-                        <div className="modal-footer">
-                          <button type="button" className="btn btn-primary">
+                            <div className="modal-footer">
+                          <button
+                           type="button"
+                           onClick={handleModalClick}
+                           className="btn btn-primary"
+                           data-bs-dismiss="modal"
+                           >
                             Send OTP
                           </button>
                         </div>
+                          </form>
+                        </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -212,14 +285,15 @@ console.log(resp.message);
                     <div className="col-lg-7">
                       <button
                         type="submit"
-                        // onClick={handleClick}
                         className="signIn-butt mt-1 mb-3"
                       >
                         Login
                       </button>
                     </div>
                   </div>
-                </form>
+                </Form>
+                  )}
+                  </Formik>
               </div>
             </div>
           </div>
