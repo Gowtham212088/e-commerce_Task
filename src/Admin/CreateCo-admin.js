@@ -203,7 +203,7 @@ const CreateCoAdmin = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"> <ReorderIcon/> </span>
+            <span class="navbar-toggler-icon"> <ReorderIcon /> </span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

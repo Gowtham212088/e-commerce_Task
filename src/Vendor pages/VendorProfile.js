@@ -95,7 +95,7 @@ function VendorProfile() {
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <Link class="dropdown-item" to="/admin-dashboard">
+                    <Link class="dropdown-item" to="/vendor-dashboard">
                       Seller Dashboard
                     </Link>
                   </li>
