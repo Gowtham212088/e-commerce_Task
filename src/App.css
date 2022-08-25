@@ -257,7 +257,7 @@ a:hover {
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
-.cart-contain{
+.cart-contain {
   background-color: white;
 }
 
@@ -574,4 +574,31 @@ img {
 .edit-admin {
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   border-radius: 45px;
+}
+/*?____________________________________________________________User Profile____________________________  */
+.parent-vandorProfile{
+  display: flex;
+  justify-content: center;
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/678/58/326/abstract-laser-optical-device-device-wallpaper-preview.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.vendor-dp {
+  position: relative;
+  top: 125px;
+  border-radius: 25px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap');
+.vendorDp-name{
+  font-size: 55px;
+   font-family: 'Pacifico', cursive;
+   color: #4b00a2;
+   border-radius: 50%;
+}
+
+.vendorProfile-bio{
+  /* border-radius: 25px; */
+  /* background-color: #27262635; */
 }

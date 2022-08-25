@@ -12,7 +12,7 @@ import site_logo from "../images/site_logo.png";
 import { Api } from "../data/API";
 import { green } from "@mui/material/colors";
 import { LinearProgress } from "@mui/material";
-
+import { ThreeCircles } from  'react-loader-spinner'
 
 function UserData() {
   const [query, setQuery] = useState("");
@@ -169,12 +169,22 @@ console.log(datas);
         </tbody>
       </table>
       {isLoading && (
-          <div className="text-center mt-5">
-
-            {/* loader */}
-            <LinearProgress  color="secondary" />
-          </div>
-        )}
+        <div className="d-flex justify-content-center text-center mt-5">
+          {/* loader */}
+          <ThreeCircles
+  height="200"
+  width="200"
+  color="#4B00A2"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel="three-circles-rotating"
+  outerCircleColor=""
+  innerCircleColor=""
+  middleCircleColor=""
+/>
+        </div>
+      )}
       </div>
     </div>
   );

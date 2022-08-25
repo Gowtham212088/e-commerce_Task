@@ -6,17 +6,17 @@ import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 import { Api } from "../data/API";
 import axios from "axios";
-import Avatar from '@mui/material/Avatar';
-import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import shopkeeper from '../images/shopkeeper.png'
+import Avatar from "@mui/material/Avatar";
+import CssBaseline from "@mui/material/CssBaseline";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import shopkeeper from "../images/shopkeeper.png";
 import shipping from "../images/shipping.png";
 
 const AddProduct = () => {
@@ -94,7 +94,8 @@ const AddProduct = () => {
       .post(`${Api}/request/products`, values)
       .then((res) => {
         console.log(res.data);
-      }).then(()=>history.push('/MyProducts'))
+      })
+      .then(() => history.push("/MyProducts"))
       .catch((error) => {
         console.error(error);
       });
@@ -138,7 +139,7 @@ const AddProduct = () => {
     {
       value: "Computer Accessories",
       label: "Computer Accessories",
-    }
+    },
   ];
 
   //! Change Handlers
@@ -146,10 +147,10 @@ const AddProduct = () => {
   const handleCategory = (event) => {
     setCategories(event.target.value);
   };
-  
+
   return (
-<div >
-<nav
+    <div>
+      <nav
         class="navbar navbar-expand-lg  "
         style={{ backgroundColor: "#4b00a2" }}
       >
@@ -222,117 +223,132 @@ const AddProduct = () => {
           </div>
         </div>
       </nav>
-    <div style={{backgroundColor:"#EEE3FF",height:"100vh",marginTop:"0px",display:"flex",alignItems:"center"}} >
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <img src={shipping} width="120px" />
-          <h2 style={{color:"#3900A2"}} component="h1" variant="h5">
-           Sell your products
-          </h2>
-          <form onSubmit={handleSubmit}  component="form" noValidate sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} >
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  value={name}
-                  required
-                  type="text"
-                  fullWidth
-                  id="Product_Name"
-                  label="Product_Name"
-            onChange={(e) => setName(e.target.value)}
-            autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} >
-                <TextField
-                type="text"
-                  required
-                  fullWidth
-                  value={description}
-                  label="Description"
-                  autoComplete="family-name"
-                  onChange={(e)=>setDescription(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  value={price}
-                  type="number"
-                  label="Price"
-                  autoComplete="email"
-                  onChange={(e)=>setPrice(e.target.value)}
-                />
-              </Grid>
-
-              <Grid style={{display:'flex',justifyContent:"start"}} item xs={12}>
-              <TextField
-            className="col-12"
-            id="outlined-select-currency"
-            select
-            label="Category"
-            value={category}
-            onChange={handleCategory}
-            helperText="Please select your currency"
-         >
-            {categories.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  type="file"
-                  autoComplete="new-password"
-                  onChange={onChange}
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  value={image}
-                  name="password"
-                  label="image_url"
-                  type="url"
-                  id="password"
-                  autoComplete="new-password"
-                  onChange={(e)=>setImage(e.target.value)}
-                />
-              </Grid>
-
-           </Grid>
-            <Button
-            style={{backgroundColor:"#3900A2"}}
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+      <div
+        style={{
+          backgroundColor: "#EEE3FF",
+          height: "100vh",
+          marginTop: "0px",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <img src={shipping} width="120px" />
+            <h2 style={{ color: "#3900A2" }} component="h1" variant="h5">
+              Sell your products
+            </h2>
+            <form
+              onSubmit={handleSubmit}
+              component="form"
+              noValidate
+              sx={{ mt: 3 }}
             >
-              Send Request
-            </Button>
-            
-          </form>
-        </Box>
-      </Container>
-    </div>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    autoComplete="given-name"
+                    name="firstName"
+                    value={name}
+                    required
+                    type="text"
+                    fullWidth
+                    id="Product_Name"
+                    label="Product_Name"
+                    onChange={(e) => setName(e.target.value)}
+                    autoFocus
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    type="text"
+                    required
+                    fullWidth
+                    value={description}
+                    label="Description"
+                    autoComplete="family-name"
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    value={price}
+                    type="number"
+                    label="Price"
+                    autoComplete="email"
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
+                </Grid>
+
+                <Grid
+                  style={{ display: "flex", justifyContent: "start" }}
+                  item
+                  xs={12}
+                >
+                  <TextField
+                    className="col-12"
+                    id="outlined-select-currency"
+                    select
+                    label="Category"
+                    value={category}
+                    onChange={handleCategory}
+                    helperText="Please select your currency"
+                  >
+                    {categories.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    type="file"
+                    autoComplete="new-password"
+                    onChange={onChange}
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    value={image}
+                    name="password"
+                    label="image_url"
+                    type="url"
+                    id="password"
+                    autoComplete="new-password"
+                    onChange={(e) => setImage(e.target.value)}
+                  />
+                </Grid>
+              </Grid>
+              <Button
+                style={{ backgroundColor: "#3900A2" }}
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Send Request
+              </Button>
+            </form>
+          </Box>
+        </Container>
+      </div>
     </div>
   );
 };

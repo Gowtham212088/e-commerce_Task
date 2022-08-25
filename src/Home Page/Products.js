@@ -8,11 +8,9 @@ import InfoIcon from "@mui/icons-material/Info";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { useHistory } from "react-router-dom";
 import { LinearProgress } from "@mui/material";
+import { ThreeCircles } from  'react-loader-spinner'
 
 const ProductList = () => {
-
-  
-
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   console.log(data);
@@ -26,13 +24,23 @@ const ProductList = () => {
   return (
     <div className="container mt-3">
       {isLoading && (
-          <div className="text-center mt-5">
-
-            {/* loader */}
-            <LinearProgress color="secondary" />
-          </div>
-        )}
-     <div className="row gap-3 justify-content-between ">
+        <div className="d-flex justify-content-center text-center mt-5">
+          {/* loader */}
+          <ThreeCircles
+  height="200"
+  width="200"
+  color="#4B00A2"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel="three-circles-rotating"
+  outerCircleColor=""
+  innerCircleColor=""
+  middleCircleColor=""
+/>
+        </div>
+      )}
+      <div className="row gap-3 justify-content-between ">
         {data.map((product, key) => (
           <ProductBox
             id={key}
@@ -49,12 +57,10 @@ const ProductList = () => {
 };
 
 export function ProductBox({ name, category, poster, summary, price, id }) {
-  
   const history = useHistory();
 
   return (
     <div className="col-lg-3">
-      
       <div className="card mx-auto">
         <img
           src={poster}
@@ -80,7 +86,6 @@ export function ProductBox({ name, category, poster, summary, price, id }) {
               style={{ backgroundColor: "#4b00a2", border: "#4b00a2" }}
               className="btn btn-primary"
             >
-              
               <ShoppingBagOutlinedIcon /> Buy now
             </a>
           </div>

@@ -22,7 +22,7 @@ import AddProduct from "./Vendor pages/AddProducts";
 import ResetPassword from "./Login&SignUp page/passwordResetPage";
 import SellerSignUp from "./Login&SignUp page/SellerSignUp(MUI)";
 import { ValidationSchemaExample } from "./Test";
-
+import VendorProfile from "./Vendor pages/VendorProfile";
 
 function App() {
   return (
@@ -106,6 +106,10 @@ function App() {
 
         <Route exact path="/sellerSignup">
           <SellerSignUp />
+        </Route>
+
+        <Route  path="/VendorProfile">
+          <VendorProfile />
         </Route>
 
       </Switch>

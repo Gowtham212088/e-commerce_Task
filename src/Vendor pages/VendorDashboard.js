@@ -1,16 +1,17 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
-import ReorderIcon from '@mui/icons-material/Reorder';
+import ReorderIcon from "@mui/icons-material/Reorder";
 
 function VendorDashboard() {
-
   const history = useHistory();
 
   const handleLogout = () => {
     window.localStorage.clear();
     history.push("/");
   };
+
+  
 
   return (
     <div>
@@ -28,7 +29,11 @@ function VendorDashboard() {
             Better Buys
           </a>
           <button
-            style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2",marginRight:"25px"}}
+            style={{
+              backgroundColor: "#EEE3FF",
+              border: "2px solid #4B00A2",
+              marginRight: "25px",
+            }}
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -41,8 +46,6 @@ function VendorDashboard() {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            
-
               <li class="nav-item dropdown me-3">
                 <a
                   class="nav-link dropdown-toggle"
@@ -55,11 +58,10 @@ function VendorDashboard() {
                   Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-               
                   <li>
-                    <a class="dropdown-item" href="#">
-                     Seller Profile
-                    </a>
+                    <Link class="dropdown-item" to="/VendorProfile">
+                      Seller Profile
+                    </Link>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />
@@ -97,9 +99,6 @@ function VendorDashboard() {
         >
           <h1 className="seller-font"> User Data </h1>
         </div> */}
-        
-      
-       
       </div>
     </div>
   );

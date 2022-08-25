@@ -13,7 +13,7 @@ import { Api } from "../data/API";
 import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 import CheckIcon from "@mui/icons-material/Check";
-import { LinearProgress } from "@mui/material";
+import { ThreeCircles } from  'react-loader-spinner'
 
 
 const SignUp = () => {
@@ -183,12 +183,22 @@ const [query,setQuery]=useState("")
           </tbody>
         </table>
         {isLoading && (
-          <div className="text-center mt-5">
-
-            {/* loader */}
-            <LinearProgress  color="secondary" />
-          </div>
-        )}
+        <div className="d-flex justify-content-center text-center mt-5">
+          {/* loader */}
+          <ThreeCircles
+  height="200"
+  width="200"
+  color="#4B00A2"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel="three-circles-rotating"
+  outerCircleColor=""
+  innerCircleColor=""
+  middleCircleColor=""
+/>
+        </div>
+      )}
       </div>
      
     </div>

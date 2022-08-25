@@ -9,12 +9,11 @@ import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
 import axios from "axios";
 import { useEffect } from "react";
-import ReorderIcon from '@mui/icons-material/Reorder';
+import ReorderIcon from "@mui/icons-material/Reorder";
 import { Api } from "../data/API";
-import { LinearProgress } from "@mui/material";
+import { ThreeCircles } from  'react-loader-spinner'
 
 const MyProducts = () => {
-
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
   const [resp, setResp] = useState([]);
@@ -53,21 +52,26 @@ const MyProducts = () => {
   let userId = a._id;
 
   useEffect(() => {
-    var axios = require("axios");
+    var axios = require('axios');
+var data = '';
 
-    var config = {
-      method: "get",
-      url: `${Api}/seller/myProducts/userId/${userId}`,
-    };
+var config = {
+  method: 'get',
+  url: `${Api}/seller/myProducts/userId`,
+  headers: { 
+    'x-auth-token': window.localStorage.getItem("token")
+  },
+  data : data
+};
 
-    axios(config)
-      .then(function (response) {
-        setResp(response.data);
-        setIsLoading(false);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+axios(config)
+.then(function (response) {
+    setIsLoading(false)
+    setResp(response.data);
+})
+.catch(function (error) {
+  console.log(error);
+});
   }, []);
 
   // ?  Conditional rendering
@@ -96,8 +100,8 @@ const MyProducts = () => {
             Better Buys
           </a>
           <button
-        style={{backgroundColor:"#EEE3FF",border:"2px solid #4B00A2"}}
-        class="navbar-toggler"
+            style={{ backgroundColor: "#EEE3FF", border: "2px solid #4B00A2" }}
+            class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -132,11 +136,10 @@ const MyProducts = () => {
                   Account
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Admin Profile
-                    </a>
+                    <Link className="dropdown-item" to="/VendorProfile">
+                      Seller Profile
+                    </Link>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />
@@ -164,53 +167,66 @@ const MyProducts = () => {
         </div>
       </div>
       <section>
-<div className=" table-responsive">
-      <table className="table table-light table-hover">
-        <thead className="bg-dark">
-          <tr>
-            <th scope="col"> Sl.No </th>
-            <th scope="col">Poster</th>
-            <th scope="col">Name</th>
-            <th scope="col"> Description </th>
-            <th scope="col"> Approvel </th>
-          </tr>
-        </thead>
-        <tbody>
-          {resp
-            .filter((filt) => filt.name.toLowerCase().includes(query))
-            .map(({name, poster,summary, Approvel }, index) => (
+        <div className=" table-responsive">
+          <table className="table table-light table-hover">
+            <thead className="bg-dark">
               <tr>
-                <th scope="row">{index + 1} </th>
-                <td>
-                  <img src={poster} width="125px" />{" "}
-                </td>
-                <td>{name} </td>
-                <td>{summary} </td>
-                <td>
-                  <h2
-                    style={{
-                      color: Approvel ? "green" : "red",
-                      border: Approvel ? "5px solid green" : "5px solid red",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    {" "}
-                    {Approvel ? "Approved" : "Pending"}{" "}
-                  </h2>{" "}
-                </td>
+                <th scope="col"> Sl.No </th>
+                <th scope="col">Poster</th>
+                <th scope="col">Name</th>
+                <th scope="col"> Description </th>
+                <th scope="col"> Approvel </th>
               </tr>
-            ))}
-        </tbody>
-      </table>{isLoading && (
-          <div className="text-center mt-5">
-
-            {/* loader */}
-            <LinearProgress  color="secondary" />
-          </div>
-        )}
-      </div>
+            </thead>
+            <tbody>
+              {resp
+                .filter((filt) => filt.name.toLowerCase().includes(query))
+                .map(({ name, poster, summary, Approvel }, index) => (
+                  <tr>
+                    <th scope="row">{index + 1} </th>
+                    <td>
+                      <img src={poster} width="125px" />{" "}
+                    </td>
+                    <td>{name} </td>
+                    <td>{summary} </td>
+                    <td>
+                      <h2
+                        style={{
+                          color: Approvel ? "green" : "red",
+                          border: Approvel
+                            ? "5px solid green"
+                            : "5px solid red",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        {" "}
+                        {Approvel ? "Approved" : "Pending"}{" "}
+                      </h2>{" "}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+          {isLoading && (
+        <div className="d-flex justify-content-center text-center mt-5">
+          {/* loader */}
+          <ThreeCircles
+  height="200"
+  width="200"
+  color="#4B00A2"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel="three-circles-rotating"
+  outerCircleColor=""
+  innerCircleColor=""
+  middleCircleColor=""
+/>
+        </div>
+      )}
+        </div>
       </section>
     </div>
   );
