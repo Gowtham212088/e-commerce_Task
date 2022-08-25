@@ -5,6 +5,16 @@ body {
 
 /*! COMMON CLASSES */
 
+/**  Number Button removal */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
 .font-clr {
   font-weight: 500px;
   color: #4b00a2;
@@ -374,6 +384,12 @@ a:hover {
   background-size: cover;
 }
 
+#Admin-col6 {
+  background-image: url("https://img.freepik.com/free-vector/recruiting-professionals-studying-candidate-profiles_1262-21404.jpg?w=1380&t=st=1661407463~exp=1661408063~hmac=9a16b9639d81f5e71a32fc9bbdb33f894006e1d6c6c6fce8805bfde16e1f5642");
+  background-position: center;
+  background-size: cover;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Anek+Bangla&family=Dancing+Script:wght@700&family=Grape+Nuts&family=Licorice&family=Open+Sans:wght@800&family=Pacifico&family=Poppins:wght@800&family=Roboto:wght@900&display=swap");
 .seller-font {
   color: #4b00a2;
@@ -602,3 +618,6 @@ img {
   /* border-radius: 25px; */
   /* background-color: #27262635; */
 }
+
+
+

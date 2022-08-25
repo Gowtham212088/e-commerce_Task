@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import site_logo from "../images/site_logo.png";
-import ReorderIcon from "@mui/icons-material/Reorder";
+import ReorderIcon from '@mui/icons-material/Reorder';
 
 function VendorDashboard() {
   const history = useHistory();
@@ -42,7 +42,7 @@ function VendorDashboard() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"> <ReorderIcon/> </span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

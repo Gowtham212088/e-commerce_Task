@@ -123,6 +123,16 @@ function AdminDashboard() {
             Approve authority{" "}
           </h1>
         </div>
+        <div
+        onClick={() => history.push("/CreateCoAdmin")}
+          id="Admin-col6"
+          className="col-sm-3 col-md-3 col-lg-3 admin_dash_cols"
+        >
+          <h1  className="seller-font">
+            {" "}
+            Create Co-Admin{" "}
+          </h1>
+        </div>
       </div>
     </div>
   );
