@@ -24,7 +24,7 @@ import SellerSignUp from "./Login&SignUp page/SellerSignUp(MUI)";
 import { ValidationSchemaExample } from "./Test";
 import VendorProfile from "./Vendor pages/VendorProfile";
 import CreateCoAdmin from "./Admin/CreateCo-admin";
-
+import AdminProfile from "./Admin/AdminProfile";
 
 function App() {
   return (
@@ -117,6 +117,12 @@ function App() {
         <Route  path="/CreateCoAdmin">
           <CreateCoAdmin />
         </Route>
+
+        <Route  path="/AdminProfile">
+          <AdminProfile />
+        </Route>
+
+        
 
       </Switch>
       {/* <ValidationSchemaExample/> */}

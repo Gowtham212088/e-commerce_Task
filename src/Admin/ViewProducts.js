@@ -29,8 +29,8 @@ const ViewProducts = () => {
       headers: {
         "x-auth-token": localStorage.getItem("token"),
       },
-    }).then(() => {getStudents()
-      
+    }).then(() => {
+      getStudents()      
         });
   };
 
@@ -168,7 +168,7 @@ const ViewProducts = () => {
                 <tr>
                   <th scope="row">{id + 1} </th>
                   <td>
-                    <img src={poster} width="125px" />{" "}
+                    <img src={poster} width="125px" />
                   </td>
                   <td>{name} </td>
                   <td>{summary} </td>

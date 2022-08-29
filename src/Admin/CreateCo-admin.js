@@ -140,6 +140,8 @@ const CreateCoAdmin = () => {
   }
 
 
+  const [getEmail,setGetEmail]=useState("")
+
 
   const categories = [
     {
@@ -268,6 +270,9 @@ const CreateCoAdmin = () => {
               alignItems: "center",
             }}
           >
+
+
+
             <img src={co_assistant} width="120px" />
             <h2 style={{ color: "#3900A2" }} component="h1" variant="h5">
               Create Co-Admin Access

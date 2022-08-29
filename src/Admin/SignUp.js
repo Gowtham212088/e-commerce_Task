@@ -150,7 +150,7 @@ const [query,setQuery]=useState("")
               <th scope="col"> Approval </th>
             </tr>
           </thead>
-          <tbody>
+        
             {product
               .filter((filt) => filt.name.includes(query))
               .map(({ name,email,password,userDp,_id }, id) => (
@@ -180,7 +180,7 @@ const [query,setQuery]=useState("")
                   </td>
                 </tr>
               ))}
-          </tbody>
+          
         </table>
         {isLoading && (
         <div className="d-flex justify-content-center text-center mt-5">

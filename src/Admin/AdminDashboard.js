@@ -64,9 +64,9 @@ function AdminDashboard() {
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <Link class="dropdown-item" to="/AdminProfile">
                     Admin Profile
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />

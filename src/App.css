@@ -22,6 +22,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 a:hover {
   cursor: pointer;
+ 
   color: #4b00a2;
 }
 

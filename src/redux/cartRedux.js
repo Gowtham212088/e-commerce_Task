@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//? Here we Initialising the value of products, Qty, Total.
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
