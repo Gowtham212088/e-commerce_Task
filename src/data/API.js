@@ -7,4 +7,4 @@ import React from "react";
 
 
 
-export const Api = 'https://e-commerce-backend-eta.vercel.app'
+export const Api = 'https://e-commerce-backend-git-master-gowtham212088.vercel.app'
